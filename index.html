@@ -1,0 +1,1386 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#172131"/>
+<title>CHEM01 · พันธะเคมี · คาบ 1–8</title>
+<style>
+/* global viewport/deck shell from visual-system base */
+
+:root{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+  --ionic:#2E6F9E;--covalent:#7357A6;--metallic:#59616C;
+  --elem-metal:#397A8B;--elem-metal-soft:#E3EFF2;--elem-non:#A87022;--elem-non-soft:#F5E9D6;--elem-met:#6C746E;--elem-met-soft:#EBEDE9;
+  --pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center;background:var(--paper);overflow:hidden}
+
+/* scoped source: prototype_01_02_v2.html */
+.slide[data-batch="01-02"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+  --ionic:#2E6F9E;--covalent:#7357A6;--metallic:#59616C;
+  --elem-metal:#397A8B;--elem-metal-soft:#E3EFF2;--elem-non:#A87022;--elem-non-soft:#F5E9D6;--elem-met:#6C746E;--elem-met-soft:#EBEDE9;
+  --pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
+.slide[data-batch="01-02"], .slide[data-batch="01-02"] *{box-sizing:border-box}
+.slide[data-batch="01-02"]{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+.slide[data-batch="01-02"]{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.slide[data-batch="01-02"]{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}
+.slide[data-batch="01-02"].active{display:flex;flex-direction:column}
+.slide[data-batch="01-02"] .kicker{font-size:19px;line-height:1.3;color:var(--muted);font-weight:400}
+.slide[data-batch="01-02"] .kicker strong{color:var(--ink);font-weight:600}
+.slide[data-batch="01-02"] .title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1360px;text-wrap:balance}
+.slide[data-batch="01-02"] .title strong{font-weight:600}
+.slide[data-batch="01-02"] .display{font-size:92px;line-height:1.04;font-weight:300;letter-spacing:-.026em;margin:0}
+.slide[data-batch="01-02"] .display strong{font-weight:600}
+.slide[data-batch="01-02"] .meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;line-height:1.25;color:#858B93}
+.slide[data-batch="01-02"] .meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.slide[data-batch="01-02"] .footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;line-height:1.2;color:#90969E}
+.slide[data-batch="01-02"] .footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+.slide[data-batch="01-02"] [data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}
+.slide[data-batch="01-02"] [data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+.slide[data-batch="01-02"] sub, .slide[data-batch="01-02"] sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}
+.slide[data-batch="01-02"] sup{top:-.62em}
+.slide[data-batch="01-02"] sub{bottom:-.14em}
+.slide[data-batch="01-02"] .chem{font-family:"Prompt","Segoe UI",sans-serif;letter-spacing:-.02em}
+.slide[data-batch="01-02"] .muted{color:var(--muted)}
+.slide[data-batch="01-02"] .pos{color:var(--pos)}
+.slide[data-batch="01-02"] .neg{color:var(--neg)}
+.slide[data-batch="01-02"] .ionic-c{color:var(--ionic)}
+.slide[data-batch="01-02"] .covalent-c{color:var(--covalent)}
+.slide[data-batch="01-02"] .metallic-c{color:var(--metallic)}
+.slide[data-batch="01-02"].dark{background:#172131;color:#F7F6F2}
+.slide[data-batch="01-02"].dark .kicker{color:#A9B2BF}
+.slide[data-batch="01-02"].dark .footer{color:#8F99A6}
+.slide[data-batch="01-02"].dark .footer:before{background:rgba(255,255,255,.15)}
+.slide[data-batch="01-02"].dark .meta{color:#A9B2BF}
+.slide[data-batch="01-02"] .hook-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:96px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .objects{display:grid;border-top:1px solid rgba(255,255,255,.16)}
+.slide[data-batch="01-02"] .object{display:grid;grid-template-columns:1fr auto;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+.slide[data-batch="01-02"] .object b{font-size:34px;line-height:1.2;font-weight:400}
+.slide[data-batch="01-02"] .object span{font-size:20px;color:#AEB8C5}
+.slide[data-batch="01-02"] .hook-question{margin-top:30px;color:#DCE2EA;font-size:30px;line-height:1.48;max-width:760px}
+.slide[data-batch="01-02"] .hook-accent{width:66px;height:3px;border-radius:3px;background:#AFC3FF;margin:28px 0 26px}
+.slide[data-batch="01-02"] .target-wrap{display:grid;grid-template-columns:160px 1fr;gap:48px;margin:auto 0;max-width:1260px}
+.slide[data-batch="01-02"] .target-n{font-size:80px;line-height:1;font-weight:300;color:#B1B5B9}
+.slide[data-batch="01-02"] .target-text{font-size:37px;line-height:1.42;font-weight:400;padding:7px 0 30px;border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .target-row{display:contents}
+.slide[data-batch="01-02"] .target-row:last-child .target-text{border-bottom:0}
+.slide[data-batch="01-02"] .target-note{margin-top:26px;font-size:23px;color:var(--muted)}
+.slide[data-batch="01-02"] .pt-wrap{display:grid;grid-template-columns:1fr 350px;gap:60px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .ptable{display:grid;grid-template-columns:repeat(18,1fr);grid-template-rows:repeat(4,72px);gap:6px}
+.slide[data-batch="01-02"] .el{border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;font:500 25px "Prompt","Segoe UI",sans-serif;background:white}
+.slide[data-batch="01-02"] .el.m{background:var(--elem-metal-soft);border-color:#BCD7DD;color:var(--elem-metal)}
+.slide[data-batch="01-02"] .el.n{background:var(--elem-non-soft);border-color:#E6CC9D;color:var(--elem-non)}
+.slide[data-batch="01-02"] .el.mt{background:var(--elem-met-soft);border:1.5px dashed #AEB4AF;color:var(--elem-met)}
+.slide[data-batch="01-02"] .legend{display:grid;gap:28px}
+.slide[data-batch="01-02"] .legend-row{display:grid;grid-template-columns:12px 1fr;gap:16px}
+.slide[data-batch="01-02"] .legend-row i{width:5px;height:52px;border-radius:4px;background:var(--c)}
+.slide[data-batch="01-02"] .legend-row b{font-size:31px;font-weight:500}
+.slide[data-batch="01-02"] .legend-row p{margin:5px 0 0;font-size:20px;line-height:1.4;color:var(--muted)}
+.slide[data-batch="01-02"] .diag-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .mini-pt{position:relative;height:430px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(18,1fr);grid-template-rows:repeat(4,74px);gap:5px;align-content:center}
+.slide[data-batch="01-02"] .mini-pt .el{font-size:24px}
+.slide[data-batch="01-02"] .q-list{display:grid;gap:0}
+.slide[data-batch="01-02"] .q-row{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start}
+.slide[data-batch="01-02"] .q-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .q-num{font-size:21px;color:#A6ABB1}
+.slide[data-batch="01-02"] .q-txt{font-size:28px;line-height:1.42}
+.slide[data-batch="01-02"] .diag-note{margin-top:22px;color:var(--muted);font-size:20px}
+.slide[data-batch="01-02"] .symbol-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:34px 28px;align-content:center;flex:1;margin-top:20px}
+.slide[data-batch="01-02"] .symbol-item{grid-column:span 2;text-align:center;min-height:166px;display:flex;flex-direction:column;justify-content:center}
+.slide[data-batch="01-02"] .symbol-item:nth-child(5){grid-column:2/span 2}
+.slide[data-batch="01-02"] .symbol{font-size:66px;line-height:1;font-weight:500}
+.slide[data-batch="01-02"] .symbol-line{width:82px;height:1px;background:#B3B8BE;margin:24px auto 0}
+.slide[data-batch="01-02"] .symbol-answer{font-size:21px;font-weight:500;margin-top:16px}
+.slide[data-batch="01-02"] .symbol-answer.m{color:var(--elem-metal)}
+.slide[data-batch="01-02"] .symbol-answer.n{color:var(--elem-non)}
+.slide[data-batch="01-02"] .compare{display:grid;grid-template-columns:1fr 1fr;gap:92px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .compare-col{min-height:430px;padding:42px 0;border-top:2px solid var(--c);border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .compare-label{font-size:31px;font-weight:500;color:var(--c)}
+.slide[data-batch="01-02"] .compare-main{font-size:52px;line-height:1.25;margin-top:76px;font-weight:400}
+.slide[data-batch="01-02"] .compare-main strong{font-weight:600}
+.slide[data-batch="01-02"] .electron{font-size:.82em;color:var(--neg)}
+.slide[data-batch="01-02"] .compare-foot{font-size:21px;line-height:1.5;color:var(--muted);margin-top:34px}
+.slide[data-batch="01-02"] .metal-col{--c:var(--elem-metal)}
+.slide[data-batch="01-02"] .non-col{--c:var(--elem-non)}
+.slide[data-batch="01-02"] .rules{display:grid;grid-template-rows:repeat(3,1fr);flex:1;margin-top:30px}
+.slide[data-batch="01-02"] .rule-row{display:grid;grid-template-columns:420px 120px 1fr;align-items:center;border-top:1px solid var(--line);padding:10px 0}
+.slide[data-batch="01-02"] .rule-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .pair{font-size:42px;line-height:1.2;font-weight:400}
+.slide[data-batch="01-02"] .arrow{font-size:34px;color:#BDC1C6;text-align:center;font-weight:300}
+.slide[data-batch="01-02"] .result{display:flex;align-items:baseline;gap:20px}
+.slide[data-batch="01-02"] .result strong{font-size:42px;font-weight:500;color:var(--c)}
+.slide[data-batch="01-02"] .result span{font-size:23px;color:var(--muted)}
+.slide[data-batch="01-02"] .rule-row.ionic{--c:var(--ionic)}
+.slide[data-batch="01-02"] .rule-row.covalent{--c:var(--covalent)}
+.slide[data-batch="01-02"] .rule-row.metallic{--c:var(--metallic)}
+.slide[data-batch="01-02"] .worked{display:grid;grid-template-columns:1fr 1fr;gap:30px 72px;flex:1;align-content:center;margin-top:26px}
+.slide[data-batch="01-02"] .case{display:grid;grid-template-columns:172px 1fr;gap:30px;align-items:center;padding:21px 0;border-top:1px solid var(--line)}
+.slide[data-batch="01-02"] .case:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .case .formula{font:500 58px "Prompt","Segoe UI",sans-serif;letter-spacing:-.02em}
+.slide[data-batch="01-02"] .case .logic{font-size:23px;line-height:1.4;color:var(--muted)}
+.slide[data-batch="01-02"] .case .logic b{font-weight:500;color:var(--ink)}
+.slide[data-batch="01-02"] .case .bond{display:block;margin-top:18px;font-size:21px;line-height:1.3;font-weight:600;color:var(--c)}
+.slide[data-batch="01-02"] .case.i{--c:var(--ionic)}
+.slide[data-batch="01-02"] .case.c{--c:var(--covalent)}
+.slide[data-batch="01-02"] .case.m{--c:var(--metallic)}
+.slide[data-batch="01-02"] .practice{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 46px;align-content:center;flex:1;margin-top:20px}
+.slide[data-batch="01-02"] .pitem{text-align:center;min-height:150px;display:flex;flex-direction:column;justify-content:center}
+.slide[data-batch="01-02"] .pformula{font:500 60px "Prompt","Segoe UI",sans-serif;letter-spacing:-.02em}
+.slide[data-batch="01-02"] .answer-line{width:92px;height:1px;background:#AAB0B8;margin:24px auto 0}
+.slide[data-batch="01-02"] .panswer{margin-top:16px;font-size:19px;line-height:1.35;font-weight:600}
+.slide[data-batch="01-02"] .panswer.i{color:var(--ionic)}
+.slide[data-batch="01-02"] .panswer.c{color:var(--covalent)}
+.slide[data-batch="01-02"] .panswer.m{color:var(--metallic)}
+.slide[data-batch="01-02"] .legend-mini{display:flex;gap:28px;margin-top:16px;font-size:18px;color:var(--muted)}
+.slide[data-batch="01-02"] .legend-mini b{font-weight:600}
+.slide[data-batch="01-02"] .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;background:var(--c)}
+.slide[data-batch="01-02"] .exit-list{display:grid;flex:1;align-content:center;margin-top:15px}
+.slide[data-batch="01-02"] .exit-row{display:grid;grid-template-columns:58px 1fr 420px;gap:24px;align-items:center;padding:31px 0;border-top:1px solid var(--line)}
+.slide[data-batch="01-02"] .exit-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .exit-qn{font-size:23px;color:#A6ABB1}
+.slide[data-batch="01-02"] .exit-q{font-size:31px;line-height:1.38}
+.slide[data-batch="01-02"] .exit-a{font-size:23px;line-height:1.4;font-weight:500;color:var(--c)}
+.slide[data-batch="01-02"] .exit-a.i{--c:var(--ionic)}
+.slide[data-batch="01-02"] .exit-a.c{--c:var(--covalent)}
+.slide[data-batch="01-02"] .exit-a.m{--c:var(--metallic)}
+.slide[data-batch="01-02"] .exit-a.neutral{--c:var(--ok)}
+.slide[data-batch="01-02"] .recall-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:42px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .recall-item{text-align:center;padding:38px 0;border-top:1px solid rgba(255,255,255,.17);border-bottom:1px solid rgba(255,255,255,.17)}
+.slide[data-batch="01-02"] .recall-formula{font-size:66px;font-weight:500}
+.slide[data-batch="01-02"] .recall-answer{font-size:22px;font-weight:600;margin-top:26px}
+.slide[data-batch="01-02"] .recall-answer.i{color:#70A9D2}
+.slide[data-batch="01-02"] .recall-answer.c{color:#B49CDF}
+.slide[data-batch="01-02"] .recall-answer.m{color:#C1C6CC}
+.slide[data-batch="01-02"] .charge-hook{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .charge-question{padding:55px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .charge-form{font-size:94px;line-height:1;font-weight:400}
+.slide[data-batch="01-02"] .charge-q{font-size:29px;line-height:1.45;color:var(--muted);margin-top:34px}
+.slide[data-batch="01-02"] .charge-q strong{color:var(--ink);font-weight:500}
+.slide[data-batch="01-02"] .balance-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .balance-zero{font-size:74px;line-height:1.12;font-weight:300}
+.slide[data-batch="01-02"] .balance-zero small{display:block;font-size:24px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:30px}
+.slide[data-batch="01-02"] .particle-list{border-top:1px solid var(--line)}
+.slide[data-batch="01-02"] .particle{display:grid;grid-template-columns:170px 1fr;gap:35px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .particle b{font-size:31px;font-weight:500}
+.slide[data-batch="01-02"] .particle span{font-size:24px;line-height:1.45;color:var(--muted)}
+.slide[data-batch="01-02"] .particle .pplus{color:var(--pos)}
+.slide[data-batch="01-02"] .particle .eminus{color:var(--neg)}
+.slide[data-batch="01-02"] .process-wrap{display:flex;flex-direction:column;justify-content:center;flex:1}
+.slide[data-batch="01-02"] .equation{font-size:92px;line-height:1.2;font-weight:400;text-align:center}
+.slide[data-batch="01-02"] .process-question{text-align:center;font-size:27px;color:var(--muted);margin-top:44px}
+.slide[data-batch="01-02"] .process-result{text-align:center;font-size:31px;line-height:1.4;font-weight:500;margin-top:28px;color:var(--c)}
+.slide[data-batch="01-02"] .process-result.posr{--c:var(--pos)}
+.slide[data-batch="01-02"] .process-result.negr{--c:var(--neg)}
+.slide[data-batch="01-02"] .mnemonic{display:flex;justify-content:center;gap:60px;margin-top:45px;font-size:21px;color:var(--muted)}
+.slide[data-batch="01-02"] .mnemonic strong{font-weight:600;color:var(--ink)}
+.slide[data-batch="01-02"] .attract-layout{display:grid;grid-template-columns:1fr 500px;gap:100px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .ion-pair{display:flex;align-items:center;justify-content:center;gap:50px}
+.slide[data-batch="01-02"] .ion-ball{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;font-size:59px;font-weight:500;border:2px solid var(--c);color:var(--c);background:white}
+.slide[data-batch="01-02"] .ion-ball.p{--c:var(--pos)}
+.slide[data-batch="01-02"] .ion-ball.n{--c:var(--neg)}
+.slide[data-batch="01-02"] .attract-arrow{font-size:54px;font-weight:300;color:#AAB0B8}
+.slide[data-batch="01-02"] .attract-label{text-align:center;font-size:29px;margin-top:38px;font-weight:500}
+.slide[data-batch="01-02"] .lattice{display:grid;grid-template-columns:repeat(4,76px);grid-template-rows:repeat(4,76px);gap:7px;justify-content:center}
+.slide[data-batch="01-02"] .l-ion{border-radius:50%;display:grid;place-items:center;font-size:23px;font-weight:500;border:1.5px solid var(--c);color:var(--c);background:white}
+.slide[data-batch="01-02"] .l-ion:nth-child(odd){--c:var(--pos)}
+.slide[data-batch="01-02"] .l-ion:nth-child(even){--c:var(--neg)}
+.slide[data-batch="01-02"] .lattice-note{text-align:center;color:var(--muted);font-size:20px;line-height:1.45;margin-top:30px}
+.slide[data-batch="01-02"] .charge-ref{display:grid;grid-template-columns:repeat(5,1fr);gap:34px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .charge-col{min-height:330px;padding:30px 0;border-top:2px solid var(--c);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="01-02"] .group-no{font-size:20px;color:var(--muted)}
+.slide[data-batch="01-02"] .group-charge{font-size:72px;line-height:1;margin-top:54px;font-weight:400;color:var(--c)}
+.slide[data-batch="01-02"] .group-eg{font-size:21px;color:var(--muted);margin-top:46px}
+.slide[data-batch="01-02"] .charge-col.cat{--c:var(--pos)}
+.slide[data-batch="01-02"] .charge-col.an{--c:var(--neg)}
+.slide[data-batch="01-02"] .poly-layout{display:grid;grid-template-columns:500px 1fr;gap:70px;align-items:center;flex:1}
+.slide[data-batch="01-02"] .poly-idea{font-size:34px;line-height:1.5;color:#343C47}
+.slide[data-batch="01-02"] .poly-idea strong{font-weight:600}
+.slide[data-batch="01-02"] .poly-table{display:grid;grid-template-columns:1fr 1fr;gap:0 42px}
+.slide[data-batch="01-02"] .poly-item{display:grid;grid-template-columns:120px 1fr;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.slide[data-batch="01-02"] .poly-item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .poly-formula{font:500 45px "Prompt","Segoe UI",sans-serif;color:var(--neg);letter-spacing:-.02em}
+.slide[data-batch="01-02"] .poly-item.posi .poly-formula{color:var(--pos)}
+.slide[data-batch="01-02"] .poly-name{font-size:20px;font-weight:400}
+.slide[data-batch="01-02"] .poly-thai{font-size:18px;color:var(--muted);margin-top:3px}
+.slide[data-batch="01-02"] .poly-note{margin-top:24px;padding-left:18px;border-left:3px solid var(--amber);font-size:20px;line-height:1.45;color:#5E5140}
+.slide[data-batch="01-02"] .ion-practice{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 62px;align-content:center;flex:1}
+.slide[data-batch="01-02"] .ion-item{text-align:center;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .ion-element{font-size:62px;font-weight:500}
+.slide[data-batch="01-02"] .ion-why{font-size:18px;color:var(--muted);margin-top:14px}
+.slide[data-batch="01-02"] .ion-answer{font-size:34px;font-weight:500;margin-top:18px;color:var(--c)}
+.slide[data-batch="01-02"] .ion-item.cat{--c:var(--pos)}
+.slide[data-batch="01-02"] .ion-item.an{--c:var(--neg)}
+.slide[data-batch="01-02"] .neutrality{display:grid;grid-template-rows:1fr 1fr;flex:1;margin-top:18px}
+.slide[data-batch="01-02"] .neutral-row{display:grid;grid-template-columns:230px 1fr 420px;align-items:center;gap:40px;border-top:1px solid var(--line);padding:24px 0}
+.slide[data-batch="01-02"] .neutral-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="01-02"] .neutral-name{font-size:30px;font-weight:500}
+.slide[data-batch="01-02"] .tiles{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.slide[data-batch="01-02"] .tile{min-width:126px;padding:24px 18px;text-align:center;border:1.5px solid var(--c);color:var(--c);font-size:36px;font-weight:500;border-radius:10px;background:white}
+.slide[data-batch="01-02"] .tile.p{--c:var(--pos)}
+.slide[data-batch="01-02"] .tile.n{--c:var(--neg)}
+.slide[data-batch="01-02"] .plus{font-size:31px;color:#AAB0B8}
+.slide[data-batch="01-02"] .sum{font-size:22px;line-height:1.55;color:var(--muted)}
+.slide[data-batch="01-02"] .sum strong{font-size:29px;font-weight:500;color:var(--ink)}
+.slide[data-batch="01-02"] .formula-result{font-size:47px;font-weight:500;color:var(--ionic);margin-top:8px}
+.slide[data-batch="01-02"] .teaser{margin-top:26px;padding:18px 0 0;border-top:1px solid var(--line);font-size:20px;color:var(--muted)}
+.slide[data-batch="01-02"] .teaser strong{color:var(--neg);font-weight:500}
+
+/* scoped source: prototype_03_04_v2.html */
+.slide[data-batch="03-04"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+ --ionic:#2E6F9E;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;--bad:#9A4E48;}
+.slide[data-batch="03-04"], .slide[data-batch="03-04"] *{box-sizing:border-box}
+.slide[data-batch="03-04"]{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+.slide[data-batch="03-04"]{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.slide[data-batch="03-04"]{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}
+.slide[data-batch="03-04"].active{display:flex;flex-direction:column}
+.slide[data-batch="03-04"] .kicker{font-size:19px;line-height:1.3;color:var(--muted)}
+.slide[data-batch="03-04"] .kicker strong{color:var(--ink);font-weight:600}
+.slide[data-batch="03-04"] .title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1370px;text-wrap:balance}
+.slide[data-batch="03-04"] .title strong{font-weight:600}
+.slide[data-batch="03-04"] .meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}
+.slide[data-batch="03-04"] .meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.slide[data-batch="03-04"] .footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}
+.slide[data-batch="03-04"] .footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+.slide[data-batch="03-04"] [data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}
+.slide[data-batch="03-04"] [data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+.slide[data-batch="03-04"] sub, .slide[data-batch="03-04"] sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}
+.slide[data-batch="03-04"] sup{top:-.62em}
+.slide[data-batch="03-04"] sub{bottom:-.14em}
+.slide[data-batch="03-04"] .chem{letter-spacing:-.02em}
+.slide[data-batch="03-04"] .pos{color:var(--pos)}
+.slide[data-batch="03-04"] .neg{color:var(--neg)}
+.slide[data-batch="03-04"] .ionic{color:var(--ionic)}
+.slide[data-batch="03-04"] .muted{color:var(--muted)}
+.slide[data-batch="03-04"].dark{background:#172131;color:#F7F6F2}
+.slide[data-batch="03-04"].dark .kicker{color:#A9B2BF}
+.slide[data-batch="03-04"].dark .footer{color:#8F99A6}
+.slide[data-batch="03-04"].dark .footer:before{background:rgba(255,255,255,.15)}
+.slide[data-batch="03-04"].dark .meta{color:#A9B2BF}
+.slide[data-batch="03-04"] .recall5{display:grid;grid-template-columns:repeat(5,1fr);gap:30px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .recall-card{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,.17);border-bottom:1px solid rgba(255,255,255,.17)}
+.slide[data-batch="03-04"] .recall-card .sym{font-size:65px;font-weight:500}
+.slide[data-batch="03-04"] .recall-card .ans{font-size:27px;font-weight:600;margin-top:26px;color:#88C3CD}
+.slide[data-batch="03-04"] .recall-card.cat .ans{color:#D29B8D}
+.slide[data-batch="03-04"] .recall4{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .recall4 .recall-card .sym{font-size:45px}
+.slide[data-batch="03-04"] .bridge{display:grid;grid-template-columns:.95fr 1.05fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .bridge-old{padding:48px 0;border-top:2px solid var(--ionic);border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .bridge-old .eq{font-size:54px;line-height:1.3}
+.slide[data-batch="03-04"] .bridge-old p{font-size:22px;line-height:1.5;color:var(--muted);margin:28px 0 0}
+.slide[data-batch="03-04"] .steps{display:grid;gap:28px}
+.slide[data-batch="03-04"] .step{display:grid;grid-template-columns:68px 1fr;gap:25px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .step:first-child{border-top:1px solid var(--line)}
+.slide[data-batch="03-04"] .step .n{font-size:30px;color:#A6ABB1}
+.slide[data-batch="03-04"] .step .t{font-size:31px;line-height:1.38}
+.slide[data-batch="03-04"] .step .t strong{font-weight:600}
+.slide[data-batch="03-04"] .poly-layout{display:grid;grid-template-columns:440px 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .poly-idea{font-size:34px;line-height:1.5}
+.slide[data-batch="03-04"] .poly-idea small{display:block;font-size:21px;color:var(--muted);line-height:1.5;margin-top:24px}
+.slide[data-batch="03-04"] .poly-table{display:grid;grid-template-columns:1fr 1fr;gap:0 46px}
+.slide[data-batch="03-04"] .poly-item{display:grid;grid-template-columns:120px 1fr;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.slide[data-batch="03-04"] .poly-item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .poly-f{font-size:43px;font-weight:500;color:var(--neg)}
+.slide[data-batch="03-04"] .poly-item.posi .poly-f{color:var(--pos)}
+.slide[data-batch="03-04"] .poly-n{font-size:20px;line-height:1.35}
+.slide[data-batch="03-04"] .refnote{margin-top:24px;padding:16px 0 0 18px;border-left:3px solid var(--amber);font-size:19px;color:#655844}
+.slide[data-batch="03-04"] .two-cases{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .casebox{padding:42px 0;border-top:2px solid var(--ionic);border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .caseq{font-size:40px;line-height:1.35}
+.slide[data-batch="03-04"] .tiles{display:flex;align-items:center;gap:16px;margin-top:38px;min-height:90px}
+.slide[data-batch="03-04"] .tile{min-width:120px;padding:22px 16px;text-align:center;border:1.5px solid var(--c);color:var(--c);font-size:34px;font-weight:500;border-radius:10px;background:#fff}
+.slide[data-batch="03-04"] .tile.p{--c:var(--pos)}
+.slide[data-batch="03-04"] .tile.n{--c:var(--neg)}
+.slide[data-batch="03-04"] .plus{font-size:30px;color:#AAB0B8}
+.slide[data-batch="03-04"] .caseans{font-size:22px;line-height:1.55;color:var(--muted);margin-top:28px}
+.slide[data-batch="03-04"] .formula{font-size:48px;font-weight:600;color:var(--ionic);margin-top:10px}
+.slide[data-batch="03-04"] .lcm-layout{display:grid;grid-template-columns:420px 1fr;gap:95px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .ionpair{text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0}
+.slide[data-batch="03-04"] .ionpair .big{font-size:76px;font-weight:500}
+.slide[data-batch="03-04"] .ionpair .q{font-size:23px;line-height:1.45;color:var(--muted);margin-top:28px}
+.slide[data-batch="03-04"] .calc-lines{display:grid}
+.slide[data-batch="03-04"] .calc{padding:28px 0;border-top:1px solid var(--line);font-size:34px;line-height:1.35}
+.slide[data-batch="03-04"] .calc:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .calc strong{font-weight:600}
+.slide[data-batch="03-04"] .final-eq{margin-top:35px;font-size:43px;font-weight:600;color:var(--ionic)}
+.slide[data-batch="03-04"] .criss-wrap{display:grid;grid-template-columns:500px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .criss-q{text-align:center;padding:55px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .criss-q .pair{font-size:70px;font-weight:500}
+.slide[data-batch="03-04"] .criss-q p{font-size:23px;color:var(--muted);line-height:1.45;margin:28px 0 0}
+.slide[data-batch="03-04"] .criss-steps{display:grid;gap:0}
+.slide[data-batch="03-04"] .criss-step{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line);font-size:29px;line-height:1.4}
+.slide[data-batch="03-04"] .criss-step:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .criss-step .n{color:#A6ABB1}
+.slide[data-batch="03-04"] .check{margin-top:25px;font-size:23px;color:var(--ok);font-weight:500}
+.slide[data-batch="03-04"] .choice2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .choice{padding:58px 20px;text-align:center;border-top:2px solid #B9BEC5;border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .choice .f{font-size:78px;font-weight:500}
+.slide[data-batch="03-04"] .choice .label{font-size:21px;color:var(--muted);margin-top:25px}
+.slide[data-batch="03-04"] .choice.good{border-top-color:var(--ok)}
+.slide[data-batch="03-04"] .why{margin-top:28px;font-size:23px;line-height:1.5;color:var(--ok);font-weight:500}
+.slide[data-batch="03-04"] .paren-grid{display:grid;grid-template-columns:1fr 1fr;gap:84px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .paren-case{border-top:2px solid var(--ionic);border-bottom:1px solid var(--line);padding:35px 0}
+.slide[data-batch="03-04"] .paren-pair{font-size:43px;font-weight:500}
+.slide[data-batch="03-04"] .paren-q{font-size:23px;color:var(--muted);margin-top:18px}
+.slide[data-batch="03-04"] .paren-count{display:flex;gap:14px;align-items:center;margin-top:32px;min-height:80px}
+.slide[data-batch="03-04"] .groupchip{padding:17px 19px;border:1.5px solid var(--neg);color:var(--neg);border-radius:10px;font-size:29px;font-weight:500}
+.slide[data-batch="03-04"] .paren-result{font-size:48px;color:var(--ionic);font-weight:600;margin-top:25px}
+.slide[data-batch="03-04"] .paren-rule{margin-top:24px;font-size:20px;color:var(--muted);line-height:1.4}
+.slide[data-batch="03-04"] .practice6{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 54px;align-content:center;flex:1}
+.slide[data-batch="03-04"] .pitem{text-align:center;padding:23px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .pitem .q{font-size:39px;font-weight:500}
+.slide[data-batch="03-04"] .pitem .line{width:94px;height:1px;background:#AAB0B8;margin:22px auto 0}
+.slide[data-batch="03-04"] .pitem .a{font-size:29px;color:var(--ionic);font-weight:600;margin-top:17px}
+.slide[data-batch="03-04"] .exit-list{display:grid;flex:1;align-content:center;margin-top:15px}
+.slide[data-batch="03-04"] .exit-row{display:grid;grid-template-columns:58px 1fr 430px;gap:24px;align-items:center;padding:29px 0;border-top:1px solid var(--line)}
+.slide[data-batch="03-04"] .exit-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .exit-qn{font-size:23px;color:#A6ABB1}
+.slide[data-batch="03-04"] .exit-q{font-size:30px;line-height:1.38}
+.slide[data-batch="03-04"] .exit-a{font-size:25px;line-height:1.4;font-weight:600;color:var(--ionic)}
+.slide[data-batch="03-04"] .diag{font-size:18px;color:var(--muted);margin-top:18px}
+.slide[data-batch="03-04"] .naming3{display:grid;grid-template-columns:repeat(3,1fr);gap:55px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .namecase{padding:44px 0;border-top:2px solid var(--ionic);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="03-04"] .namecase .f{font-size:60px;font-weight:500}
+.slide[data-batch="03-04"] .namecase .prompt{font-size:20px;color:var(--muted);margin-top:24px}
+.slide[data-batch="03-04"] .namecase .parts{margin-top:27px;font-size:22px;line-height:1.45}
+.slide[data-batch="03-04"] .namecase .ans{font-size:25px;font-weight:600;color:var(--ionic);margin-top:20px}
+.slide[data-batch="03-04"] .naming-poly{display:grid;grid-template-columns:1fr 390px;gap:70px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .name-list{display:grid}
+.slide[data-batch="03-04"] .name-row{display:grid;grid-template-columns:230px 1fr;gap:30px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}
+.slide[data-batch="03-04"] .name-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="03-04"] .name-row .f{font-size:44px;font-weight:500}
+.slide[data-batch="03-04"] .name-row .ans{font-size:27px;color:var(--ionic);font-weight:600}
+.slide[data-batch="03-04"] .mini-ref{border-left:1px solid var(--line);padding-left:38px}
+.slide[data-batch="03-04"] .mini-ref h3{font-size:20px;font-weight:500;margin:0 0 20px}
+.slide[data-batch="03-04"] .mini-ref div{font-size:20px;line-height:1.8;color:var(--muted)}
+.slide[data-batch="03-04"] .roman-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .roman-card{padding:48px 0;border-top:2px solid var(--ionic);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="03-04"] .roman-card .f{font-size:72px;font-weight:500}
+.slide[data-batch="03-04"] .roman-card .q{font-size:22px;color:var(--muted);margin-top:24px}
+.slide[data-batch="03-04"] .roman-card .charge{font-size:31px;color:var(--pos);font-weight:600;margin-top:25px}
+.slide[data-batch="03-04"] .roman-card .name{font-size:27px;color:var(--ionic);font-weight:600;margin-top:18px}
+.slide[data-batch="03-04"] .roman-note{text-align:center;font-size:21px;color:var(--muted);margin-top:20px}
+.slide[data-batch="03-04"] .brittle{display:grid;grid-template-columns:1fr 520px;gap:90px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .layers{display:grid;gap:12px}
+.slide[data-batch="03-04"] .layer{display:flex;gap:12px}
+.slide[data-batch="03-04"] .ball{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:23px;font-weight:500;border:1.5px solid var(--c);color:var(--c);background:#fff}
+.slide[data-batch="03-04"] .ball.p{--c:var(--pos)}
+.slide[data-batch="03-04"] .ball.n{--c:var(--neg)}
+.slide[data-batch="03-04"] .shift{transform:translateX(44px)}
+.slide[data-batch="03-04"] .property-q{font-size:32px;line-height:1.45}
+.slide[data-batch="03-04"] .property-q p{font-size:22px;color:var(--muted);margin-top:28px}
+.slide[data-batch="03-04"] .property-a{font-size:28px;line-height:1.45;color:var(--bad);font-weight:600;margin-top:24px}
+.slide[data-batch="03-04"] .property-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .prop{padding:45px 0;border-top:2px solid var(--ionic);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="03-04"] .prop .icon{font-size:64px;font-weight:300}
+.slide[data-batch="03-04"] .prop .head{font-size:29px;font-weight:600;margin-top:24px}
+.slide[data-batch="03-04"] .prop .sub{font-size:20px;line-height:1.5;color:var(--muted);margin-top:17px}
+.slide[data-batch="03-04"] .states{display:grid;grid-template-columns:repeat(3,1fr);gap:45px;align-items:center;flex:1}
+.slide[data-batch="03-04"] .state{padding:32px 0;border-top:2px solid #B8BDC3;border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="03-04"] .state .label{font-size:29px;font-weight:600}
+.slide[data-batch="03-04"] .state .particles{height:170px;display:grid;grid-template-columns:repeat(4,42px);gap:9px;justify-content:center;align-content:center;margin-top:22px}
+.slide[data-batch="03-04"] .state .particles.free{grid-template-columns:repeat(3,48px);gap:20px 34px}
+.slide[data-batch="03-04"] .miniion{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--c);color:var(--c);display:grid;place-items:center;font-size:15px;font-weight:600}
+.slide[data-batch="03-04"] .miniion.p{--c:var(--pos)}
+.slide[data-batch="03-04"] .miniion.n{--c:var(--neg)}
+.slide[data-batch="03-04"] .state .q{font-size:20px;color:var(--muted);margin-top:12px}
+.slide[data-batch="03-04"] .state .ans{font-size:24px;font-weight:600;margin-top:18px}
+.slide[data-batch="03-04"] .state .ans.noans{color:var(--bad)}
+.slide[data-batch="03-04"] .state .ans.yesans{color:var(--ok)}
+.slide[data-batch="03-04"] .conduct-rule{text-align:center;font-size:22px;color:var(--muted);margin-top:8px}
+.slide[data-batch="03-04"] .conduct-rule strong{color:var(--ink);font-weight:600}
+.slide[data-batch="03-04"] .nextbox{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:20px;color:var(--muted)}
+.slide[data-batch="03-04"] .nextbox strong{color:var(--ink);font-weight:600}
+
+/* scoped source: prototype_05_06_v2.html */
+.slide[data-batch="05-06"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+ --ionic:#2E6F9E;--covalent:#7C5C9C;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
+.slide[data-batch="05-06"], .slide[data-batch="05-06"] *{box-sizing:border-box}
+.slide[data-batch="05-06"]{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+.slide[data-batch="05-06"]{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.slide[data-batch="05-06"]{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}
+.slide[data-batch="05-06"].active{display:flex;flex-direction:column}
+.slide[data-batch="05-06"] .kicker{font-size:19px;line-height:1.3;color:var(--muted)}
+.slide[data-batch="05-06"] .kicker strong{color:var(--ink);font-weight:600}
+.slide[data-batch="05-06"] .title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}
+.slide[data-batch="05-06"] .title strong{font-weight:600}
+.slide[data-batch="05-06"] .meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}
+.slide[data-batch="05-06"] .meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.slide[data-batch="05-06"] .footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}
+.slide[data-batch="05-06"] .footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+.slide[data-batch="05-06"] [data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}
+.slide[data-batch="05-06"] [data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+.slide[data-batch="05-06"] sub, .slide[data-batch="05-06"] sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}
+.slide[data-batch="05-06"] sup{top:-.62em}
+.slide[data-batch="05-06"] sub{bottom:-.14em}
+.slide[data-batch="05-06"] .chem{letter-spacing:-.02em}
+.slide[data-batch="05-06"] .ionic{color:var(--ionic)}
+.slide[data-batch="05-06"] .cov{color:var(--covalent)}
+.slide[data-batch="05-06"] .muted{color:var(--muted)}
+.slide[data-batch="05-06"].dark{background:#172131;color:#F7F6F2}
+.slide[data-batch="05-06"].dark .kicker{color:#A9B2BF}
+.slide[data-batch="05-06"].dark .kicker strong{color:#F7F6F2}
+.slide[data-batch="05-06"].dark .footer{color:#8F99A6}
+.slide[data-batch="05-06"].dark .footer:before{background:rgba(255,255,255,.15)}
+.slide[data-batch="05-06"].dark .meta{color:#A9B2BF}
+.slide[data-batch="05-06"] .ruleline{font-size:22px;line-height:1.5;color:var(--muted);text-align:center;margin-top:18px}
+.slide[data-batch="05-06"] .ruleline strong{color:var(--ink)}
+.slide[data-batch="05-06"] .hook{display:grid;grid-template-columns:1fr 1fr;gap:82px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .hookcard{padding:50px 0;border-top:3px solid var(--c);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .hookcard.ion{--c:var(--ionic)}
+.slide[data-batch="05-06"] .hookcard.covc{--c:var(--covalent)}
+.slide[data-batch="05-06"] .hookcard .f{font-size:84px;font-weight:600}
+.slide[data-batch="05-06"] .hookcard .atoms{font-size:23px;color:var(--muted);margin-top:24px}
+.slide[data-batch="05-06"] .hookcard .ans{font-size:29px;color:var(--c);font-weight:600;margin-top:25px}
+.slide[data-batch="05-06"] .compare{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .comparecol{padding:40px 0;border-top:3px solid var(--c);border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .comparecol.ion{--c:var(--ionic)}
+.slide[data-batch="05-06"] .comparecol.covc{--c:var(--covalent)}
+.slide[data-batch="05-06"] .comparecol h2{font-size:38px;margin:0;color:var(--c);font-weight:600}
+.slide[data-batch="05-06"] .comparecol .pair{font-size:27px;margin-top:22px}
+.slide[data-batch="05-06"] .comparecol .process{font-size:31px;line-height:1.45;margin-top:28px}
+.slide[data-batch="05-06"] .comparecol .process strong{color:var(--c)}
+.slide[data-batch="05-06"] .comparecol .small{font-size:20px;color:var(--muted);line-height:1.5;margin-top:24px}
+.slide[data-batch="05-06"] .sharegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .molecule{padding:38px 10px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .molecule .formula{font-size:36px;font-weight:600}
+.slide[data-batch="05-06"] .bondpic{height:135px;display:flex;align-items:center;justify-content:center;margin-top:20px}
+.slide[data-batch="05-06"] .atom{width:66px;height:66px;border:1.5px solid var(--covalent);border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:600;background:#fff}
+.slide[data-batch="05-06"] .bond{width:62px;height:2px;background:var(--covalent);position:relative}
+.slide[data-batch="05-06"] .bond:after{content:"คู่ e− ที่แชร์";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:130px;font-size:15px;color:var(--muted)}
+.slide[data-batch="05-06"] .molecule .caption{font-size:18px;color:var(--muted);margin-top:12px}
+.slide[data-batch="05-06"] .prefixgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px 30px;align-content:center;flex:1}
+.slide[data-batch="05-06"] .prefix{padding:25px 12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .prefix.core{border-top:3px solid var(--covalent)}
+.slide[data-batch="05-06"] .prefix .n{font-size:38px;color:#9BA1A8}
+.slide[data-batch="05-06"] .prefix .p{font-size:30px;font-weight:600;margin-top:8px}
+.slide[data-batch="05-06"] .prefix .th{font-size:17px;color:var(--muted);margin-top:5px}
+.slide[data-batch="05-06"] .prefixnote{text-align:center;font-size:20px;color:var(--muted);margin-top:8px}
+.slide[data-batch="05-06"] .name-rule{display:grid;grid-template-columns:430px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .name-rule .bigformula{text-align:center;padding:55px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);font-size:84px;font-weight:600}
+.slide[data-batch="05-06"] .name-rule .steps{display:grid}
+.slide[data-batch="05-06"] .namerow{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:25px 0;border-top:1px solid var(--line);font-size:30px;line-height:1.4}
+.slide[data-batch="05-06"] .namerow:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .namerow .n{color:#A6ABB1}
+.slide[data-batch="05-06"] .nameanswer{font-size:38px;color:var(--covalent);font-weight:600;margin-top:28px}
+.slide[data-batch="05-06"] .worked{display:grid;grid-template-columns:440px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .worked .big{font-size:86px;font-weight:600;text-align:center;padding:55px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .workedsteps{display:grid}
+.slide[data-batch="05-06"] .workedrow{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line);font-size:29px;line-height:1.4}
+.slide[data-batch="05-06"] .workedrow:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .workedrow .n{color:#A6ABB1}
+.slide[data-batch="05-06"] .workedrow strong{color:var(--covalent);font-weight:600}
+.slide[data-batch="05-06"] .practice4{display:grid;grid-template-columns:1fr 1fr;gap:30px 65px;align-content:center;flex:1}
+.slide[data-batch="05-06"] .pitem{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .pitem .q{font-size:39px;font-weight:500}
+.slide[data-batch="05-06"] .pitem .prompt{font-size:18px;color:var(--muted);margin-top:10px}
+.slide[data-batch="05-06"] .pitem .ans{font-size:28px;color:var(--covalent);font-weight:600;margin-top:17px}
+.slide[data-batch="05-06"] .exit-list{display:grid;flex:1;align-content:center;margin-top:8px}
+.slide[data-batch="05-06"] .exit-row{display:grid;grid-template-columns:58px 1fr 430px;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.slide[data-batch="05-06"] .exit-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .exit-qn{font-size:23px;color:#A6ABB1}
+.slide[data-batch="05-06"] .exit-q{font-size:30px;line-height:1.38}
+.slide[data-batch="05-06"] .exit-a{font-size:25px;line-height:1.4;font-weight:600;color:var(--covalent)}
+.slide[data-batch="05-06"] .stylebar{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:22px}
+.slide[data-batch="05-06"] .stylecell{padding:13px 18px;border-left:3px solid var(--c);font-size:19px;color:var(--muted)}
+.slide[data-batch="05-06"] .stylecell.ion{--c:var(--ionic)}
+.slide[data-batch="05-06"] .stylecell.covc{--c:var(--covalent)}
+.slide[data-batch="05-06"] .stylecell strong{color:var(--ink)}
+.slide[data-batch="05-06"] .lewis-hook{display:grid;grid-template-columns:1fr 120px 1fr;gap:50px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .lh-card{padding:44px 0;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.16);text-align:center}
+.slide[data-batch="05-06"] .lh-card .lab{font-size:21px;color:#A9B2BF}
+.slide[data-batch="05-06"] .lh-card .big{font-size:82px;font-weight:600;margin-top:30px}
+.slide[data-batch="05-06"] .lh-card .small{font-size:23px;line-height:1.5;color:#B7BFCA;margin-top:24px}
+.slide[data-batch="05-06"] .lh-arrow{font-size:56px;color:#778396;text-align:center}
+.slide[data-batch="05-06"] .pattern4{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .pattern{padding:44px 10px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .pattern .sym{font-size:70px;font-weight:600}
+.slide[data-batch="05-06"] .pattern .bondn{font-size:31px;font-weight:600;color:var(--covalent);margin-top:20px}
+.slide[data-batch="05-06"] .pattern .hint{font-size:20px;line-height:1.45;color:var(--muted);margin-top:14px}
+.slide[data-batch="05-06"] .meaning{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .meaning-card{padding:45px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="05-06"] .meaning-card .icon{font-size:68px;line-height:1.1;font-weight:500;color:var(--covalent)}
+.slide[data-batch="05-06"] .meaning-card .head{font-size:32px;font-weight:600;margin-top:24px}
+.slide[data-batch="05-06"] .meaning-card .sub{font-size:22px;line-height:1.5;color:var(--muted);margin-top:15px}
+.slide[data-batch="05-06"] .lewis-work{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="05-06"] .diagram-box{height:390px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}
+.slide[data-batch="05-06"] .steps3{display:grid}
+.slide[data-batch="05-06"] .step3{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);font-size:29px;line-height:1.42}
+.slide[data-batch="05-06"] .step3:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .step3 .n{color:#A6ABB1}
+.slide[data-batch="05-06"] .step3 strong{font-weight:600;color:var(--covalent)}
+.slide[data-batch="05-06"] .lewis-svg{display:block;width:360px;height:320px;overflow:visible;shape-rendering:geometricPrecision}
+.slide[data-batch="05-06"] .lewis-svg-small{width:330px;height:260px;margin:8px auto 0}
+.slide[data-batch="05-06"] .lewis-svg .ls-atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:48px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:middle}
+.slide[data-batch="05-06"] .lewis-svg .ls-h{font-size:38px}
+.slide[data-batch="05-06"].dark .lewis-svg .ls-atom{fill:#F7F6F2}
+.slide[data-batch="05-06"] .lewis-svg .ls-bond{stroke:var(--covalent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slide[data-batch="05-06"] .lewis-svg .ls-dot{fill:var(--covalent)}
+.slide[data-batch="05-06"] .lewis-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}
+.slide[data-batch="05-06"] .pair-demo{position:relative;width:42px;height:14px;margin:0 auto}
+.slide[data-batch="05-06"] .pair-demo::before, .slide[data-batch="05-06"] .pair-demo::after{content:"";position:absolute;top:3px;width:9px;height:9px;border-radius:50%;background:var(--covalent)}
+.slide[data-batch="05-06"] .pair-demo::before{left:8px}
+.slide[data-batch="05-06"] .pair-demo::after{right:8px}
+.slide[data-batch="05-06"] .practice-lewis{display:grid;grid-template-columns:1fr 1fr;gap:32px 70px;align-content:center;flex:1}
+.slide[data-batch="05-06"] .lpitem{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:center;padding:26px 0;border-top:1px solid var(--line)}
+.slide[data-batch="05-06"] .lpitem:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.slide[data-batch="05-06"] .lpitem .formula{font-size:52px;font-weight:600;text-align:center}
+.slide[data-batch="05-06"] .lpitem .ask{font-size:25px;line-height:1.45}
+.slide[data-batch="05-06"] .lpitem .ans{font-size:22px;color:var(--covalent);font-weight:600;margin-top:10px}
+
+/* scoped source: prototype_07_08_v2.html */
+.slide[data-batch="07-08"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+ --ionic:#2E6F9E;--covalent:#7C5C9C;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
+.slide[data-batch="07-08"], .slide[data-batch="07-08"] *{box-sizing:border-box}
+.slide[data-batch="07-08"]{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+.slide[data-batch="07-08"]{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.slide[data-batch="07-08"]{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}
+.slide[data-batch="07-08"].active{display:flex;flex-direction:column}
+.slide[data-batch="07-08"] .kicker{font-size:19px;line-height:1.3;color:var(--muted)}
+.slide[data-batch="07-08"] .kicker strong{color:var(--ink);font-weight:600}
+.slide[data-batch="07-08"] .title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}
+.slide[data-batch="07-08"] .title strong{font-weight:600}
+.slide[data-batch="07-08"] .meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}
+.slide[data-batch="07-08"] .meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.slide[data-batch="07-08"] .footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}
+.slide[data-batch="07-08"] .footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+.slide[data-batch="07-08"] [data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}
+.slide[data-batch="07-08"] [data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+.slide[data-batch="07-08"] sub, .slide[data-batch="07-08"] sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}
+.slide[data-batch="07-08"] sup{top:-.62em}
+.slide[data-batch="07-08"] sub{bottom:-.14em}
+.slide[data-batch="07-08"] .chem{letter-spacing:-.02em}
+.slide[data-batch="07-08"] .cov{color:var(--covalent)}
+.slide[data-batch="07-08"] .muted{color:var(--muted)}
+.slide[data-batch="07-08"].dark{background:#172131;color:#F7F6F2}
+.slide[data-batch="07-08"].dark .kicker{color:#A9B2BF}
+.slide[data-batch="07-08"].dark .kicker strong{color:#F7F6F2}
+.slide[data-batch="07-08"].dark .footer{color:#8F99A6}
+.slide[data-batch="07-08"].dark .footer:before{background:rgba(255,255,255,.15)}
+.slide[data-batch="07-08"].dark .meta{color:#A9B2BF}
+.slide[data-batch="07-08"] .ruleline{font-size:21px;line-height:1.5;color:var(--muted);text-align:center;margin-top:16px}
+.slide[data-batch="07-08"] .ruleline strong{color:var(--ink)}
+.slide[data-batch="07-08"] .lewis-svg{display:block;width:360px;height:320px;overflow:visible;shape-rendering:geometricPrecision}
+.slide[data-batch="07-08"] .lewis-svg.small{width:300px;height:240px}
+.slide[data-batch="07-08"] .lewis-svg.micro{width:190px;height:145px}
+.slide[data-batch="07-08"] .lewis-svg .ls-atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:48px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.slide[data-batch="07-08"] .lewis-svg .ls-h{font-size:38px}
+.slide[data-batch="07-08"].dark .lewis-svg .ls-atom{fill:#F7F6F2}
+.slide[data-batch="07-08"] .lewis-svg .ls-bond{stroke:var(--covalent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slide[data-batch="07-08"] .lewis-svg .ls-dot{fill:var(--covalent)}
+.slide[data-batch="07-08"] .lewis-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}
+.slide[data-batch="07-08"] .o2-hook{display:grid;grid-template-columns:1fr 110px 1fr;gap:54px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .oh-panel{height:360px;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.slide[data-batch="07-08"].dark .oh-panel{border-bottom-color:rgba(255,255,255,.16)}
+.slide[data-batch="07-08"] .oh-label{font-size:20px;color:#A9B2BF;margin-bottom:24px}
+.slide[data-batch="07-08"] .oh-formula{font-size:82px;font-weight:600;letter-spacing:.02em}
+.slide[data-batch="07-08"] .oh-note{font-size:22px;line-height:1.5;color:#B7BFCA;margin-top:24px}
+.slide[data-batch="07-08"] .oh-arrow{font-size:58px;color:#7C8797;text-align:center}
+.slide[data-batch="07-08"] .bond-levels{display:grid;align-content:center;flex:1;margin-top:10px}
+.slide[data-batch="07-08"] .bond-level{display:grid;grid-template-columns:185px 360px 1fr;gap:40px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}
+.slide[data-batch="07-08"] .bond-level:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .bond-n{font-size:25px;color:#9DA2A8}
+.slide[data-batch="07-08"] .bond-lines{height:64px;display:grid;place-items:center}
+.slide[data-batch="07-08"] .line-icon{position:relative;width:245px;height:44px}
+.slide[data-batch="07-08"] .line-icon i{position:absolute;left:0;right:0;height:3px;border-radius:3px;background:var(--covalent)}
+.slide[data-batch="07-08"] .line-icon.one i:nth-child(1){top:20px}
+.slide[data-batch="07-08"] .line-icon.two i:nth-child(1){top:14px}
+.slide[data-batch="07-08"] .line-icon.two i:nth-child(2){top:26px}
+.slide[data-batch="07-08"] .line-icon.three i:nth-child(1){top:9px}
+.slide[data-batch="07-08"] .line-icon.three i:nth-child(2){top:20px}
+.slide[data-batch="07-08"] .line-icon.three i:nth-child(3){top:31px}
+.slide[data-batch="07-08"] .bond-name{font-size:34px;font-weight:600}
+.slide[data-batch="07-08"] .bond-name strong{color:var(--covalent)}
+.slide[data-batch="07-08"] .bond-desc{font-size:21px;color:var(--muted);margin-top:6px}
+.slide[data-batch="07-08"] .lewis-work{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .diagram-box{height:390px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}
+.slide[data-batch="07-08"] .steps3{display:grid}
+.slide[data-batch="07-08"] .step3{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:25px 0;border-top:1px solid var(--line);font-size:28px;line-height:1.42}
+.slide[data-batch="07-08"] .step3:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .step3 .n{color:#A6ABB1}
+.slide[data-batch="07-08"] .step3 strong{font-weight:600;color:var(--covalent)}
+.slide[data-batch="07-08"] .practice5{display:grid;grid-template-columns:repeat(5,1fr);gap:25px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .p5{padding:34px 10px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center;min-height:290px;display:flex;flex-direction:column;justify-content:center}
+.slide[data-batch="07-08"] .p5 .f{font-size:46px;font-weight:600}
+.slide[data-batch="07-08"] .p5 .q{font-size:19px;color:var(--muted);line-height:1.4;margin-top:18px}
+.slide[data-batch="07-08"] .p5 .a{font-size:28px;color:var(--covalent);font-weight:600;line-height:1.35;margin-top:22px}
+.slide[data-batch="07-08"] .handout{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .tasklist{padding:32px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .taskformula{font-size:48px;line-height:1.8;font-weight:500;text-align:center}
+.slide[data-batch="07-08"] .checklist{display:grid}
+.slide[data-batch="07-08"] .checkrow{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line);font-size:25px;line-height:1.4}
+.slide[data-batch="07-08"] .checkrow:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .checkrow .n{color:#A6ABB1}
+.slide[data-batch="07-08"] .quick{font-size:26px;color:var(--covalent);font-weight:600;line-height:1.7;margin-top:20px}
+.slide[data-batch="07-08"] .exit-list{display:grid;flex:1;align-content:center;margin-top:8px}
+.slide[data-batch="07-08"] .exit-row{display:grid;grid-template-columns:58px 1fr 430px;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}
+.slide[data-batch="07-08"] .exit-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .exit-qn{font-size:23px;color:#A6ABB1}
+.slide[data-batch="07-08"] .exit-q{font-size:29px;line-height:1.38}
+.slide[data-batch="07-08"] .exit-a{font-size:24px;line-height:1.4;font-weight:600;color:var(--covalent)}
+.slide[data-batch="07-08"] .bridge{padding:18px 22px;border-left:3px solid var(--covalent);font-size:20px;line-height:1.5;color:var(--muted);margin-top:18px}
+.slide[data-batch="07-08"] .bridge strong{color:var(--ink)}
+.slide[data-batch="07-08"] .shape-svg{display:block;width:280px;height:210px;overflow:visible;shape-rendering:geometricPrecision}
+.slide[data-batch="07-08"] .shape-svg.small{width:220px;height:165px}
+.slide[data-batch="07-08"] .shape-svg .sbond{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;fill:none}
+.slide[data-batch="07-08"] .shape-svg .sdash{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;stroke-dasharray:8 9;fill:none}
+.slide[data-batch="07-08"] .shape-svg .swedge{fill:var(--covalent);opacity:.9}
+.slide[data-batch="07-08"] .shape-svg .satom{fill:#fff;stroke:var(--covalent);stroke-width:2.4}
+.slide[data-batch="07-08"] .shape-svg .slabel{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:25px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.slide[data-batch="07-08"] .shape-svg .sdot{fill:var(--covalent)}
+.slide[data-batch="07-08"] .shape-hook{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .sh-item{padding:34px 4px;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.15);text-align:center}
+.slide[data-batch="07-08"] .sh-formula{font-size:36px;font-weight:600;margin-top:14px}
+.slide[data-batch="07-08"] .sh-note{font-size:19px;color:#A9B2BF;margin-top:12px}
+.slide[data-batch="07-08"] .not3d{text-align:center;font-size:35px;font-weight:600;color:#D7C8EC;margin-top:14px}
+.slide[data-batch="07-08"] .repel{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .repel-item{text-align:center;padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .repel-head{font-size:30px;font-weight:600}
+.slide[data-batch="07-08"] .repel-desc{font-size:20px;color:var(--muted);line-height:1.45;margin-top:10px}
+.slide[data-batch="07-08"] .domain-svg{width:250px;height:210px;margin:18px auto 0}
+.slide[data-batch="07-08"] .domain-svg line{stroke:var(--covalent);stroke-width:4;stroke-linecap:round}
+.slide[data-batch="07-08"] .domain-svg .ddash{stroke-dasharray:8 9}
+.slide[data-batch="07-08"] .domain-svg .dwedge{fill:var(--covalent);stroke:none;opacity:.9}
+.slide[data-batch="07-08"] .domain-svg circle{fill:#fff;stroke:var(--covalent);stroke-width:2.3}
+.slide[data-batch="07-08"] .domain-svg text{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:24px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.slide[data-batch="07-08"] .axe-grid{display:grid;grid-template-columns:360px 1fr;gap:82px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .axe-key{padding:28px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .axe-letter{display:grid;grid-template-columns:74px 1fr;gap:18px;align-items:start;padding:18px 0}
+.slide[data-batch="07-08"] .axe-letter .l{font-size:54px;color:var(--covalent);font-weight:600}
+.slide[data-batch="07-08"] .axe-letter .d{font-size:23px;line-height:1.45}
+.slide[data-batch="07-08"] .axe-examples{display:grid}
+.slide[data-batch="07-08"] .axe-row{display:grid;grid-template-columns:190px 1fr 180px;gap:25px;align-items:center;padding:23px 0;border-top:1px solid var(--line);font-size:26px}
+.slide[data-batch="07-08"] .axe-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .axe-row .form{font-size:40px;font-weight:600}
+.slide[data-batch="07-08"] .axe-row .out{font-size:31px;color:var(--covalent);font-weight:600;text-align:right}
+.slide[data-batch="07-08"] .shape-ref{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .shape-ref-item{text-align:center;padding:26px 5px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .shape-code{font-size:26px;color:var(--covalent);font-weight:600}
+.slide[data-batch="07-08"] .shape-name{font-size:24px;font-weight:600;margin-top:7px}
+.slide[data-batch="07-08"] .shape-th{font-size:18px;color:var(--muted);margin-top:4px}
+.slide[data-batch="07-08"] .shape-ex{font-size:18px;color:var(--muted);margin-top:10px}
+.slide[data-batch="07-08"] .shape-work{display:grid;grid-template-columns:460px 105px 460px;gap:45px;align-items:center;justify-content:center;flex:1}
+.slide[data-batch="07-08"] .sw-panel{height:370px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.slide[data-batch="07-08"] .sw-label{font-size:19px;color:var(--muted);margin-bottom:16px}
+.slide[data-batch="07-08"] .sw-arrow{font-size:55px;color:#A2A7AE;text-align:center}
+.slide[data-batch="07-08"] .shape-result{font-size:34px;color:var(--covalent);font-weight:600;margin-top:12px}
+.slide[data-batch="07-08"] .axe-strip{font-size:25px;line-height:1.45;text-align:center;margin-top:9px}
+.slide[data-batch="07-08"] .axe-strip strong{color:var(--covalent)}
+.slide[data-batch="07-08"] .lp-compare{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center;flex:1}
+.slide[data-batch="07-08"] .lpc{padding:30px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}
+.slide[data-batch="07-08"] .lpc-top{display:flex;justify-content:center;align-items:center;gap:34px}
+.slide[data-batch="07-08"] .lpc .formula{font-size:42px;font-weight:600}
+.slide[data-batch="07-08"] .lpc .code{font-size:28px;color:var(--covalent);font-weight:600}
+.slide[data-batch="07-08"] .lpc .name{font-size:31px;font-weight:600;margin-top:10px}
+.slide[data-batch="07-08"] .lpc .why{font-size:21px;color:var(--muted);line-height:1.5;margin-top:10px}
+.slide[data-batch="07-08"] .lpc .why strong{color:var(--ink)}
+.slide[data-batch="07-08"][data-title="Lone pairs and shape"] .ruleline{position:absolute;left:82px;right:82px;bottom:74px;margin:0}
+.slide[data-batch="07-08"] .shape-practice{display:grid;align-content:center;flex:1}
+.slide[data-batch="07-08"] .sp-row{display:grid;grid-template-columns:180px 260px 1fr;gap:35px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.slide[data-batch="07-08"] .sp-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="07-08"] .sp-f{font-size:38px;font-weight:600}
+.slide[data-batch="07-08"] .sp-think{font-size:23px;color:var(--muted)}
+.slide[data-batch="07-08"] .sp-a{font-size:25px;color:var(--covalent);font-weight:600}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide dark active" data-batch="01-02" data-title="Hook"><div class="kicker">CHEM01 · คาบ 1</div><div class="hook-grid"><div><div class="display">ทำไมสาร<br>จึงมีสมบัติต่างกัน?</div><div class="hook-accent"></div><div class="hook-question">เกลือ น้ำ และทองแดงล้วนประกอบด้วยอะตอม — สิ่งที่ต่างคือ <strong>อะตอมยึดกันแบบไหน</strong></div></div><div class="objects"><div class="object"><b>เกลือ</b><span>แข็ง · เปราะ</span></div><div class="object"><b>น้ำ</b><span>ของเหลว</span></div><div class="object"><b>ทองแดง</b><span>นำไฟฟ้า</span></div></div></div><div class="footer"><span>คำถามนำ — ยังไม่ต้องตอบถูก</span><span>01</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Target"><div class="kicker">เป้าหมาย · <strong>คาบ 1</strong></div><div class="title">จบคาบนี้ เราต้องทำได้ <strong>2 อย่าง</strong></div><div class="target-wrap"><div class="target-row"><div class="target-n">01</div><div class="target-text">ดูตารางธาตุ แล้วบอกว่าเป็น <strong>โลหะ / อโลหะ</strong></div></div><div class="target-row"><div class="target-n">02</div><div class="target-text">ใช้ข้อมูลนั้นจำแนก <span class="ionic-c">ไอออนิก</span> / <span class="covalent-c">โคเวเลนต์</span> / <span class="metallic-c">โลหะ</span></div></div></div><div class="target-note">วันนี้ฝึก “ดูข้อมูลให้เป็น” — ไม่ต้องจำตารางธาตุ</div><div class="footer"><span>ชีท หน้า 1–3</span><span>02</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Diagnostic"><div class="kicker">ลองดูก่อน · <strong>ไม่คิดคะแนน</strong></div><div class="meta"><span>ดูตารางได้</span><span>ชีท หน้า 1</span></div><div class="title">หา symbol ให้เจอ — <strong>ยังไม่ต้องรู้คำตอบทั้งหมด</strong></div><div class="diag-layout"><div class="mini-pt"><div class="el n" style="grid-column:1;grid-row:1">H</div><div class="el n" style="grid-column:18;grid-row:1">He</div><div class="el m" style="grid-column:1;grid-row:2">Li</div><div class="el m" style="grid-column:2;grid-row:2">Be</div><div class="el mt" style="grid-column:13;grid-row:2">B</div><div class="el n" style="grid-column:14;grid-row:2">C</div><div class="el n" style="grid-column:15;grid-row:2">N</div><div class="el n" style="grid-column:16;grid-row:2">O</div><div class="el n" style="grid-column:17;grid-row:2">F</div><div class="el n" style="grid-column:18;grid-row:2">Ne</div><div class="el m" style="grid-column:1;grid-row:3">Na</div><div class="el m" style="grid-column:2;grid-row:3">Mg</div><div class="el m" style="grid-column:13;grid-row:3">Al</div><div class="el mt" style="grid-column:14;grid-row:3">Si</div><div class="el n" style="grid-column:15;grid-row:3">P</div><div class="el n" style="grid-column:16;grid-row:3">S</div><div class="el n" style="grid-column:17;grid-row:3">Cl</div><div class="el n" style="grid-column:18;grid-row:3">Ar</div><div class="el m" style="grid-column:1;grid-row:4">K</div><div class="el m" style="grid-column:2;grid-row:4">Ca</div><div class="el m" style="grid-column:6;grid-row:4">Cr</div><div class="el m" style="grid-column:8;grid-row:4">Fe</div><div class="el m" style="grid-column:11;grid-row:4">Cu</div><div class="el m" style="grid-column:12;grid-row:4">Zn</div><div class="el mt" style="grid-column:14;grid-row:4">Ge</div><div class="el mt" style="grid-column:15;grid-row:4">As</div><div class="el n" style="grid-column:17;grid-row:4">Br</div></div><div><div class="q-list"><div class="q-row"><div class="q-num">1</div><div class="q-txt">หา <strong>Na</strong> ให้เจอ</div></div><div class="q-row"><div class="q-num">2</div><div class="q-txt">หา <strong>O</strong> ให้เจอ</div></div><div class="q-row"><div class="q-num">3</div><div class="q-txt"><strong>Mg</strong> กับ <strong>Cl</strong> อยู่บริเวณเดียวกันไหม?</div></div><div class="q-row"><div class="q-num">4</div><div class="q-txt">คำว่า “โลหะ / อโลหะ” คุ้นไหม?</div></div></div><div class="diag-note">ตอบพร้อมกันได้ · ครูใช้เพื่อดูระดับห้อง</div></div></div><div class="footer"><span>หา symbol ก่อน — อย่าเดา</span><span>03</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Periodic table map"><div class="kicker">แนวคิด · <strong>ใช้ตารางธาตุเป็นแผนที่</strong></div><div class="meta"><span>ดูข้อมูลได้</span><span>ชีท หน้า 1</span></div><div class="title">ไม่ต้องจำทุกธาตุ — <strong>ดูว่าอยู่บริเวณไหน</strong></div><div class="pt-wrap"><div class="ptable"><div class="el n" style="grid-column:1;grid-row:1">H</div><div class="el n" style="grid-column:18;grid-row:1">He</div><div class="el m" style="grid-column:1;grid-row:2">Li</div><div class="el m" style="grid-column:2;grid-row:2">Be</div><div class="el mt" style="grid-column:13;grid-row:2">B</div><div class="el n" style="grid-column:14;grid-row:2">C</div><div class="el n" style="grid-column:15;grid-row:2">N</div><div class="el n" style="grid-column:16;grid-row:2">O</div><div class="el n" style="grid-column:17;grid-row:2">F</div><div class="el n" style="grid-column:18;grid-row:2">Ne</div><div class="el m" style="grid-column:1;grid-row:3">Na</div><div class="el m" style="grid-column:2;grid-row:3">Mg</div><div class="el m" style="grid-column:13;grid-row:3">Al</div><div class="el mt" style="grid-column:14;grid-row:3">Si</div><div class="el n" style="grid-column:15;grid-row:3">P</div><div class="el n" style="grid-column:16;grid-row:3">S</div><div class="el n" style="grid-column:17;grid-row:3">Cl</div><div class="el n" style="grid-column:18;grid-row:3">Ar</div><div class="el m" style="grid-column:1;grid-row:4">K</div><div class="el m" style="grid-column:2;grid-row:4">Ca</div><div class="el m" style="grid-column:3;grid-row:4">Sc</div><div class="el m" style="grid-column:4;grid-row:4">Ti</div><div class="el m" style="grid-column:5;grid-row:4">V</div><div class="el m" style="grid-column:6;grid-row:4">Cr</div><div class="el m" style="grid-column:7;grid-row:4">Mn</div><div class="el m" style="grid-column:8;grid-row:4">Fe</div><div class="el m" style="grid-column:9;grid-row:4">Co</div><div class="el m" style="grid-column:10;grid-row:4">Ni</div><div class="el m" style="grid-column:11;grid-row:4">Cu</div><div class="el m" style="grid-column:12;grid-row:4">Zn</div><div class="el m" style="grid-column:13;grid-row:4">Ga</div><div class="el mt" style="grid-column:14;grid-row:4">Ge</div><div class="el mt" style="grid-column:15;grid-row:4">As</div><div class="el n" style="grid-column:16;grid-row:4">Se</div><div class="el n" style="grid-column:17;grid-row:4">Br</div><div class="el n" style="grid-column:18;grid-row:4">Kr</div></div><div class="legend"><div class="legend-row" style="--c:var(--elem-metal)"><i></i><div><b>โลหะ</b><p>ซ้ายและกลางเป็นส่วนใหญ่</p></div></div><div class="legend-row" style="--c:var(--elem-non)"><i></i><div><b>อโลหะ</b><p>ขวาเป็นส่วนใหญ่ · H เป็นอโลหะ</p></div></div><div class="legend-row" style="--c:var(--elem-met)"><i></i><div><b>กึ่งโลหะ</b><p>แนวขั้นบันได — รู้ตำแหน่งไว้ก่อน</p></div></div></div></div><div class="footer"><span>หา → ดูบริเวณ → ค่อยตัดสิน</span><span>04</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Metal or nonmetal practice"><div class="kicker">ทำด้วยกัน · <strong>ดูตารางทุกครั้งได้</strong></div><div class="meta"><span>ชีท หน้า 1</span></div><div class="title">ธาตุนี้เป็น <strong>โลหะ หรือ อโลหะ?</strong></div><div class="symbol-grid"><div class="symbol-item"><div class="symbol">Na</div><div class="symbol-line"></div><div class="symbol-answer m" data-reveal="1">โลหะ</div></div><div class="symbol-item"><div class="symbol">Mg</div><div class="symbol-line"></div><div class="symbol-answer m" data-reveal="2">โลหะ</div></div><div class="symbol-item"><div class="symbol">Al</div><div class="symbol-line"></div><div class="symbol-answer m" data-reveal="3">โลหะ</div></div><div class="symbol-item"><div class="symbol">C</div><div class="symbol-line"></div><div class="symbol-answer n" data-reveal="4">อโลหะ</div></div><div class="symbol-item"><div class="symbol">N</div><div class="symbol-line"></div><div class="symbol-answer n" data-reveal="5">อโลหะ</div></div><div class="symbol-item"><div class="symbol">O</div><div class="symbol-line"></div><div class="symbol-answer n" data-reveal="6">อโลหะ</div></div><div class="symbol-item"><div class="symbol">Cl</div><div class="symbol-line"></div><div class="symbol-answer n" data-reveal="7">อโลหะ</div></div></div><div class="footer"><span>ตอบจากตำแหน่ง ไม่ใช่จากการเดา</span><span>05</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Behavior compare"><div class="kicker">แนวคิด · <strong>พฤติกรรมโดยทั่วไป</strong></div><div class="meta"><span>ชีท หน้า 1–2</span></div><div class="title">ก่อนดูพันธะ — รู้เพียงว่า <strong>e<sup>−</sup> เกี่ยวข้องต่างกัน</strong></div><div class="compare"><div class="compare-col metal-col"><div class="compare-label">โลหะ</div><div class="compare-main" data-reveal="1">มัก <strong>เสีย <span class="electron">e<sup>−</sup></span></strong> ได้ง่ายกว่า</div><div class="compare-foot">รายละเอียดการเสีย e<sup>−</sup> จะเห็นชัดในคาบ 2</div></div><div class="compare-col non-col"><div class="compare-label">อโลหะ</div><div class="compare-main" data-reveal="2">มัก <strong>รับ <span class="electron">e<sup>−</sup></span></strong> หรือ <strong>ใช้ร่วมกัน</strong></div><div class="compare-foot">วันนี้ยังไม่ต้องท่องนิยาม IE / EN</div></div></div><div class="footer"><span>เอาแนวคิดก่อน — รายละเอียดค่อยต่อยอด</span><span>06</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Bond rules"><div class="kicker">แนวคิด · <strong>กฎใช้งาน 3 แบบ</strong></div><div class="meta"><span>ชีท หน้า 2</span></div><div class="title">เริ่มจากชนิดของธาตุ แล้วค่อยบอก <strong>ชนิดพันธะ</strong></div><div class="rules"><div class="rule-row ionic"><div class="pair">โลหะ + อโลหะ</div><div class="arrow">→</div><div class="result" data-reveal="1"><strong>ไอออนิก</strong><span>เช่น NaCl</span></div></div><div class="rule-row covalent"><div class="pair">อโลหะ + อโลหะ</div><div class="arrow">→</div><div class="result" data-reveal="2"><strong>โคเวเลนต์</strong><span>เช่น CO<sub>2</sub></span></div></div><div class="rule-row metallic"><div class="pair">อะตอมโลหะในโลหะ</div><div class="arrow">→</div><div class="result" data-reveal="3"><strong>โลหะ</strong><span>เช่น Cu(s)</span></div></div></div><div class="footer"><span>ตอบเหตุผลก่อน reveal</span><span>07</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="We do classify"><div class="kicker">ทำด้วยกัน · <strong>พูดเหตุผลทุกข้อ</strong></div><div class="meta"><span>ดูตารางได้</span></div><div class="title">ธาตุอะไร → ชนิดอะไร → <strong>พันธะอะไร</strong></div><div class="worked"><div class="case i"><div class="formula">NaCl</div><div class="logic">Na <b>โลหะ</b> + Cl <b>อโลหะ</b><div class="bond" data-reveal="1">ไอออนิก</div></div></div><div class="case i"><div class="formula">MgO</div><div class="logic">Mg <b>โลหะ</b> + O <b>อโลหะ</b><div class="bond" data-reveal="2">ไอออนิก</div></div></div><div class="case c"><div class="formula">CO<sub>2</sub></div><div class="logic">C <b>อโลหะ</b> + O <b>อโลหะ</b><div class="bond" data-reveal="3">โคเวเลนต์</div></div></div><div class="case c"><div class="formula">H<sub>2</sub>O</div><div class="logic">H <b>อโลหะ</b> + O <b>อโลหะ</b><div class="bond" data-reveal="4">โคเวเลนต์</div></div></div><div class="case m"><div class="formula">Cu</div><div class="logic">ธาตุ <b>โลหะล้วน</b><div class="bond" data-reveal="5">โลหะ</div></div></div><div class="case c"><div class="formula">O<sub>2</sub></div><div class="logic">O <b>อโลหะ</b> + O <b>อโลหะ</b><div class="bond" data-reveal="6">โคเวเลนต์</div></div></div></div><div class="footer"><span>อย่าเริ่มจากจำชื่อสาร</span><span>08</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="You do classify"><div class="kicker">ลองทำเอง · <strong>6 นาที</strong></div><div class="meta"><span>ดูตารางได้</span><span>ชีท หน้า 3</span></div><div class="title">ดูชนิดธาตุ แล้วเขียน <strong>I / C / M</strong></div><div class="legend-mini"><span style="--c:var(--ionic)"><i class="dot"></i><b>I</b> ไอออนิก</span><span style="--c:var(--covalent)"><i class="dot"></i><b>C</b> โคเวเลนต์</span><span style="--c:var(--metallic)"><i class="dot"></i><b>M</b> โลหะ</span></div><div class="practice"><div class="pitem"><div class="pformula">N<sub>2</sub></div><div class="answer-line"></div><div class="panswer c" data-reveal="1">C · อโลหะ + อโลหะ</div></div><div class="pitem"><div class="pformula">Cu</div><div class="answer-line"></div><div class="panswer m" data-reveal="1">M · โลหะล้วน</div></div><div class="pitem"><div class="pformula">BaCl<sub>2</sub></div><div class="answer-line"></div><div class="panswer i" data-reveal="1">I · โลหะ + อโลหะ</div></div><div class="pitem"><div class="pformula">Cr</div><div class="answer-line"></div><div class="panswer m" data-reveal="1">M · โลหะล้วน</div></div><div class="pitem"><div class="pformula">Fe</div><div class="answer-line"></div><div class="panswer m" data-reveal="1">M · โลหะล้วน</div></div><div class="pitem"><div class="pformula">AlCl<sub>3</sub></div><div class="answer-line"></div><div class="panswer i" data-reveal="1">I · โลหะ + อโลหะ</div></div><div class="pitem"><div class="pformula">LiBr</div><div class="answer-line"></div><div class="panswer i" data-reveal="1">I · โลหะ + อโลหะ</div></div><div class="pitem"><div class="pformula">CHCl<sub>3</sub></div><div class="answer-line"></div><div class="panswer c" data-reveal="1">C · อโลหะ + อโลหะ</div></div></div><div class="footer"><span>ทำให้ครบก่อน → reveal พร้อมกัน</span><span>09</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Exit period 1"><div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div><div class="meta"><span>ดูตารางได้</span></div><div class="title">ตอบสั้น ๆ <strong>3 ข้อ</strong></div><div class="exit-list"><div class="exit-row"><div class="exit-qn">1</div><div class="exit-q">Ca เป็นโลหะหรืออโลหะ?</div><div class="exit-a neutral" data-reveal="1">โลหะ</div></div><div class="exit-row"><div class="exit-qn">2</div><div class="exit-q">CaF<sub>2</sub> เป็นพันธะชนิดใด?</div><div class="exit-a i" data-reveal="2">ไอออนิก · โลหะ + อโลหะ</div></div><div class="exit-row"><div class="exit-qn">3</div><div class="exit-q">CO<sub>2</sub> เป็นพันธะชนิดใด? เพราะอะไร?</div><div class="exit-a c" data-reveal="3">โคเวเลนต์ · อโลหะ + อโลหะ</div></div></div><div class="footer"><span>ตอบก่อน → ค่อยเฉลย</span><span>10</span></div></section>
+
+<section class="slide dark" data-batch="01-02" data-title="Recall period 2"><div class="kicker">CHEM01 · คาบ 2 · <strong>Recall</strong></div><div class="title" style="color:#F7F6F2">ลองตอบจากความจำ <strong>30 วินาที</strong> แล้วเปิดดูได้</div><div class="recall-grid"><div class="recall-item"><div class="recall-formula">NaCl</div><div class="recall-answer i" data-reveal="1">I · ไอออนิก</div></div><div class="recall-item"><div class="recall-formula">CO<sub>2</sub></div><div class="recall-answer c" data-reveal="2">C · โคเวเลนต์</div></div><div class="recall-item"><div class="recall-formula">MgO</div><div class="recall-answer i" data-reveal="3">I · ไอออนิก</div></div><div class="recall-item"><div class="recall-formula">Cu</div><div class="recall-answer m" data-reveal="4">M · โลหะ</div></div></div><div class="footer"><span>ถ้าติด → ย้อนกฎ 3 แบบ</span><span>11</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Charge hook"><div class="kicker">คำถามนำ · <strong>เข้าใจ + / − ก่อนเขียนสูตร</strong></div><div class="title">อะตอมเป็นกลาง แล้ว <strong>เครื่องหมายประจุมาจากไหน?</strong></div><div class="charge-hook"><div class="charge-question"><div class="charge-form chem">Na <span class="muted">→</span> <span class="pos">Na<sup>+</sup></span></div><div class="charge-q">Na ต้อง <strong>เสียหรือรับ e<sup>−</sup>?</strong></div></div><div class="charge-question"><div class="charge-form chem">Cl <span class="muted">→</span> <span class="neg">Cl<sup>−</sup></span></div><div class="charge-q">Cl ต้อง <strong>เสียหรือรับ e<sup>−</sup>?</strong></div></div></div><div class="footer"><span>วันนี้จะตอบสองคำถามนี้</span><span>12</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Where charge comes from"><div class="kicker">แนวคิด · <strong>เปลี่ยน electron ไม่เปลี่ยน proton</strong></div><div class="title">อะตอมเป็นกลางเมื่อ <strong>ประจุบวกและลบสมดุลกัน</strong></div><div class="balance-layout"><div class="balance-zero">ประจุรวม<br><strong>= 0</strong><small>ภาพนี้เป็นแนวคิดเรื่อง “สมดุลประจุ” — ไม่ใช่การนับ proton/electron จริงของธาตุใดธาตุหนึ่ง</small></div><div class="particle-list"><div class="particle"><b class="pplus">proton (+)</b><span>อยู่ในนิวเคลียส · <strong>ไม่เปลี่ยน</strong> ในการเกิดไอออนที่เรียนวันนี้</span></div><div class="particle"><b class="eminus">electron (−)</b><span>ย้ายเข้า / ออกได้ · จำนวนที่เปลี่ยนทำให้เกิด <strong>ประจุสุทธิ</strong></span></div></div></div><div class="footer"><span>โฟกัสที่ e⁻</span><span>13</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Cation"><div class="kicker">ตัวอย่างโลหะ · <strong>Na เสีย e<sup>−</sup> 1 ตัว</strong></div><div class="meta"><span>ชีท หน้า 4</span></div><div class="title">Na เสีย e<sup>−</sup> 1 ตัว — <strong>ประจุจะเป็นอะไร?</strong></div><div class="process-wrap"><div class="process-question" style="margin-top:0;margin-bottom:36px">ลองตอบก่อน: Na จะเป็น <span class="pos">Na<sup>+</sup></span> หรือ <span class="neg">Na<sup>−</sup></span>?</div><div class="equation chem" data-reveal="1">Na <span class="muted">→</span> <span class="pos">Na<sup>+</sup></span> + <span class="neg">e<sup>−</sup></span></div><div class="process-result posr" data-reveal="2">โปรตอนยังเท่าเดิม แต่ e<sup>−</sup> ลดลง 1 → Na<sup>+</sup> = ไอออนบวก · cation</div></div><div class="footer"><span>ตอบก่อน → reveal สมการ → ชื่อไอออน</span><span>14</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Anion"><div class="kicker">ตัวอย่างอโลหะ · <strong>Cl รับ e<sup>−</sup> 1 ตัว</strong></div><div class="meta"><span>ชีท หน้า 4</span></div><div class="title">Cl รับ e<sup>−</sup> 1 ตัว — <strong>ประจุจะเป็นอะไร?</strong></div><div class="process-wrap"><div class="process-question" style="margin-top:0;margin-bottom:36px">ลองตอบก่อน: Cl จะเป็น <span class="pos">Cl<sup>+</sup></span> หรือ <span class="neg">Cl<sup>−</sup></span>?</div><div class="equation chem" data-reveal="1">Cl + <span class="neg">e<sup>−</sup></span> <span class="muted">→</span> <span class="neg">Cl<sup>−</sup></span></div><div class="process-result negr" data-reveal="2">โปรตอนยังเท่าเดิม แต่ e<sup>−</sup> เพิ่มขึ้น 1 → Cl<sup>−</sup> = ไอออนลบ · anion</div><div class="mnemonic" data-reveal="3"><span><strong>เสีย e<sup>−</sup></strong> → +</span><span>│</span><span><strong>รับ e<sup>−</sup></strong> → −</span></div></div><div class="footer"><span>ตอบก่อน → reveal สมการ → สรุปคู่ Na / Cl</span><span>15</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Ionic attraction"><div class="kicker">แนวคิด · <strong>พันธะไอออนิก</strong></div><div class="title">ประจุต่างกัน <strong>ดึงดูดกัน</strong></div><div class="attract-layout"><div><div class="ion-pair"><div class="ion-ball p chem">Na<sup>+</sup></div><div class="attract-arrow">→ ←</div><div class="ion-ball n chem">Cl<sup>−</sup></div></div><div class="attract-label" data-reveal="1">แรงดึงดูดระหว่างไอออนต่างประจุ = <span class="ionic-c">ionic bond</span></div></div><div><div class="lattice"><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div><div class="l-ion">Cl<sup>−</sup></div><div class="l-ion">Na<sup>+</sup></div></div><div class="lattice-note">คู่ด้านซ้ายเป็นเพียงตัวแทน<br>ในผลึกจริงมีไอออนจำนวนมาก</div></div></div><div class="footer"><span>ลูกศรชี้เข้าหากัน = แรงดึงดูด</span><span>16</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Charge reference"><div class="kicker">เครื่องมือ · <strong>ดูหมู่ → อ่านประจุ</strong></div><div class="meta"><span>Reference · ดูได้</span><span>ชีท หน้า 5</span></div><div class="title">วันนี้ใช้เพียง <strong>5 แบบหลัก</strong></div><div class="charge-ref"><div class="charge-col cat"><div class="group-no">หมู่ 1</div><div class="group-charge">+1</div><div class="group-eg">Na<sup>+</sup>, K<sup>+</sup></div></div><div class="charge-col cat"><div class="group-no">หมู่ 2</div><div class="group-charge">+2</div><div class="group-eg">Mg<sup>2+</sup>, Ca<sup>2+</sup></div></div><div class="charge-col cat"><div class="group-no">หมู่ 13</div><div class="group-charge">+3</div><div class="group-eg">Al<sup>3+</sup></div></div><div class="charge-col an"><div class="group-no">หมู่ 16</div><div class="group-charge">−2</div><div class="group-eg">O<sup>2−</sup>, S<sup>2−</sup></div></div><div class="charge-col an"><div class="group-no">หมู่ 17</div><div class="group-charge">−1</div><div class="group-eg">F<sup>−</sup>, Cl<sup>−</sup></div></div></div><div class="footer"><span>ไม่ใช้ transition metal หลายประจุในคาบนี้</span><span>17</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Ion practice"><div class="kicker">ทำด้วยกัน · <strong>อยู่หมู่ไหน → ประจุอะไร</strong></div><div class="meta"><span>ดูตารางประจุได้</span></div><div class="title">ธาตุนี้จะเป็น <strong>ไอออนอะไร?</strong></div><div class="ion-practice"><div class="ion-item cat"><div class="ion-element">Na</div><div class="ion-why">หมู่ 1 → +1</div><div class="ion-answer" data-reveal="1">Na<sup>+</sup></div></div><div class="ion-item cat"><div class="ion-element">Mg</div><div class="ion-why">หมู่ 2 → +2</div><div class="ion-answer" data-reveal="2">Mg<sup>2+</sup></div></div><div class="ion-item cat"><div class="ion-element">Al</div><div class="ion-why">หมู่ 13 → +3</div><div class="ion-answer" data-reveal="3">Al<sup>3+</sup></div></div><div class="ion-item an"><div class="ion-element">O</div><div class="ion-why">หมู่ 16 → −2</div><div class="ion-answer" data-reveal="4">O<sup>2−</sup></div></div><div class="ion-item an"><div class="ion-element">S</div><div class="ion-why">หมู่ 16 → −2</div><div class="ion-answer" data-reveal="5">S<sup>2−</sup></div></div><div class="ion-item an"><div class="ion-element">Cl</div><div class="ion-why">หมู่ 17 → −1</div><div class="ion-answer" data-reveal="6">Cl<sup>−</sup></div></div></div><div class="footer"><span>ใช้ reference — ไม่ต้องเดา</span><span>18</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Charge neutrality"><div class="kicker">ทำด้วยกัน · <strong>ประจุรวมต้องเป็น 0</strong></div><div class="meta"><span>สะพานไปคาบ 3</span></div><div class="title">ทำไม NaCl มี 1 Cl แต่ MgCl<sub>2</sub> ต้องมี <strong>2 Cl?</strong></div><div class="neutrality"><div class="neutral-row"><div class="neutral-name">NaCl</div><div class="tiles"><div class="tile p chem">Na<sup>+</sup></div><div class="plus">+</div><div class="tile n chem">Cl<sup>−</sup></div></div><div class="sum" data-reveal="1">+1 + (−1) = <strong>0</strong><div class="formula-result chem">NaCl</div></div></div><div class="neutral-row"><div class="neutral-name">MgCl<sub>2</sub></div><div class="tiles"><div class="tile p chem">Mg<sup>2+</sup></div><div class="plus">+</div><div class="tile n chem">Cl<sup>−</sup></div><div class="plus">+</div><div class="tile n chem" data-reveal="2">Cl<sup>−</sup></div></div><div class="sum" data-reveal="3">+2 + (−1) + (−1) = <strong>0</strong><div class="formula-result chem">MgCl<sub>2</sub></div></div></div></div><div class="footer"><span>จำนวนไอออนก่อน → สูตรตามหลัง</span><span>19</span></div></section>
+
+<section class="slide" data-batch="01-02" data-title="Exit period 2"><div class="kicker">ลองทำเอง · <strong>Exit ticket</strong></div><div class="meta"><span>ดู reference ได้</span></div><div class="title">ก่อนจบคาบ — <strong>ใช้ข้อมูลตอบ 3 ข้อ</strong></div><div class="exit-list" style="flex:0 0 auto;margin-top:70px"><div class="exit-row"><div class="exit-qn">A</div><div class="exit-q">Ca จะเป็น Ca<sup>+</sup> หรือ Ca<sup>2+</sup>?</div><div class="exit-a" style="--c:var(--pos)" data-reveal="1">Ca<sup>2+</sup></div></div><div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">O จะเป็น O<sup>−</sup> หรือ O<sup>2−</sup>?</div><div class="exit-a" style="--c:var(--neg)" data-reveal="2">O<sup>2−</sup></div></div><div class="exit-row"><div class="exit-qn">C</div><div class="exit-q">Ca<sup>2+</sup> ต้องใช้ Cl<sup>−</sup> กี่ตัวให้รวมเป็น 0?</div><div class="exit-a i" data-reveal="3">2 ตัว → CaCl<sub>2</sub></div></div></div><div class="teaser" data-reveal="4">คาบหน้า: ถ้าไอออนเป็น <strong>NO<sub>3</sub><sup>−</sup> ทั้งกลุ่ม</strong> เราจะเขียนสูตรอย่างไร?</div><div class="footer"><span>ถ้า A/B ถูกแต่ C ผิด → ฝึกประจุรวม = 0 เพิ่ม</span><span>20</span></div></section>
+
+<section class="slide dark" data-batch="03-04" data-title="Recall charge"><div class="kicker">CHEM01 · คาบ 3 · <strong>Recall</strong></div><div class="meta"><span>ลองจากความจำ 30 วินาที</span><span>แล้วดู reference ได้</span></div><div class="title" style="color:#F7F6F2">ธาตุเหล่านี้มักเป็น <strong>ไอออนอะไร?</strong></div><div class="recall5"><div class="recall-card cat"><div class="sym">Na</div><div class="ans" data-reveal="1">Na<sup>+</sup> · หมู่ 1</div></div><div class="recall-card cat"><div class="sym">Mg</div><div class="ans" data-reveal="1">Mg<sup>2+</sup> · หมู่ 2</div></div><div class="recall-card cat"><div class="sym">Al</div><div class="ans" data-reveal="1">Al<sup>3+</sup> · หมู่ 13</div></div><div class="recall-card"><div class="sym">O</div><div class="ans" data-reveal="1">O<sup>2−</sup> · หมู่ 16</div></div><div class="recall-card"><div class="sym">Cl</div><div class="ans" data-reveal="1">Cl<sup>−</sup> · หมู่ 17</div></div></div><div class="footer"><span>ถ้า Mg ยังไม่ใช่ 2+ → เปิดตารางประจุก่อน</span><span>21</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Bridge"><div class="kicker">เป้าหมาย · <strong>คาบ 3</strong></div><div class="meta"><span>ชีท หน้า 5–6</span></div><div class="title">จาก “จำนวนไอออน” → <strong>สูตรเคมี</strong></div><div class="bridge"><div class="bridge-old"><div class="eq chem"><span class="pos">Mg<sup>2+</sup></span> + 2<span class="neg">Cl<sup>−</sup></span></div><p>คาบก่อนเรารู้แล้วว่า ต้องใช้ Cl<sup>−</sup> 2 ตัวจึงหักล้าง +2 ได้พอดี</p></div><div class="steps"><div class="step"><div class="n">01</div><div class="t">ทำให้ <strong>ประจุรวม = 0</strong></div></div><div class="step"><div class="n">02</div><div class="t">เขียนจำนวนเป็น <strong>อัตราส่วนอย่างต่ำ</strong></div></div></div></div><div class="footer"><span>วันนี้ไม่เน้นท่อง — เน้นตรวจประจุ</span><span>22</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Polyatomic reference"><div class="kicker">Reference · <strong>ดูได้ตลอดคาบ</strong></div><div class="meta"><span>ชีท หน้า 5–6</span></div><div class="title">บางไอออนเป็น <strong>กลุ่มอะตอมทั้งกลุ่ม</strong></div><div class="poly-layout"><div class="poly-idea">เวลาจับคู่ ให้มอง <span class="neg chem">NO<sub>3</sub><sup>−</sup></span> ทั้งกลุ่มเหมือน <span class="neg chem">Cl<sup>−</sup></span> <strong>หนึ่งไอออน</strong><small>วันนี้ใช้ 6 กลุ่มนี้เป็น reference — ไม่ต้องท่องทั้งหมด</small></div><div><div class="poly-table"><div class="poly-item posi"><div class="poly-f chem">NH<sub>4</sub><sup>+</sup></div><div class="poly-n">ammonium</div></div><div class="poly-item"><div class="poly-f chem">OH<sup>−</sup></div><div class="poly-n">hydroxide</div></div><div class="poly-item"><div class="poly-f chem">NO<sub>3</sub><sup>−</sup></div><div class="poly-n">nitrate</div></div><div class="poly-item"><div class="poly-f chem">CO<sub>3</sub><sup>2−</sup></div><div class="poly-n">carbonate</div></div><div class="poly-item"><div class="poly-f chem">SO<sub>4</sub><sup>2−</sup></div><div class="poly-n">sulfate</div></div><div class="poly-item"><div class="poly-f chem">PO<sub>4</sub><sup>3−</sup></div><div class="poly-n">phosphate</div></div></div><div class="refnote">มองสูตรในกรอบเป็น “ก้อนเดียว” ก่อนจับคู่ประจุ</div></div></div><div class="footer"><span>REFERENCE · ไม่คิดคะแนนการท่อง</span><span>23</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Simple neutrality"><div class="kicker">ทำด้วยกัน · <strong>คิดจำนวนก่อนเขียนสูตร</strong></div><div class="title">สองคู่นี้ต้องใช้ไอออน <strong>กี่ตัว?</strong></div><div class="two-cases"><div class="casebox"><div class="caseq chem"><span class="pos">Na<sup>+</sup></span> + <span class="neg">Cl<sup>−</sup></span></div><div class="tiles"><div class="tile p chem">Na<sup>+</sup></div><div class="plus">+</div><div class="tile n chem">Cl<sup>−</sup></div></div><div class="caseans" data-reveal="1">+1 + (−1) = <strong>0</strong><div class="formula chem">NaCl</div></div></div><div class="casebox"><div class="caseq chem"><span class="pos">Mg<sup>2+</sup></span> + <span class="neg">Cl<sup>−</sup></span></div><div class="tiles"><div class="tile p chem">Mg<sup>2+</sup></div><div class="plus">+</div><div class="tile n chem">Cl<sup>−</sup></div><div class="plus" data-reveal="2">+</div><div class="tile n chem" data-reveal="2">Cl<sup>−</sup></div></div><div class="caseans" data-reveal="3">+2 + (−1) + (−1) = <strong>0</strong><div class="formula chem">MgCl<sub>2</sub></div></div></div></div><div class="footer"><span>subscript = จำนวนในอัตราส่วน · ไม่ใช่ประจุ</span><span>24</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Al2O3"><div class="kicker">ทำด้วยกัน · <strong>ยังไม่ใช้วิธีไขว้</strong></div><div class="title"><span class="chem">Al<sup>3+</sup></span> กับ <span class="chem">O<sup>2−</sup></span> — ต้องใช้อย่างละ <strong>กี่ตัว?</strong></div><div class="lcm-layout"><div class="ionpair"><div class="big chem"><span class="pos">Al<sup>3+</sup></span> + <span class="neg">O<sup>2−</sup></span></div><div class="q">หา “บวก” และ “ลบ” ที่มีขนาดเท่ากัน</div></div><div><div class="calc-lines"><div class="calc" data-reveal="1">2 × (+3) = <strong>+6</strong></div><div class="calc" data-reveal="2">3 × (−2) = <strong>−6</strong></div></div><div class="final-eq chem" data-reveal="3">2Al<sup>3+</sup> + 3O<sup>2−</sup> → Al<sub>2</sub>O<sub>3</sub></div></div></div><div class="footer"><span>เข้าใจ +6 กับ −6 ก่อน shortcut</span><span>25</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Criss cross"><div class="kicker">Shortcut · <strong>ใช้หลังเข้าใจประจุรวม = 0</strong></div><div class="title">มีวิธีเขียนจำนวนให้ <strong>เร็วขึ้น</strong> ได้ไหม?</div><div class="criss-wrap"><div class="criss-q"><div class="pair chem"><span class="pos">Mg<sup>2+</sup></span> + <span class="neg">N<sup>3−</sup></span></div><p>ลองหาสูตรเองก่อน แล้วค่อยดู shortcut</p></div><div><div class="criss-steps"><div class="criss-step" data-reveal="1"><div class="n">01</div><div>ดูเฉพาะ <strong>ขนาดประจุ</strong> 2 และ 3</div></div><div class="criss-step" data-reveal="2"><div class="n">02</div><div>ไขว้จำนวน → <span class="chem"><strong>Mg<sub>3</sub>N<sub>2</sub></strong></span></div></div><div class="criss-step" data-reveal="3"><div class="n">03</div><div>ตรวจ: 3(+2) + 2(−3) = 0</div></div></div><div class="check" data-reveal="3">✓ ไขว้ “ตัวเลข” เท่านั้น — ไม่เอา + / − ลงสูตร</div></div></div><div class="footer"><span>shortcut ต้องจบด้วยการตรวจประจุ</span><span>26</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Simplify"><div class="kicker">เช็กความเข้าใจ · <strong>เลือกก่อน reveal</strong></div><div class="title"><span class="chem">Mg<sup>2+</sup> + O<sup>2−</sup></span> — สูตรใดควรเป็นคำตอบสุดท้าย?</div><div class="choice2"><div class="choice"><div class="f chem">Mg<sub>2</sub>O<sub>2</sub></div><div class="label">ได้จากการไขว้ตรง ๆ</div><div class="why" data-reveal="1" style="color:var(--bad)">ยังไม่สุดท้าย · 2:2 ลดได้</div></div><div class="choice"><div class="f chem">MgO</div><div class="label">อัตราส่วน 1:1</div><div class="why" data-reveal="2">✓ สูตร ionic ใช้อัตราส่วนอย่างต่ำ</div></div></div><div class="footer"><span>ไขว้แล้วถามต่อเสมอ: “ลดได้ไหม?”</span><span>27</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Parentheses"><div class="kicker">ทำด้วยกัน · <strong>polyatomic ion เป็นหนึ่งก้อน</strong></div><div class="meta"><span>ดู reference ได้</span></div><div class="title">ถ้าต้องใช้ไอออนทั้งกลุ่ม <strong>มากกว่า 1 กลุ่ม</strong> จะเขียนอย่างไร?</div><div class="paren-grid"><div class="paren-case"><div class="paren-pair chem"><span class="pos">Ca<sup>2+</sup></span> + <span class="neg">NO<sub>3</sub><sup>−</sup></span></div><div class="paren-q">ต้องใช้ nitrate กี่กลุ่ม?</div><div class="paren-count"><div class="groupchip chem">NO<sub>3</sub><sup>−</sup></div><div class="plus" data-reveal="1">+</div><div class="groupchip chem" data-reveal="1">NO<sub>3</sub><sup>−</sup></div></div><div class="paren-result chem" data-reveal="2">Ca(NO<sub>3</sub>)<sub>2</sub></div><div class="paren-rule" data-reveal="2">2 กลุ่ม → ใส่วงเล็บก่อน subscript 2</div></div><div class="paren-case"><div class="paren-pair chem"><span class="pos">Al<sup>3+</sup></span> + <span class="neg">OH<sup>−</sup></span></div><div class="paren-q">ต้องใช้ hydroxide กี่กลุ่ม?</div><div class="paren-count"><div class="groupchip chem">OH<sup>−</sup></div><div class="plus" data-reveal="3">+</div><div class="groupchip chem" data-reveal="3">OH<sup>−</sup></div><div class="plus" data-reveal="3">+</div><div class="groupchip chem" data-reveal="3">OH<sup>−</sup></div></div><div class="paren-result chem" data-reveal="4">Al(OH)<sub>3</sub></div><div class="paren-rule" data-reveal="4">3 กลุ่ม → วงเล็บรักษา OH ไว้ทั้งกลุ่ม</div></div></div><div class="footer"><span>ถ้ามีเพียง 1 กลุ่ม ไม่ต้องใส่วงเล็บ</span><span>28</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Practice formula"><div class="kicker">ลองทำเอง · <strong>8 นาที</strong></div><div class="meta"><span>ดูตารางประจุ + polyatomic reference ได้</span><span>ชีท หน้า 6</span></div><div class="title">เขียนสูตรให้ <strong>ประจุรวม = 0</strong></div><div class="practice6"><div class="pitem"><div class="q chem">Na<sup>+</sup> + O<sup>2−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">Na<sub>2</sub>O</div></div><div class="pitem"><div class="q chem">Al<sup>3+</sup> + Cl<sup>−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">AlCl<sub>3</sub></div></div><div class="pitem"><div class="q chem">Ca<sup>2+</sup> + N<sup>3−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">Ca<sub>3</sub>N<sub>2</sub></div></div><div class="pitem"><div class="q chem">Na<sup>+</sup> + SO<sub>4</sub><sup>2−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">Na<sub>2</sub>SO<sub>4</sub></div></div><div class="pitem"><div class="q chem">Ca<sup>2+</sup> + NO<sub>3</sub><sup>−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">Ca(NO<sub>3</sub>)<sub>2</sub></div></div><div class="pitem"><div class="q chem">Al<sup>3+</sup> + OH<sup>−</sup></div><div class="line"></div><div class="a chem" data-reveal="1">Al(OH)<sub>3</sub></div></div></div><div class="footer"><span>ทำครบก่อน → reveal พร้อมกัน</span><span>29</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Exit period 3"><div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div><div class="meta"><span>ดู reference ได้</span></div><div class="title">สามข้อ — เช็ก <strong>3 จุดเสี่ยง</strong></div><div class="exit-list"><div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">Mg<sup>2+</sup> + O<sup>2−</sup> → ?</div><div class="exit-a chem" data-reveal="1">MgO</div></div><div class="exit-row"><div class="exit-qn">B</div><div class="exit-q chem">Al<sup>3+</sup> + O<sup>2−</sup> → ?</div><div class="exit-a chem" data-reveal="2">Al<sub>2</sub>O<sub>3</sub></div></div><div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">Ca<sup>2+</sup> + NO<sub>3</sub><sup>−</sup> → ?</div><div class="exit-a chem" data-reveal="3">Ca(NO<sub>3</sub>)<sub>2</sub></div></div></div><div class="diag" data-reveal="4">A = ลดอัตราส่วน · B = 3+/2− · C = วงเล็บ polyatomic</div><div class="footer"><span>จดว่าตัวเองพลาดแบบไหน ไม่ต้องทำซ้ำทุกข้อ</span><span>30</span></div></section>
+
+<section class="slide dark" data-batch="03-04" data-title="Recall formula"><div class="kicker">CHEM01 · คาบ 4 · <strong>Recall</strong></div><div class="meta"><span>ดู reference ได้หลังลองเอง</span></div><div class="title" style="color:#F7F6F2">เขียนสูตรจากไอออน — <strong>4 ข้อ</strong></div><div class="recall4"><div class="recall-card"><div class="sym chem">Na<sup>+</sup> + S<sup>2−</sup></div><div class="ans" data-reveal="1">Na<sub>2</sub>S</div></div><div class="recall-card"><div class="sym chem">Mg<sup>2+</sup> + Cl<sup>−</sup></div><div class="ans" data-reveal="1">MgCl<sub>2</sub></div></div><div class="recall-card"><div class="sym chem">Al<sup>3+</sup> + O<sup>2−</sup></div><div class="ans" data-reveal="1">Al<sub>2</sub>O<sub>3</sub></div></div><div class="recall-card"><div class="sym chem">Ca<sup>2+</sup> + NO<sub>3</sub><sup>−</sup></div><div class="ans" data-reveal="1">Ca(NO<sub>3</sub>)<sub>2</sub></div></div></div><div class="footer"><span>สูตรยังใช้กฎเดิม: ประจุรวม = 0</span><span>31</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Target naming"><div class="kicker">เป้าหมาย · <strong>คาบ 4</strong></div><div class="meta"><span>ชีท หน้า 7–10 · 19–20</span></div><div class="title">วันนี้เชื่อม <strong>สูตร ↔ ชื่อ ↔ สมบัติ</strong></div><div class="steps" style="max-width:1050px;margin:auto 0"><div class="step"><div class="n">01</div><div class="t"><strong>สูตร → ชื่อ</strong></div></div><div class="step"><div class="n">02</div><div class="t"><strong>ชื่อ → สูตร</strong></div></div><div class="step"><div class="n">03</div><div class="t">ดูสถานะ แล้วอธิบายว่า <strong>นำไฟฟ้าหรือไม่</strong></div></div></div><div class="footer"><span>ยังเริ่มจาก cation + anion เหมือนเดิม</span><span>32</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Basic naming"><div class="kicker">ทำด้วยกัน · <strong>เรียกชื่อจากสูตร</strong></div><div class="title">สารแต่ละตัวควรเรียก <strong>ส่วนไหนก่อน?</strong></div><div class="naming3"><div class="namecase"><div class="f chem">NaCl</div><div class="prompt">ลองชี้ cation / anion ก่อน</div><div class="parts" data-reveal="1"><span class="pos">Na<sup>+</sup> ก่อน</span> → <span class="neg">Cl<sup>−</sup> ตาม</span></div><div class="ans" data-reveal="2">sodium chloride</div></div><div class="namecase"><div class="f chem">MgO</div><div class="prompt">ลองชี้ cation / anion ก่อน</div><div class="parts" data-reveal="3"><span class="pos">Mg<sup>2+</sup> ก่อน</span> → <span class="neg">O<sup>2−</sup> ตาม</span></div><div class="ans" data-reveal="4">magnesium oxide</div></div><div class="namecase"><div class="f chem">CaBr<sub>2</sub></div><div class="prompt">subscript 2 ต้องอ่าน “di” ไหม?</div><div class="parts" data-reveal="5"><span class="pos">Ca<sup>2+</sup> ก่อน</span> → <span class="neg">Br<sup>−</sup> ตาม</span></div><div class="ans" data-reveal="6">calcium bromide · ไม่ใช้ di-</div></div></div><div class="footer"><span>ionic naming: ชื่อ cation ก่อน anion</span><span>33</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Polyatomic naming"><div class="kicker">ทำด้วยกัน · <strong>ใช้ polyatomic reference ได้</strong></div><div class="meta"><span>Reference · ดูได้</span></div><div class="title">ถ้า anion เป็น <span class="chem">NO<sub>3</sub><sup>−</sup></span> ทั้งกลุ่มล่ะ?</div><div class="naming-poly"><div class="name-list"><div class="name-row"><div class="f chem">NaNO<sub>3</sub></div><div class="ans" data-reveal="1">sodium nitrate</div></div><div class="name-row"><div class="f chem">CaCO<sub>3</sub></div><div class="ans" data-reveal="2">calcium carbonate</div></div><div class="name-row"><div class="f chem">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></div><div class="ans" data-reveal="3">aluminium sulfate</div></div></div><div class="mini-ref"><h3>ดูชื่อกลุ่มได้</h3><div>NO<sub>3</sub><sup>−</sup> nitrate<br>CO<sub>3</sub><sup>2−</sup> carbonate<br>SO<sub>4</sub><sup>2−</sup> sulfate<br>OH<sup>−</sup> hydroxide<br>NH<sub>4</sub><sup>+</sup> ammonium<br>PO<sub>4</sub><sup>3−</sup> phosphate</div></div></div><div class="footer"><span>อย่าแยก N กับ O ออกจาก nitrate</span><span>34</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Roman numeral"><div class="kicker">คำถามนำ · <strong>โลหะบางตัวมีหลายประจุ</strong></div><div class="title"><span class="chem">FeCl<sub>2</sub></span> กับ <span class="chem">FeCl<sub>3</sub></span> — Fe มีประจุ <strong>เท่ากันไหม?</strong></div><div class="roman-layout"><div class="roman-card"><div class="f chem">FeCl<sub>2</sub></div><div class="q">Cl แต่ละตัว = −1 → Fe ต้องเป็นเท่าไร?</div><div class="charge chem" data-reveal="1">Fe<sup>2+</sup></div><div class="name" data-reveal="2">iron(II) chloride</div></div><div class="roman-card"><div class="f chem">FeCl<sub>3</sub></div><div class="q">Cl แต่ละตัว = −1 → Fe ต้องเป็นเท่าไร?</div><div class="charge chem" data-reveal="3">Fe<sup>3+</sup></div><div class="name" data-reveal="4">iron(III) chloride</div></div></div><div class="roman-note" data-reveal="5">Roman numeral บอก <strong>ประจุของโลหะ</strong> ในสารนั้น — ไม่ใช่จำนวนอะตอม</div><div class="footer"><span>ใช้ Fe เป็นตัวแทน — ไม่ต้องท่อง transition metal ทั้งหมด</span><span>35</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Practice naming"><div class="kicker">ลองทำเอง · <strong>8 นาที</strong></div><div class="meta"><span>ใช้ ion reference ได้</span><span>ชีท หน้า 9–10</span></div><div class="title">สลับทิศทาง <strong>สูตร ↔ ชื่อ</strong></div><div class="practice6"><div class="pitem"><div class="q chem">MgCl<sub>2</sub></div><div class="line"></div><div class="a" data-reveal="1">magnesium chloride</div></div><div class="pitem"><div class="q chem">Na<sub>2</sub>SO<sub>4</sub></div><div class="line"></div><div class="a" data-reveal="1">sodium sulfate</div></div><div class="pitem"><div class="q chem">FeCl<sub>3</sub></div><div class="line"></div><div class="a" data-reveal="1">iron(III) chloride</div></div><div class="pitem"><div class="q">calcium oxide</div><div class="line"></div><div class="a chem" data-reveal="1">CaO</div></div><div class="pitem"><div class="q">aluminium nitrate</div><div class="line"></div><div class="a chem" data-reveal="1">Al(NO<sub>3</sub>)<sub>3</sub></div></div><div class="pitem"><div class="q">iron(II) oxide</div><div class="line"></div><div class="a chem" data-reveal="1">FeO</div></div></div><div class="footer"><span>สูตรจากชื่อ → หา ion ก่อน แล้วค่อยสมดุลประจุ</span><span>36</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Brittle hook"><div class="kicker">คำถามนำ · <strong>สมบัติจากการจัดเรียงไอออน</strong></div><div class="meta"><span>ชีท หน้า 19–20</span></div><div class="title">ผลึกเกลือแข็ง — แล้วทำไมเมื่อกระแทกจึง <strong>แตกง่าย?</strong></div><div class="brittle"><div><div class="layers"><div class="layer"><div class="ball p">+</div><div class="ball n">−</div><div class="ball p">+</div><div class="ball n">−</div><div class="ball p">+</div></div><div class="layer"><div class="ball n">−</div><div class="ball p">+</div><div class="ball n">−</div><div class="ball p">+</div><div class="ball n">−</div></div><div class="layer shift" data-reveal="1"><div class="ball p">+</div><div class="ball n">−</div><div class="ball p">+</div><div class="ball n">−</div><div class="ball p">+</div></div></div></div><div class="property-q">ถ้าชั้นล่างเลื่อน → ประจุเหมือนกันบางคู่จะมาอยู่ใกล้กัน<p>คิดก่อนว่า “เหมือนประจุ” จะดึงดูดหรือผลักกัน?</p><div class="property-a" data-reveal="2">ผลักกัน → แนวผลึกแยกออก → แข็งแต่เปราะ</div></div></div><div class="footer"><span>อธิบายด้วยแรงระหว่างไอออนเท่านั้น</span><span>37</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Ionic properties"><div class="kicker">สรุปแนวคิด · <strong>โครงผลึกยึดกันแน่น</strong></div><div class="title">สมบัติหลักที่ต้องใช้ในหน่วยนี้มี <strong>3 ข้อ</strong></div><div class="property-summary"><div class="prop"><div class="icon">▦</div><div class="head">ของแข็งผลึก</div><div class="sub">ที่อุณหภูมิห้องโดยทั่วไป</div></div><div class="prop"><div class="icon">✧</div><div class="head">แข็ง แต่เปราะ</div><div class="sub">เมื่อชั้นไอออนเลื่อน อาจเกิดแรงผลัก</div></div><div class="prop"><div class="icon">↑</div><div class="head">จุดหลอมเหลวค่อนข้างสูง</div><div class="sub">ต้องใช้พลังงานมากเพื่อแยกไอออนออกจากกัน</div></div></div><div class="footer"><span>จำผ่านภาพ “ผลึก + แรงดึงดูดหลายทิศ”</span><span>38</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Conductivity"><div class="kicker">เช็กความเข้าใจ · <strong>สถานะมีผลต่อการนำไฟฟ้า</strong></div><div class="title"><span class="chem">NaCl(s)</span>, <span class="chem">NaCl(l)</span>, <span class="chem">NaCl(aq)</span> — แบบใด <strong>นำไฟฟ้า?</strong></div><div class="states"><div class="state"><div class="label chem">NaCl(s)</div><div class="particles"><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion n">−</div></div><div class="q" data-reveal="1">ไอออนถูกตรึงในผลึก</div><div class="ans noans" data-reveal="1">ไม่นำไฟฟ้า</div></div><div class="state"><div class="label chem">NaCl(l)</div><div class="particles free"><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion n">−</div><div class="miniion p">+</div></div><div class="q" data-reveal="2">หลอมเหลว → ไอออนเคลื่อนที่ได้</div><div class="ans yesans" data-reveal="2">นำไฟฟ้า</div></div><div class="state"><div class="label chem">NaCl(aq)</div><div class="particles free"><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion p">+</div><div class="miniion n">−</div><div class="miniion p">+</div><div class="miniion n">−</div></div><div class="q" data-reveal="3">ละลายน้ำ → ไอออนแยกและเคลื่อนที่ได้</div><div class="ans yesans" data-reveal="3">นำไฟฟ้า</div></div></div><div class="conduct-rule" data-reveal="4">มีประจุอย่างเดียวไม่พอ — <strong>ตัวพาประจุต้องเคลื่อนที่ได้</strong></div><div class="footer"><span>solid ≠ molten ≠ aqueous</span><span>39</span></div></section>
+
+<section class="slide" data-batch="03-04" data-title="Exit period 4"><div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div><div class="meta"><span>ใช้ reference ได้</span></div><div class="title">ปิดคาบด้วย <strong>ชื่อ + สูตร + สมบัติ</strong></div><div class="exit-list" style="flex:0 0 auto;margin-top:55px"><div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> ชื่ออะไร?</div><div class="exit-a" data-reveal="1">aluminium sulfate</div></div><div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">iron(III) oxide เขียนสูตรอะไร?</div><div class="exit-a chem" data-reveal="2">Fe<sub>2</sub>O<sub>3</sub></div></div><div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">NaCl(s) กับ NaCl(l) แบบใดนำไฟฟ้า? เพราะอะไร?</div><div class="exit-a" data-reveal="3">NaCl(l) · ไอออนเคลื่อนที่ได้</div></div></div><div class="nextbox" data-reveal="4"><strong>การบ้านเก็บ 10 คะแนน</strong> · ชีทหน้า 9–10 ทุกข้อ · ใช้ reference table ได้</div><div class="footer"><span>ไม่มีการจับเวลาในคาบ · ส่งตามกำหนดที่ครูแจ้ง</span><span>40</span></div></section>
+
+<section class="slide dark" data-batch="05-06" data-title="Covalent hook">
+ <div class="kicker">CHEM01 · คาบ 5 · <strong>Covalent bond</strong></div>
+ <div class="meta"><span>ชีท หน้า 26–28</span></div>
+ <div class="title" style="color:#F7F6F2">ดูสูตรอย่างเดียว — <strong>NaCl กับ CO<sub>2</sub></strong> เหมือนกันไหม?</div>
+ <div class="hook">
+  <div class="hookcard ion"><div class="f chem">NaCl</div><div class="atoms">Na = metal · Cl = nonmetal</div><div class="ans" data-reveal="1">ionic</div></div>
+  <div class="hookcard covc"><div class="f chem">CO<sub>2</sub></div><div class="atoms">C = nonmetal · O = nonmetal</div><div class="ans" data-reveal="2">covalent</div></div>
+ </div>
+ <div class="footer"><span>การบ้าน Ionic หน้า 9–10 ทำแยกนอกเวลาเรียน</span><span>41</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Ionic vs covalent">
+ <div class="kicker">แนวคิดหลัก · <strong>transfer vs share</strong></div>
+ <div class="title">ความต่างสำคัญอยู่ที่ <strong>อิเล็กตรอน</strong></div>
+ <div class="compare">
+  <div class="comparecol ion"><h2>Ionic</h2><div class="pair">metal + nonmetal</div><div class="process">e<sup>−</sup> <strong>ถ่ายโอน</strong><br>→ เกิด ion ต่างประจุ<br>→ ดึงดูดกัน</div><div class="small">สูตรบอกอัตราส่วนที่ทำให้ประจุรวมเป็นศูนย์</div></div>
+  <div class="comparecol covc"><h2>Covalent</h2><div class="pair">nonmetal + nonmetal</div><div class="process">e<sup>−</sup> <strong>ใช้ร่วมกัน</strong><br>→ อะตอมเชื่อมกัน<br>→ เป็น molecule</div><div class="small">สูตรบอกจำนวนอะตอมในโมเลกุล → จึงใช้ prefix ช่วยตั้งชื่อ</div></div>
+ </div>
+ <div class="footer"><span>วันนี้เข้าใจ “แชร์” และตั้งชื่อ — Lewis อย่างเป็นระบบอยู่คาบ 6</span><span>42</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Sharing electrons">
+ <div class="kicker">ภาพง่ายก่อน Lewis · <strong>เส้น = คู่ e− ที่แชร์</strong></div>
+ <div class="title">nonmetal จับกันได้ เพราะ <strong>ใช้ e<sup>−</sup> ร่วมกัน</strong></div>
+ <div class="sharegrid">
+  <div class="molecule"><div class="formula chem">H<sub>2</sub></div><div class="bondpic"><div class="atom">H</div><div class="bond"></div><div class="atom">H</div></div><div class="caption">H—H</div></div>
+  <div class="molecule"><div class="formula chem">Cl<sub>2</sub></div><div class="bondpic"><div class="atom">Cl</div><div class="bond"></div><div class="atom">Cl</div></div><div class="caption">Cl—Cl</div></div>
+  <div class="molecule"><div class="formula chem">HCl</div><div class="bondpic"><div class="atom">H</div><div class="bond"></div><div class="atom">Cl</div></div><div class="caption">H—Cl</div></div>
+  <div class="molecule"><div class="formula chem">H<sub>2</sub>O</div><div class="bondpic"><div class="atom">H</div><div class="bond" style="width:36px"></div><div class="atom">O</div><div class="bond" style="width:36px"></div><div class="atom">H</div></div><div class="caption">H—O—H</div></div>
+ </div>
+ <div class="footer"><span>คาบนี้ยังไม่ต้องเติม lone pairs อย่างเป็นระบบ</span><span>43</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Prefix reference">
+ <div class="kicker">เครื่องมือการตั้งชื่อ · <strong>prefix บอกจำนวน</strong></div>
+ <div class="meta"><span>ชีท หน้า 27</span><span>ใช้เป็น reference ได้</span></div>
+ <div class="title">เห็นเลขใต้สูตร → เลือก <strong>prefix</strong></div>
+ <div class="prefixgrid">
+  <div class="prefix core"><div class="n">1</div><div class="p">mono</div><div class="th">มอนอ</div></div>
+  <div class="prefix core"><div class="n">2</div><div class="p">di</div><div class="th">ได</div></div>
+  <div class="prefix core"><div class="n">3</div><div class="p">tri</div><div class="th">ไตร</div></div>
+  <div class="prefix core"><div class="n">4</div><div class="p">tetra</div><div class="th">เตตระ</div></div>
+  <div class="prefix core"><div class="n">5</div><div class="p">penta</div><div class="th">เพนตะ</div></div>
+  <div class="prefix"><div class="n">6</div><div class="p">hexa</div><div class="th">เฮกซะ</div></div>
+  <div class="prefix"><div class="n">7</div><div class="p">hepta</div><div class="th">เฮปตะ</div></div>
+  <div class="prefix"><div class="n">8</div><div class="p">octa</div><div class="th">ออกตะ</div></div>
+  <div class="prefix"><div class="n">9</div><div class="p">nona</div><div class="th">โนนะ</div></div>
+  <div class="prefix"><div class="n">10</div><div class="p">deca</div><div class="th">เดคะ</div></div>
+ </div>
+ <div class="prefixnote">1–5 คือชุดที่ใช้บ่อยวันนี้ · ที่เหลือเปิดดูได้ ไม่ต้องท่อง</div>
+ <div class="footer"><span>prefix ≠ ประจุ — prefix บอก “จำนวนอะตอม”</span><span>44</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="First element naming">
+ <div class="kicker">กฎที่ 1 · <strong>ธาตุตัวแรก</strong></div>
+ <div class="title">ตัวแรกมี 1 อะตอม → โดยทั่วไป <strong>ไม่อ่าน mono</strong></div>
+ <div class="name-rule">
+  <div class="bigformula chem">CO</div>
+  <div class="steps">
+   <div class="namerow"><div class="n">1</div><div>C มี 1 อะตอม → ใช้ชื่อ <strong>carbon</strong> ตรง ๆ</div></div>
+   <div class="namerow" data-reveal="1"><div class="n">×</div><div>ไม่เรียก <span style="text-decoration:line-through;color:var(--muted)">monocarbon</span> ในตำแหน่งแรก</div></div>
+   <div class="nameanswer" data-reveal="2">carbon …</div>
+  </div>
+ </div>
+ <div class="footer"><span>ถ้าตัวแรกมี 2, 3, 4… จึงใช้ di, tri, tetra…</span><span>45</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Second element naming">
+ <div class="kicker">กฎที่ 2 · <strong>ธาตุตัวที่สอง</strong></div>
+ <div class="title">ตัวที่สองใช้ <strong>prefix + ชื่อท้าย -ide</strong></div>
+ <div class="name-rule">
+  <div class="bigformula chem">CO<sub>2</sub></div>
+  <div class="steps">
+   <div class="namerow"><div class="n">1</div><div>C = 1 → <strong>carbon</strong></div></div>
+   <div class="namerow" data-reveal="1"><div class="n">2</div><div>O = 2 → <strong>di + oxide</strong></div></div>
+   <div class="namerow" data-reveal="2"><div class="n">✓</div><div class="nameanswer" style="margin:0">carbon dioxide</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>มองเลขใต้สูตรทีละธาตุ แล้วแปลงเป็น prefix</span><span>46</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Formula to name">
+ <div class="kicker">Worked example · <strong>สูตร → ชื่อ</strong></div>
+ <div class="title">อ่านจำนวนอะตอม <strong>ทีละฝั่ง</strong></div>
+ <div class="worked">
+  <div class="big chem">N<sub>2</sub>O<sub>3</sub></div>
+  <div class="workedsteps">
+   <div class="workedrow" data-reveal="1"><div class="n">1</div><div>N = 2 → <strong>di + nitrogen</strong></div></div>
+   <div class="workedrow" data-reveal="2"><div class="n">2</div><div>O = 3 → <strong>tri + oxide</strong></div></div>
+   <div class="workedrow" data-reveal="3"><div class="n">✓</div><div><strong>dinitrogen trioxide</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>นี่คือการตั้งชื่อจากจำนวน ไม่ใช่การคำนวณประจุ</span><span>47</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Name to formula">
+ <div class="kicker">Worked example · <strong>ชื่อ → สูตร</strong></div>
+ <div class="title">prefix ทำหน้าที่เป็น <strong>เลขใต้สูตร</strong></div>
+ <div class="worked">
+  <div class="big" style="font-size:54px;line-height:1.2">phosphorus<br>trichloride</div>
+  <div class="workedsteps">
+   <div class="workedrow" data-reveal="1"><div class="n">1</div><div>phosphorus ไม่มี prefix → P = <strong>1</strong></div></div>
+   <div class="workedrow" data-reveal="2"><div class="n">2</div><div><strong>tri</strong>chloride → Cl = <strong>3</strong></div></div>
+   <div class="workedrow" data-reveal="3"><div class="n">✓</div><div class="chem"><strong>PCl<sub>3</sub></strong></div></div>
+  </div>
+ </div>
+ <div class="ruleline">Covalent: อ่านจำนวนจาก prefix · <strong>ไม่ criss-cross ประจุแบบ ionic</strong></div>
+ <div class="footer"><span>ก่อนใช้กฎ ต้องรู้ก่อนว่าสารนั้นเป็น ionic หรือ covalent</span><span>48</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Guided covalent naming">
+ <div class="kicker">ทำพร้อมกัน · <strong>คิดก่อน reveal</strong></div>
+ <div class="meta"><span>จากนั้นทำข้อคัดเลือกชีท หน้า 28</span></div>
+ <div class="title">สลับ <strong>สูตร ↔ ชื่อ</strong></div>
+ <div class="practice4">
+  <div class="pitem"><div class="q chem">SO<sub>3</sub></div><div class="prompt">ชื่อ?</div><div class="ans" data-reveal="1">sulfur trioxide</div></div>
+  <div class="pitem"><div class="q chem">CCl<sub>4</sub></div><div class="prompt">ชื่อ?</div><div class="ans" data-reveal="1">carbon tetrachloride</div></div>
+  <div class="pitem"><div class="q">carbon disulfide</div><div class="prompt">สูตร?</div><div class="ans chem" data-reveal="2">CS<sub>2</sub></div></div>
+  <div class="pitem"><div class="q">sulfur hexafluoride</div><div class="prompt">สูตร?</div><div class="ans chem" data-reveal="2">SF<sub>6</sub></div></div>
+ </div>
+ <div class="footer"><span>ชีทหน้า 28: เลือกทำเฉพาะ binary covalent ที่ครูกำหนด</span><span>49</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Exit covalent naming">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">แยกให้ได้ว่าเมื่อไรใช้ <strong>charge</strong> และเมื่อไรใช้ <strong>prefix</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">CO<sub>2</sub> ชื่ออะไร?</div><div class="exit-a" data-reveal="1">carbon dioxide</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">dinitrogen trisulfide เขียนสูตรอะไร?</div><div class="exit-a chem" data-reveal="2">N<sub>2</sub>S<sub>3</sub></div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">NaCl กับ CO<sub>2</sub> — ข้อใดใช้ prefix? เพราะอะไร?</div><div class="exit-a" data-reveal="3">CO<sub>2</sub> · nonmetal + nonmetal → covalent</div></div>
+ </div>
+ <div class="stylebar" data-reveal="4"><div class="stylecell ion"><strong>Ionic</strong> → ion / charge / Roman numeral เมื่อจำเป็น</div><div class="stylecell covc"><strong>Covalent</strong> → prefix / จำนวนอะตอม</div></div>
+ <div class="footer"><span>คาบ 6: วาดการแชร์ e− อย่างเป็นระบบด้วย Lewis structure</span><span>50</span></div>
+</section>
+
+<section class="slide dark" data-batch="05-06" data-title="Lewis hook">
+ <div class="kicker">CHEM01 · คาบ 6 · <strong>Lewis Structure I</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–30</span></div>
+ <div class="title" style="color:#F7F6F2">สูตรบอกว่า “มีใครบ้าง” — Lewis บอกว่า <strong>e<sup>−</sup> อยู่ตรงไหน</strong></div>
+ <div class="lewis-hook">
+  <div class="lh-card"><div class="lab">สูตรโมเลกุล</div><div class="big chem">CH<sub>4</sub></div><div class="small">รู้ว่า C 1 และ H 4<br>แต่ยังไม่เห็นการเชื่อมกัน</div></div>
+  <div class="lh-arrow">→</div>
+  <div class="lh-card"><div class="lab">ภาพ Lewis อย่างง่าย</div><svg class="lewis-svg lewis-svg-small" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of methane"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg><div class="small" style="margin-top:4px">เส้นแต่ละเส้น = คู่ e<sup>−</sup> ที่แชร์</div></div>
+ </div>
+ <div class="footer"><span>วันนี้ใช้ pattern ช่วยวาดก่อน — ยังไม่เน้น electron counting ที่ซับซ้อน</span><span>51</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Bond pattern reference">
+ <div class="kicker">Reference · <strong>จำเป็นแค่ 4 pattern</strong></div>
+ <div class="meta"><span>ดูได้ตลอดคาบ</span></div>
+ <div class="title">เริ่มจากถามว่าอะตอมนี้มักสร้าง <strong>กี่พันธะ?</strong></div>
+ <div class="pattern4">
+  <div class="pattern"><div class="sym">H</div><div class="bondn">1 พันธะ</div><div class="hint">hydrogen</div></div>
+  <div class="pattern"><div class="sym" style="font-size:52px">F Cl Br I</div><div class="bondn">1 พันธะ</div><div class="hint">halogen · lone pair 3 คู่</div></div>
+  <div class="pattern"><div class="sym">O</div><div class="bondn">2 พันธะ</div><div class="hint">lone pair 2 คู่</div></div>
+  <div class="pattern"><div class="sym">N</div><div class="bondn">3 พันธะ</div><div class="hint">lone pair 1 คู่</div></div>
+  <div class="pattern"><div class="sym">C</div><div class="bondn">4 พันธะ</div><div class="hint">โดยทั่วไป 0 lone pair</div></div>
+ </div>
+ <div class="footer"><span>H/halogen = 1 · O = 2 · N = 3 · C = 4</span><span>52</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Line and lone pair">
+ <div class="kicker">อ่านสัญลักษณ์ · <strong>เส้นกับจุดทำหน้าที่ต่างกัน</strong></div>
+ <div class="title">Lewis ใช้เพียง <strong>2 เครื่องหมายหลัก</strong></div>
+ <div class="meaning">
+  <div class="meaning-card"><div class="icon">H—Cl</div><div class="head">เส้น 1 เส้น</div><div class="sub">แทน e<sup>−</sup> 1 คู่ที่อะตอม <strong>ใช้ร่วมกัน</strong><br>เรียกว่า bonding pair</div></div>
+  <div class="meaning-card"><div class="icon"><div class="pair-demo" aria-label="electron pair"></div></div><div class="head">จุด 2 จุด</div><div class="sub">แทน e<sup>−</sup> 1 คู่ที่ <strong>ไม่ได้สร้างพันธะ</strong><br>เรียกว่า lone pair</div></div>
+ </div>
+ <div class="footer"><span>คาบนี้ทุกพันธะยังเป็นพันธะเดี่ยว</span><span>53</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Lewis HF">
+ <div class="kicker">Worked example · <strong>HF</strong></div>
+ <div class="title">halogen ต้องการ <strong>1 พันธะ</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of hydrogen fluoride"><line class="ls-bond" x1="115" y1="160" x2="245" y2="160" data-reveal="1"/><text class="ls-atom ls-h" x="80" y="160">H</text><text class="ls-atom" x="280" y="160">F</text><g data-reveal="2"><circle class="ls-dot" cx="272" cy="108" r="4"/><circle class="ls-dot" cx="288" cy="108" r="4"/><circle class="ls-dot" cx="332" cy="152" r="4"/><circle class="ls-dot" cx="332" cy="168" r="4"/><circle class="ls-dot" cx="272" cy="212" r="4"/><circle class="ls-dot" cx="288" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>H สร้าง <strong>1 พันธะ</strong> · F ก็สร้าง <strong>1 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>จึงเชื่อมเป็น <strong>H—F</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>F เหลือ e<sup>−</sup> เป็น <strong>lone pair 3 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>H ไม่มี lone pair ในตัวอย่างพื้นฐานนี้</span><span>54</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Lewis H2O">
+ <div class="kicker">Worked example · <strong>H<sub>2</sub>O</strong></div>
+ <div class="title">O สร้าง <strong>2 พันธะ</strong> — จึงต่อกับ H ได้ 2 ตัว</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of water"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">O</text><text class="ls-atom ls-h" x="305" y="160">H</text><g data-reveal="2"><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/><circle class="ls-dot" cx="172" cy="212" r="4"/><circle class="ls-dot" cx="188" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>เลือก O เป็นอะตอมกลาง · pattern ของ O = <strong>2 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>เชื่อม H สองด้าน → <strong>H—O—H</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>O เหลือ <strong>lone pair 2 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>pattern นี้จะมีผลต่อ “รูปร่าง” ในคาบ 8</span><span>55</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Lewis NH3">
+ <div class="kicker">Worked example · <strong>NH<sub>3</sub></strong></div>
+ <div class="title">N สร้าง <strong>3 พันธะ</strong> — แล้ว e<sup>−</sup> ที่เหลืออยู่ตรงไหน?</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of ammonia"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">N</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="285">H</text><g data-reveal="2"><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>N เป็นอะตอมกลาง · pattern = <strong>3 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>ต่อ H ครบ 3 ตัวด้วยพันธะเดี่ยว</div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>N เหลือ <strong>lone pair 1 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>อย่าสับสน: lone pair ไม่ใช่พันธะกับ H</span><span>56</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Lewis CH4">
+ <div class="kicker">Worked example · <strong>CH<sub>4</sub></strong></div>
+ <div class="title">C สร้าง <strong>4 พันธะ</strong> — หลังต่อครบต้องเติมจุดอีกไหม?</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of methane"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>C เป็นอะตอมกลาง · pattern = <strong>4 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>เชื่อม H ทั้ง 4 ตัวด้วยพันธะเดี่ยว</div></div>
+   <div class="step3" data-reveal="2"><div class="n">✓</div><div>C มีพันธะครบ 4 → <strong>ไม่ต้องเติม lone pair</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>รูปบนกระดาษยังไม่ใช่รูปร่าง 3 มิติ — รูปร่างจริงเรียนคาบ 8</span><span>57</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Guided Lewis patterns">
+ <div class="kicker">ทำพร้อมกัน · <strong>ใช้ pattern ก่อน</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–30</span></div>
+ <div class="title">บอกก่อนว่าอะตอมกลางต้องมี <strong>กี่พันธะ + กี่ lone pairs</strong></div>
+ <div class="practice-lewis">
+  <div class="lpitem"><div class="formula chem">H<sub>2</sub>O</div><div class="ask">O ต้องมีอะไร?<div class="ans" data-reveal="1">2 bonds + 2 lone pairs</div></div></div>
+  <div class="lpitem"><div class="formula chem">NH<sub>3</sub></div><div class="ask">N ต้องมีอะไร?<div class="ans" data-reveal="1">3 bonds + 1 lone pair</div></div></div>
+  <div class="lpitem"><div class="formula chem">CF<sub>4</sub></div><div class="ask">C ต้องเชื่อม F กี่ตัว?<div class="ans" data-reveal="2">4 single bonds</div></div></div>
+  <div class="lpitem"><div class="formula chem">CH<sub>3</sub>Cl</div><div class="ask">C มีพันธะรวมกี่เส้น?<div class="ans" data-reveal="2">4 เส้น · 3 H + 1 Cl</div></div></div>
+ </div>
+ <div class="footer"><span>ยังไม่ต้องใช้ double bond ในคาบนี้</span><span>58</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Independent Lewis practice">
+ <div class="kicker">ลองทำเอง · <strong>วาดลงชีท</strong></div>
+ <div class="meta"><span>ใช้ pattern reference ได้</span><span>ชีท หน้า 29–30</span></div>
+ <div class="title">วาด Lewis แบบพันธะเดี่ยว <strong>4 สูตรนี้</strong></div>
+ <div class="practice4">
+  <div class="pitem"><div class="q chem">HF</div><div class="prompt">F มี lone pair กี่คู่?</div><div class="ans" data-reveal="1">3 คู่</div></div>
+  <div class="pitem"><div class="q chem">H<sub>2</sub>O</div><div class="prompt">O มี lone pair กี่คู่?</div><div class="ans" data-reveal="1">2 คู่</div></div>
+  <div class="pitem"><div class="q chem">NH<sub>3</sub></div><div class="prompt">N มี lone pair กี่คู่?</div><div class="ans" data-reveal="2">1 คู่</div></div>
+  <div class="pitem"><div class="q chem">CH<sub>4</sub></div><div class="prompt">C มี lone pair กี่คู่?</div><div class="ans" data-reveal="2">0 คู่</div></div>
+ </div>
+ <div class="footer"><span>เฉลยบนจอเช็กเฉพาะ pattern — ครูตรวจภาพวาดจากชีท</span><span>59</span></div>
+</section>
+
+<section class="slide" data-batch="05-06" data-title="Exit Lewis I">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">ถ้า pattern เดิม “ไม่พอ” เราต้องเพิ่ม <strong>จำนวนเส้นพันธะ</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q">O ใน H<sub>2</sub>O สร้างกี่พันธะ?</div><div class="exit-a" data-reveal="1">2 พันธะ</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">N ใน NH<sub>3</sub> เหลือ lone pair กี่คู่?</div><div class="exit-a" data-reveal="2">1 คู่</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">ถ้าเป็น O<sub>2</sub> — O แต่ละตัวต้องการ 2 พันธะ แต่มี O แค่ 2 ตัว จะทำอย่างไร?</div><div class="exit-a" data-reveal="3">ต้องมีมากกว่า 1 เส้นระหว่างอะตอม</div></div>
+ </div>
+ <div class="stylebar" data-reveal="4"><div class="stylecell covc"><strong>คาบ 6</strong> → single bond + lone pair</div><div class="stylecell covc"><strong>คาบ 7</strong> → double / triple bond</div></div>
+ <div class="footer"><span>สะพานไปคาบ 7: O₂, N₂, CO₂, HCN, CH₂O</span><span>60</span></div>
+</section>
+
+<section class="slide dark" data-batch="07-08" data-title="O2 hook">
+ <div class="kicker">CHEM01 · คาบ 7 · <strong>Lewis Structure II</strong></div>
+ <div class="meta"><span>ชีท หน้า 30</span></div>
+ <div class="title" style="color:#F7F6F2">O แต่ละตัวต้องการ <strong>2 พันธะ</strong> — แต่ใน O<sub>2</sub> มี O แค่ 2 ตัว</div>
+ <div class="o2-hook">
+  <div class="oh-panel"><div class="oh-label">ลองเริ่มจากพันธะเดี่ยว</div><div class="oh-formula chem">O—O</div><div class="oh-note" data-reveal="1">รอบ O แต่ละตัวนับได้เพียง <strong style="color:#F7F6F2">1 เส้น</strong><br>→ pattern ของ O ยังไม่ครบ</div></div>
+  <div class="oh-arrow" data-reveal="2">→</div>
+  <div class="oh-panel" data-reveal="2"><div class="oh-label">แชร์ e<sup>−</sup> เพิ่มอีก 1 คู่</div><div class="oh-formula chem">O=O</div><div class="oh-note">รอบ O แต่ละตัวได้ <strong style="color:#F7F6F2">2 เส้น</strong><br>→ เรียกว่า double bond</div></div>
+ </div>
+ <div class="footer"><span>แนวคิดเดิมไม่เปลี่ยน: ใช้ pattern เช็กจำนวนพันธะรอบอะตอม</span><span>61</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Bond multiplicity">
+ <div class="kicker">แนวคิดหลัก · <strong>เส้น = คู่ e− ที่แชร์</strong></div>
+ <div class="title">แชร์มากขึ้น → ใช้ <strong>เส้นมากขึ้น</strong></div>
+ <div class="bond-levels">
+  <div class="bond-level"><div class="bond-n">1 shared pair</div><div class="bond-lines"><div class="line-icon one"><i></i></div></div><div><div class="bond-name"><strong>single bond</strong> · พันธะเดี่ยว</div><div class="bond-desc">1 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 1 คู่</div></div></div>
+  <div class="bond-level"><div class="bond-n">2 shared pairs</div><div class="bond-lines"><div class="line-icon two"><i></i><i></i></div></div><div><div class="bond-name"><strong>double bond</strong> · พันธะคู่</div><div class="bond-desc">2 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 2 คู่</div></div></div>
+  <div class="bond-level"><div class="bond-n">3 shared pairs</div><div class="bond-lines"><div class="line-icon three"><i></i><i></i><i></i></div></div><div><div class="bond-name"><strong>triple bond</strong> · พันธะสาม</div><div class="bond-desc">3 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 3 คู่</div></div></div>
+ </div>
+ <div class="ruleline">บางสารอธิบาย Lewis ได้มากกว่า 1 แบบ (resonance) · <strong>คาบนี้ไม่ลงรายละเอียดและไม่ใช้คำนวณ</strong></div>
+ <div class="footer"><span>เวลาเช็ก pattern ให้นับ “จำนวนเส้น” ที่ต่อกับอะตอมนั้น</span><span>62</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lewis O2">
+ <div class="kicker">Worked example · <strong>O<sub>2</sub></strong></div>
+ <div class="title">O<sub>2</sub>: ระหว่าง O สองตัวควรวาด<strong>พันธะกี่เส้น?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of oxygen molecule"><g data-reveal="2"><line class="ls-bond" x1="145" y1="152" x2="215" y2="152"/><line class="ls-bond" x1="145" y1="168" x2="215" y2="168"/></g><text class="ls-atom" x="110" y="160">O</text><text class="ls-atom" x="250" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="102" cy="108" r="4"/><circle class="ls-dot" cx="118" cy="108" r="4"/><circle class="ls-dot" cx="102" cy="212" r="4"/><circle class="ls-dot" cx="118" cy="212" r="4"/><circle class="ls-dot" cx="242" cy="108" r="4"/><circle class="ls-dot" cx="258" cy="108" r="4"/><circle class="ls-dot" cx="242" cy="212" r="4"/><circle class="ls-dot" cx="258" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>O pattern = <strong>2 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>O สองตัวต้องมี 2 เส้นร่วมกัน → <strong>O=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">3</div><div>O แต่ละตัวเหลือ <strong>lone pair 2 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก pattern ของ O แล้วค่อยเติม lone pair</span><span>63</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lewis N2">
+ <div class="kicker">Worked example · <strong>N<sub>2</sub></strong></div>
+ <div class="title">N<sub>2</sub>: ระหว่าง N สองตัวควรวาด<strong>พันธะกี่เส้น?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of nitrogen molecule"><g data-reveal="2"><line class="ls-bond" x1="145" y1="150" x2="215" y2="150"/><line class="ls-bond" x1="145" y1="160" x2="215" y2="160"/><line class="ls-bond" x1="145" y1="170" x2="215" y2="170"/></g><text class="ls-atom" x="110" y="160">N</text><text class="ls-atom" x="250" y="160">N</text><g data-reveal="3"><circle class="ls-dot" cx="84" cy="152" r="4"/><circle class="ls-dot" cx="84" cy="168" r="4"/><circle class="ls-dot" cx="276" cy="152" r="4"/><circle class="ls-dot" cx="276" cy="168" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>N pattern = <strong>3 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>N สองตัวต้องมี 3 เส้นร่วมกัน → <strong>N≡N</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">3</div><div>N แต่ละตัวเหลือ <strong>lone pair 1 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก pattern ของ N แล้วค่อยเติม lone pair</span><span>64</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lewis CO2">
+ <div class="kicker">Worked example · <strong>CO<sub>2</sub></strong></div>
+ <div class="title">CO<sub>2</sub>: ต้องจัดพันธะอย่างไรให้ C และ O <strong>ครบ pattern?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of carbon dioxide"><g data-reveal="2"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/></g><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="42" cy="108" r="4"/><circle class="ls-dot" cx="58" cy="108" r="4"/><circle class="ls-dot" cx="42" cy="212" r="4"/><circle class="ls-dot" cx="58" cy="212" r="4"/><circle class="ls-dot" cx="302" cy="108" r="4"/><circle class="ls-dot" cx="318" cy="108" r="4"/><circle class="ls-dot" cx="302" cy="212" r="4"/><circle class="ls-dot" cx="318" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>วาง C กลาง · O อยู่สองด้าน แล้วเทียบ pattern</div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>ต้องใช้ double bond สองด้าน → <strong>O=C=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>รอบ C นับ 2 + 2 = <strong>4 เส้น</strong> · O แต่ละตัวมี lone pair 2 คู่</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: C ควรอยู่กลาง แล้วเช็ก pattern ของทุกอะตอม</span><span>65</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lewis HCN">
+ <div class="kicker">Worked example · <strong>HCN</strong></div>
+ <div class="title">HCN: หลังวาง H—C—N แล้ว ต้อง<strong>ปรับพันธะตรงไหน?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of hydrogen cyanide"><g data-reveal="2"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="150" x2="275" y2="150"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="210" y1="170" x2="275" y2="170"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="305" y="160">N</text><g data-reveal="3"><circle class="ls-dot" cx="334" cy="152" r="4"/><circle class="ls-dot" cx="334" cy="168" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>H ได้ 1 bond ก่อน → skeleton <strong>H—C—N</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>C ยังต้องครบ 4 และ N ต้องครบ 3 → <strong>H—C≡N</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>N เหลือ <strong>lone pair 1 คู่</strong> · ที่ C นับ 1 + 3 = 4</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: H ทำได้ 1 bond และไม่เป็นอะตอมกลางในตัวอย่างนี้</span><span>66</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lewis CH2O">
+ <div class="kicker">Worked example · <strong>CH<sub>2</sub>O</strong></div>
+ <div class="title">CH<sub>2</sub>O: หลังต่อ H สองตัวแล้ว C กับ O ต้อง<strong>ปรับอย่างไร?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of formaldehyde"><g data-reveal="2"><line class="ls-bond" x1="96" y1="111" x2="149" y2="143"/><line class="ls-bond" x1="96" y1="209" x2="149" y2="177"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/></g><text class="ls-atom ls-h" x="70" y="95">H</text><text class="ls-atom ls-h" x="70" y="225">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="302" cy="108" r="4"/><circle class="ls-dot" cx="318" cy="108" r="4"/><circle class="ls-dot" cx="302" cy="212" r="4"/><circle class="ls-dot" cx="318" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>C อยู่กลาง · ต่อ H สองตัวด้วย single bond</div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>C กับ O ต้องครบ pattern → เพิ่ม <strong>C=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>C นับ 1 + 1 + 2 = <strong>4</strong> · O มี lone pair 2 คู่</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก C กลาง ต่อ H ก่อน แล้วเช็ก C กับ O</span><span>67</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Guided bond order">
+ <div class="kicker">ทำพร้อมกัน · <strong>pattern → จำนวนเส้น</strong></div>
+ <div class="title">ยังไม่ต้องวาดจุดทั้งหมด — ตัดสินก่อนว่า <strong>พันธะกี่เส้น</strong></div>
+ <div class="practice5">
+  <div class="p5"><div class="f chem">O<sub>2</sub></div><div class="q">O ต้องมี 2 bonds</div><div class="a" data-reveal="1">O=O</div></div>
+  <div class="p5"><div class="f chem">N<sub>2</sub></div><div class="q">N ต้องมี 3 bonds</div><div class="a" data-reveal="1">N≡N</div></div>
+  <div class="p5"><div class="f chem">CO<sub>2</sub></div><div class="q">C 4 · O 2</div><div class="a" data-reveal="1">O=C=O</div></div>
+  <div class="p5"><div class="f chem">HCN</div><div class="q">H 1 · C 4 · N 3</div><div class="a" data-reveal="1">H—C≡N</div></div>
+  <div class="p5"><div class="f chem">CH<sub>2</sub>O</div><div class="q">C 4 · O 2</div><div class="a" data-reveal="1">2 C—H + C=O</div></div>
+ </div>
+ <div class="footer"><span>พูดเหตุผลก่อนดูเฉลย — ใช้ pattern อธิบาย ไม่จำภาพอย่างเดียว</span><span>68</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Independent Lewis II">
+ <div class="kicker">ลองทำเอง · <strong>วาดลงชีท หน้า 30</strong></div>
+ <div class="meta"><span>ใช้ pattern reference ได้</span></div>
+ <div class="title">วาด Lewis ของ <strong>5 สูตรแกน</strong></div>
+ <div class="handout">
+  <div class="tasklist"><div class="taskformula chem">O<sub>2</sub> · N<sub>2</sub><br>CO<sub>2</sub> · HCN · CH<sub>2</sub>O</div><div class="quick" data-reveal="1">quick skeleton: O=O · N≡N · O=C=O · H—C≡N · H<sub>2</sub>C=O</div></div>
+  <div class="checklist">
+   <div class="checkrow"><div class="n">1</div><div>เลือกอะตอมกลางให้ถูก — H ไม่อยู่กลาง</div></div>
+   <div class="checkrow"><div class="n">2</div><div>นับเส้นให้ตรง pattern: O=2 · N=3 · C=4</div></div>
+   <div class="checkrow"><div class="n">3</div><div>เติม lone pairs หลัง skeleton ถูกแล้ว</div></div>
+   <div class="checkrow"><div class="n">4</div><div>เช็กทั้งโครงสร้างอีกครั้งก่อนจบ</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>ทำเองให้ครบก่อนเปิด quick skeleton แล้วใช้ lone pairs เช็กงานอีกครั้ง</span><span>69</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Exit Lewis II">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">Lewis บอกการเชื่อม — คาบหน้าเราจะถามต่อว่า <strong>โมเลกุลมีรูปร่างอะไร?</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">O<sub>2</sub> มีเส้นพันธะระหว่าง O กี่เส้น?</div><div class="exit-a" data-reveal="1">2 เส้น · double bond</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q chem">N<sub>2</sub> มีเส้นพันธะกี่เส้น?</div><div class="exit-a" data-reveal="2">3 เส้น · triple bond</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">รอบ C ใน CO<sub>2</sub> นับ bond lines รวมเท่าไร?</div><div class="exit-a" data-reveal="3">4 เส้น · 2 + 2</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>กฎคาบ 8:</strong> single / double / triple ที่ชี้ไป “อะตอมเดียวกัน” นับเป็น <strong>1 electron domain = 1 ทิศทาง</strong> รอบอะตอมกลาง</div>
+ <div class="footer"><span>คาบ 8 ใช้ Lewis เดิม → นับทิศทาง + lone pairs → shape</span><span>70</span></div>
+</section>
+
+<section class="slide dark" data-batch="07-08" data-title="Shape hook">
+ <div class="kicker">CHEM01 · คาบ 8 · <strong>Molecular shape</strong></div>
+ <div class="meta"><span>ชีท หน้า 35–37</span></div>
+ <div class="title" style="color:#F7F6F2">Lewis วาดบนกระดาษ — แต่ <strong>รูปร่างจริงอยู่ใน 3 มิติ</strong></div>
+ <div class="shape-hook">
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of carbon dioxide"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text></svg><div class="sh-formula chem">CO<sub>2</sub></div><div class="sh-note">Lewis: การเชื่อม</div></div>
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of ammonia"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">N</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="285">H</text><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/></svg><div class="sh-formula chem">NH<sub>3</sub></div><div class="sh-note">Lewis: การเชื่อม + lone pair</div></div>
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of water"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">O</text><text class="ls-atom ls-h" x="305" y="160">H</text><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/><circle class="ls-dot" cx="172" cy="212" r="4"/><circle class="ls-dot" cx="188" cy="212" r="4"/></svg><div class="sh-formula chem">H<sub>2</sub>O</div><div class="sh-note">Lewis: ยังไม่ใช่มุมจริง</div></div>
+ </div>
+ <div class="not3d" data-reveal="1">Lewis 2D ≠ molecular shape 3D</div>
+ <div class="footer"><span>วันนี้ใช้การผลักกันรอบอะตอมกลางเพื่อเปลี่ยน Lewis → shape</span><span>71</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="VSEPR idea">
+ <div class="kicker">แนวคิด VSEPR · <strong>electron domains ผลักกัน</strong></div>
+ <div class="title">รอบอะตอมกลาง — แต่ละทิศทางพยายามอยู่ <strong>ห่างกันมากที่สุด</strong></div>
+ <div class="repel">
+  <div class="repel-item"><div class="repel-head">2 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="35" y2="105"/><line x1="125" y1="105" x2="215" y2="105"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="35" cy="105" r="16"/><circle cx="215" cy="105" r="16"/></svg><div class="repel-desc">กระจายออกคนละด้าน</div></div>
+  <div class="repel-item"><div class="repel-head">3 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="125" y2="22"/><line x1="125" y1="105" x2="48" y2="160"/><line x1="125" y1="105" x2="202" y2="160"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="125" cy="22" r="16"/><circle cx="48" cy="160" r="16"/><circle cx="202" cy="160" r="16"/></svg><div class="repel-desc">แผ่ออกประมาณ 120°</div></div>
+  <div class="repel-item"><div class="repel-head">4 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="125" y2="30"/><line x1="125" y1="105" x2="52" y2="145"/><line class="ddash" x1="125" y1="105" x2="198" y2="145"/><path class="dwedge" d="M121 109 L129 109 L143 190 L107 190 Z"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="125" cy="22" r="16"/><circle cx="42" cy="151" r="16"/><circle cx="208" cy="151" r="16"/><circle cx="125" cy="192" r="16"/></svg><div class="repel-desc">ลิ่ม/เส้นประช่วยสื่อการกระจายแบบ 3D</div></div>
+ </div>
+ <div class="ruleline"><strong>double / triple bond นับเป็น 1 domain</strong> เพราะเป็นหนึ่งทิศทางไปยังอะตอมเดียวกัน</div>
+ <div class="footer"><span>เราใช้เฉพาะ 2, 3, 4 domains ที่นำไปสู่ 5 shape หลัก</span><span>72</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="AXE notation">
+ <div class="kicker">เครื่องมืออ่าน shape · <strong>AXE notation</strong></div>
+ <div class="title">มองเฉพาะรอบ <strong>อะตอมกลาง A</strong></div>
+ <div class="axe-grid">
+  <div class="axe-key">
+   <div class="axe-letter"><div class="l">A</div><div class="d"><strong>central atom</strong><br><span class="muted">อะตอมกลาง</span></div></div>
+   <div class="axe-letter"><div class="l">X</div><div class="d"><strong>bonded direction</strong><br><span class="muted">ทิศทางไปยังอะตอมที่ต่อกับ A</span></div></div>
+   <div class="axe-letter"><div class="l">E</div><div class="d"><strong>lone pair on A</strong><br><span class="muted">คู่โดดเดี่ยวบนอะตอมกลาง</span></div></div>
+  </div>
+  <div class="axe-examples">
+   <div class="axe-row"><div class="form chem">CO<sub>2</sub></div><div>C ต่อ O สองทิศ · lone pair 0</div><div class="out">AX<sub>2</sub></div></div>
+   <div class="axe-row"><div class="form chem">NH<sub>3</sub></div><div>N ต่อ H สามทิศ · lone pair 1</div><div class="out">AX<sub>3</sub>E</div></div>
+   <div class="axe-row"><div class="form chem">H<sub>2</sub>O</div><div>O ต่อ H สองทิศ · lone pair 2</div><div class="out">AX<sub>2</sub>E<sub>2</sub></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>อย่านับจำนวนเส้นของ double bond เป็น X สองตัว — CO₂ ยังเป็น AX₂</span><span>73</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Five essential shapes">
+ <div class="kicker">Reference · <strong>5 รูปร่างหลัก</strong></div>
+ <div class="meta"><span>ชีท หน้า 35</span><span>เปิดดูได้ตลอด</span></div>
+ <div class="title">นับ X กับ E → เลือก <strong>shape</strong></div>
+ <div class="shape-ref">
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>2</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="55" y1="90" x2="88" y2="90"/><line class="sbond" x1="132" y1="90" x2="165" y2="90"/><circle class="satom" cx="35" cy="90" r="18"/><circle class="satom" cx="110" cy="90" r="22"/><circle class="satom" cx="185" cy="90" r="18"/><text class="slabel" x="35" y="90">O</text><text class="slabel" x="110" y="90">C</text><text class="slabel" x="185" y="90">O</text></svg><div class="shape-name">เส้นตรง</div><div class="shape-th">linear</div><div class="shape-ex chem">CO<sub>2</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>3</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="72" x2="110" y2="42"/><line class="sbond" x1="91" y1="103" x2="60" y2="128"/><line class="sbond" x1="129" y1="103" x2="160" y2="128"/><circle class="satom" cx="110" cy="95" r="22"/><circle class="satom" cx="110" cy="25" r="18"/><circle class="satom" cx="45" cy="140" r="18"/><circle class="satom" cx="175" cy="140" r="18"/><text class="slabel" x="110" y="95">B</text><text class="slabel" x="110" y="25">Cl</text><text class="slabel" x="45" y="140">Cl</text><text class="slabel" x="175" y="140">Cl</text></svg><div class="shape-name">สามเหลี่ยมแบนราบ</div><div class="shape-th">trigonal planar</div><div class="shape-ex chem">BCl<sub>3</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>4</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="70" x2="110" y2="35"/><line class="sbond" x1="90" y1="100" x2="53" y2="126"/><line class="sdash" x1="130" y1="100" x2="167" y2="126"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="110" cy="20" r="17"/><circle class="satom" cx="38" cy="136" r="17"/><circle class="satom" cx="182" cy="136" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">C</text><text class="slabel" x="110" y="20">H</text><text class="slabel" x="38" y="136">H</text><text class="slabel" x="182" y="136">H</text><text class="slabel" x="110" y="166">H</text></svg><div class="shape-name">ทรงสี่หน้า</div><div class="shape-th">tetrahedral</div><div class="shape-ex chem">CH<sub>4</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>3</sub>E</div><svg class="shape-svg small" viewBox="0 0 220 180"><circle class="sdot" cx="103" cy="25" r="4"/><circle class="sdot" cx="117" cy="25" r="4"/><line class="sbond" x1="90" y1="103" x2="53" y2="128"/><line class="sdash" x1="130" y1="103" x2="167" y2="128"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="38" cy="138" r="17"/><circle class="satom" cx="182" cy="138" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">N</text><text class="slabel" x="38" y="138">H</text><text class="slabel" x="182" y="138">H</text><text class="slabel" x="110" y="166">H</text></svg><div class="shape-name">พีระมิดฐานสามเหลี่ยม</div><div class="shape-th">trigonal pyramidal</div><div class="shape-ex chem">NH<sub>3</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>2</sub>E<sub>2</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><circle class="sdot" cx="82" cy="42" r="4"/><circle class="sdot" cx="96" cy="42" r="4"/><circle class="sdot" cx="124" cy="42" r="4"/><circle class="sdot" cx="138" cy="42" r="4"/><line class="sbond" x1="94" y1="105" x2="55" y2="138"/><line class="sbond" x1="126" y1="105" x2="165" y2="138"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="40" cy="150" r="17"/><circle class="satom" cx="180" cy="150" r="17"/><text class="slabel" x="110" y="88">O</text><text class="slabel" x="40" y="150">H</text><text class="slabel" x="180" y="150">H</text></svg><div class="shape-name">งอ</div><div class="shape-th">bent</div><div class="shape-ex chem">H<sub>2</sub>O</div></div>
+ </div>
+ <div class="footer"><span>จำเป็นต้องใช้ได้ 5 แบบนี้เท่านั้นในหน่วยนี้</span><span>74</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Shape CO2">
+ <div class="kicker">Worked example · <strong>CO<sub>2</sub></strong></div>
+ <div class="title">CO<sub>2</sub>: รอบ C มี <strong>electron domains กี่ทิศทาง?</strong></div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text></svg><div class="axe-strip" data-reveal="1">double bond แต่ละด้าน = 1 ทิศ → X = 2 · E = 0 → <strong>AX<sub>2</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="70" y1="105" x2="112" y2="105"/><line class="sbond" x1="168" y1="105" x2="210" y2="105"/><circle class="satom" cx="48" cy="105" r="21"/><circle class="satom" cx="140" cy="105" r="25"/><circle class="satom" cx="232" cy="105" r="21"/><text class="slabel" x="48" y="105">O</text><text class="slabel" x="140" y="105">C</text><text class="slabel" x="232" y="105">O</text></svg><div class="shape-result">linear · เส้นตรง</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 180° · <strong>อย่านับ double bond เป็น 2 domains</strong></div>
+ <div class="footer"><span>ชีทหน้า 36: CO₂ คือหนึ่งในตัวอย่างที่ควรทำ</span><span>75</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Shape BCl3">
+ <div class="kicker">Worked example · <strong>BCl<sub>3</sub></strong></div>
+ <div class="title">BCl<sub>3</sub>: นับ X และ E รอบ B แล้ว<strong>ทำนาย shape</strong></div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis · นับรอบ B</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="180" y1="70" x2="180" y2="130"/><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><text class="ls-atom" x="180" y="160">B</text><text class="ls-atom" x="180" y="40">Cl</text><text class="ls-atom" x="55" y="160">Cl</text><text class="ls-atom" x="305" y="160">Cl</text></svg><div class="axe-strip" data-reveal="1">B: X = 3 · E = 0 → <strong>AX<sub>3</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="140" y1="82" x2="140" y2="43"/><line class="sbond" x1="118" y1="119" x2="79" y2="151"/><line class="sbond" x1="162" y1="119" x2="201" y2="151"/><circle class="satom" cx="140" cy="108" r="25"/><circle class="satom" cx="140" cy="23" r="21"/><circle class="satom" cx="60" cy="165" r="21"/><circle class="satom" cx="220" cy="165" r="21"/><text class="slabel" x="140" y="108">B</text><text class="slabel" x="140" y="23">Cl</text><text class="slabel" x="60" y="165">Cl</text><text class="slabel" x="220" y="165">Cl</text></svg><div class="shape-result">trigonal planar · สามเหลี่ยมแบนราบ</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 120° · วันนี้ใช้ BCl<sub>3</sub> เพื่อดู <strong>3 directions</strong> ไม่ลงรายละเอียดข้อยกเว้น octet</div>
+ <div class="footer"><span>คิดตามลำดับ: Lewis → AXE → shape</span><span>76</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Shape CH4">
+ <div class="kicker">Worked example · <strong>CH<sub>4</sub></strong></div>
+ <div class="title">CH<sub>4</sub>: Lewis 2D ดูเหมือนกากบาท — แล้ว<strong>shape 3D</strong> คืออะไร?</div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis 2D</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg><div class="axe-strip" data-reveal="1">C: X = 4 · E = 0 → <strong>AX<sub>4</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape · depth cues</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="140" y1="82" x2="140" y2="42"/><line class="sbond" x1="118" y1="119" x2="78" y2="148"/><line class="sdash" x1="162" y1="119" x2="202" y2="148"/><path class="swedge" d="M137 130 L143 130 L162 194 L118 194 Z"/><circle class="satom" cx="140" cy="106" r="25"/><circle class="satom" cx="140" cy="22" r="20"/><circle class="satom" cx="60" cy="160" r="20"/><circle class="satom" cx="220" cy="160" r="20"/><circle class="satom" cx="140" cy="194" r="20"/><text class="slabel" x="140" y="106">C</text><text class="slabel" x="140" y="22">H</text><text class="slabel" x="60" y="160">H</text><text class="slabel" x="220" y="160">H</text><text class="slabel" x="140" y="194">H</text></svg><div class="shape-result">tetrahedral · ทรงสี่หน้า</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 109.5° · <strong>เส้นทึบ/ประ/ลิ่ม</strong> ช่วยสื่อด้านหน้า–ด้านหลัง</div>
+ <div class="footer"><span>นี่คือเหตุผลที่ Lewis 2D ไม่ควรใช้เป็นคำตอบ shape โดยตรง</span><span>77</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Lone pairs and shape">
+ <div class="kicker">เปรียบเทียบ · <strong>lone pair กินพื้นที่</strong></div>
+ <div class="title">NH<sub>3</sub> กับ H<sub>2</sub>O: lone pair ทำให้<strong>ตำแหน่งอะตอม X ต่างกันอย่างไร?</strong></div>
+ <div class="lp-compare">
+  <div class="lpc"><div class="lpc-top"><div class="formula chem">NH<sub>3</sub></div><div class="code" data-reveal="1">AX<sub>3</sub>E</div></div><svg class="shape-svg" data-reveal="2" viewBox="0 0 280 210"><circle class="sdot" cx="133" cy="34" r="5"/><circle class="sdot" cx="147" cy="34" r="5"/><line class="sbond" x1="118" y1="112" x2="76" y2="145"/><line class="sdash" x1="162" y1="112" x2="204" y2="145"/><path class="swedge" d="M137 123 L143 123 L159 191 L121 191 Z"/><circle class="satom" cx="140" cy="98" r="25"/><circle class="satom" cx="58" cy="158" r="20"/><circle class="satom" cx="222" cy="158" r="20"/><circle class="satom" cx="140" cy="190" r="20"/><text class="slabel" x="140" y="98">N</text><text class="slabel" x="58" y="158">H</text><text class="slabel" x="222" y="158">H</text><text class="slabel" x="140" y="190">H</text></svg><div class="name" data-reveal="2">trigonal pyramidal</div><div class="why" data-reveal="1">3 X + <strong>1 lone pair</strong></div></div>
+  <div class="lpc"><div class="lpc-top"><div class="formula chem">H<sub>2</sub>O</div><div class="code" data-reveal="1">AX<sub>2</sub>E<sub>2</sub></div></div><svg class="shape-svg" data-reveal="2" viewBox="0 0 280 210"><circle class="sdot" cx="103" cy="49" r="5"/><circle class="sdot" cx="117" cy="49" r="5"/><circle class="sdot" cx="163" cy="49" r="5"/><circle class="sdot" cx="177" cy="49" r="5"/><line class="sbond" x1="122" y1="114" x2="77" y2="159"/><line class="sbond" x1="158" y1="114" x2="203" y2="159"/><circle class="satom" cx="140" cy="94" r="25"/><circle class="satom" cx="60" cy="174" r="20"/><circle class="satom" cx="220" cy="174" r="20"/><text class="slabel" x="140" y="94">O</text><text class="slabel" x="60" y="174">H</text><text class="slabel" x="220" y="174">H</text></svg><div class="name" data-reveal="2">bent · งอ</div><div class="why" data-reveal="1">2 X + <strong>2 lone pairs</strong></div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">ชื่อ molecular shape มองตำแหน่ง <strong>อะตอม X</strong> · lone pair ยังเป็น domain ที่ผลักอยู่ · มุมจริง NH<sub>3</sub> ≈ 107° และ H<sub>2</sub>O ≈ 104.5° เป็น reference</div>
+ <div class="footer"><span>คิดก่อน: นับ X และ E ของแต่ละโมเลกุล แล้วค่อยเปิดชื่อ shape</span><span>78</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Guided shape practice">
+ <div class="kicker">ทำพร้อมกัน · <strong>AXE ก่อน shape</strong></div>
+ <div class="meta"><span>ชีท หน้า 36–37</span><span>ข้าม advanced examples</span></div>
+ <div class="title">ตอบ 2 ขั้น: <strong>AXE → ชื่อรูปร่าง</strong></div>
+ <div class="shape-practice">
+  <div class="sp-row"><div class="sp-f chem">CO<sub>2</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>2</sub> → linear</div></div>
+  <div class="sp-row"><div class="sp-f chem">BCl<sub>3</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>3</sub> → trigonal planar</div></div>
+  <div class="sp-row"><div class="sp-f chem">CH<sub>4</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>4</sub> → tetrahedral</div></div>
+  <div class="sp-row"><div class="sp-f chem">NH<sub>3</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>3</sub>E → trigonal pyramidal</div></div>
+  <div class="sp-row"><div class="sp-f chem">H<sub>2</sub>O</div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>2</sub>E<sub>2</sub> → bent</div></div>
+ </div>
+ <div class="footer"><span>ขอบเขตคาบนี้จบที่ 5 shape นี้ — ไม่ทำ PCl₅ / SCl₆ / XeCl₄ / IF₅</span><span>79</span></div>
+</section>
+
+<section class="slide" data-batch="07-08" data-title="Exit molecular shape">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">รูปร่างคือสะพานไปสู่คำถามถัดไป: <strong>โมเลกุลมีขั้วไหม?</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">CO<sub>2</sub> เป็น shape ใด?</div><div class="exit-a" data-reveal="1">AX<sub>2</sub> · linear</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q chem">NH<sub>3</sub> เป็น shape ใด?</div><div class="exit-a" data-reveal="2">AX<sub>3</sub>E · trigonal pyramidal</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">H<sub>2</sub>O เป็น shape ใด?</div><div class="exit-a" data-reveal="3">AX<sub>2</sub>E<sub>2</sub> · bent</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>คาบ 9:</strong> bond polarity + <strong>shape / symmetry</strong> → dipoles หักล้างกันหรือไม่ → molecular polarity</div>
+ <div class="footer"><span>flow ที่จะใช้ต่อ: Lewis → shape → symmetry → polar / nonpolar</span><span>80</span></div>
+</section>
+</main>
+
+<script>
+(() => {
+  const deck = document.getElementById('deck');
+  const slides = [...document.querySelectorAll('.slide')];
+  let index = 0;
+
+  function scaleDeck(){
+    const s = Math.min(innerWidth / 1600, innerHeight / 900) * .995;
+    deck.style.setProperty('--scale', String(s));
+  }
+
+  function slideNumberFromLocation(){
+    const q = Number(new URLSearchParams(location.search).get('slide'));
+    if (Number.isFinite(q) && q > 0) return Math.max(1, Math.min(slides.length, q));
+    const m = location.hash.match(/(?:^#|[&#])s=(\d+)/i);
+    if (!m) return 1;
+    return Math.max(1, Math.min(slides.length, Number(m[1]) || 1));
+  }
+
+  function resetReveal(slide){
+    slide.querySelectorAll('[data-reveal].revealed').forEach(el => el.classList.remove('revealed'));
+  }
+
+  function show(next, {syncHash=true} = {}){
+    next = Math.max(0, Math.min(slides.length - 1, next));
+    if (slides[index]) {
+      slides[index].classList.remove('active');
+      resetReveal(slides[index]);
+    }
+    index = next;
+    slides[index].classList.add('active');
+    if (syncHash) history.replaceState(null, '', '#s=' + (index + 1));
+  }
+
+  function revealNext(){
+    const slide = slides[index];
+    const pending = [...slide.querySelectorAll('[data-reveal]:not(.revealed)')];
+    if (!pending.length) return false;
+    const groups = pending.map(el => Number(el.dataset.reveal)).filter(Number.isFinite);
+    const group = groups.length ? Math.min(...groups) : null;
+    if (group === null) pending.forEach(el => el.classList.add('revealed'));
+    else pending.filter(el => Number(el.dataset.reveal) === group).forEach(el => el.classList.add('revealed'));
+    return true;
+  }
+
+  function revealOrAdvance(){
+    if (!revealNext()) show(index + 1);
+  }
+
+  addEventListener('resize', scaleDeck, {passive:true});
+  addEventListener('hashchange', () => show(slideNumberFromLocation() - 1, {syncHash:false}));
+  addEventListener('keydown', e => {
+    if (['ArrowRight','PageDown',' ','Enter'].includes(e.key)) { e.preventDefault(); revealOrAdvance(); return; }
+    if (['ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); show(index - 1); return; }
+    if (e.key === 'Home') { e.preventDefault(); show(0); return; }
+    if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); return; }
+    if (e.key === 'Escape') { e.preventDefault(); resetReveal(slides[index]); }
+  });
+  addEventListener('wheel', e => e.preventDefault(), {passive:false});
+  addEventListener('touchmove', e => e.preventDefault(), {passive:false});
+
+  scaleDeck();
+  index = Math.max(0, slideNumberFromLocation() - 1);
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  history.replaceState(null, '', '#s=' + (index + 1));
+})();
+</script>
+</body>
+</html>
