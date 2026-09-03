@@ -29,7 +29,7 @@
 รวมปัจจุบัน: **120 slides / 12 periods**
 
 ## Master merged deck
-- `index.html` — master candidate ปัจจุบัน Slides 1–120 / คาบ 1–12 · local/master QA PASSED · release pending
+- `index.html` — master ปัจจุบัน Slides 1–120 / คาบ 1–12 · RELEASED / QA PASSED / production verified
 - สร้างด้วย `build_master_deck.js` ไม่ copy-paste manual
 - CSS ของแต่ละช่วงถูก scope ด้วย `data-batch` เพื่อไม่ให้ style ช่วงหลัง override ช่วงก่อน
 - ทุก `<section class="slide">` ยังเป็น direct child ของ `#deck` เพื่อรักษา geometry/render behavior ของต้นฉบับ
@@ -48,7 +48,8 @@
 - local/master QA ก่อน release: 100-slide layout regression, interaction/reveal, exact mobile viewport, source/reveal/SVG parity ผ่านทั้งหมด
 - direct handout verification: printed pages 38–39 ตรงกับ scope molecular polarity / integrated practice ที่เลือกใช้
 
-## Candidate release ปัจจุบัน · คาบ 11–12 / Master 120 slides
+## Release ล่าสุด · คาบ 11–12 / Master 120 slides
+- release commit: `a93e926f213398a3bff951d3dd37399238c57c61`
 - `prototype_11_12_v2.html` = Slides 101–120; master `index.html` = Slides 1–120
 - visual refinement 9–12 ใช้ shape language จากคาบ 7–8 และ lone-pair domain แบบ radial/tangent โดยไม่สื่อเป็น electron orbit
 - คาบ 11 รักษา assessment integrity: Slides 106–108 ไม่มี molecule-specific answer graphics; SO2 ควบคุม complexity; NH4+ bonus/non-scored
@@ -60,7 +61,11 @@
 - SVG computed-style + logical-geometry parity: PASS
 - canonical visual parity: Slides 81–120 exact PNG identical; legacy 1–80 within strict anti-alias tolerance plus exact DOM/geometry parity
 - master exact mobile regression: 360×640, 390×844, 412×915, 844×390 PASS across all batches
-- สถานะ: **LOCAL / MASTER QA PASSED; รอ final diff → commit/push → production SHA verification**
+- GitHub Pages build ของ release commit: `built`
+- production HTTP 200; `index.html` = 323,975 bytes / 120 slides
+- production SHA-256 = local SHA-256: `2966a8073fed3363126094ce8a21df7778f59c48de2caa67cf43f00c7cee7700`
+- production `index.html` byte-for-byte identical กับ local master
+- สถานะ: **RELEASED / QA PASSED / PRODUCTION VERIFIED**
 
 ## การตัดสินใจล่าสุดที่ล็อก
 ### Ionic Worksheet 10 คะแนน
@@ -167,15 +172,15 @@ periodic table → bond classification → ionic ions/formula/name/properties �
 - `qa_svg_style_parity_master.js` + `qa_style_probe_harness.html` — exact computed style + normalized logical geometry parity สำหรับ Lewis / molecular-shape SVG
 
 ## Gate status
-**หน่วยสไลด์คาบ 1–12 / Slides 1–120: LOCAL + MASTER QA PASSED**
+**หน่วยสไลด์คาบ 1–12 / Slides 1–120: RELEASED / QA PASSED / PRODUCTION VERIFIED**
 - Periods 11–12 content/assessment/chemistry/interaction/layout/mobile gates ผ่าน
 - visual refinement 9–12 ผ่าน geometry + render + source/master parity
 - master full regression 1–120 ผ่านทุกหน้า
-- ยังไม่ถือว่า RELEASED จนกว่า Git diff review, commit/push, GitHub Pages build และ production byte/SHA verification ผ่าน
+- GitHub Pages build ของ release commit `a93e926f213398a3bff951d3dd37399238c57c61` = `built`
+- production `index.html` byte-for-byte identical กับ local; SHA-256 `2966a8073fed3363126094ce8a21df7778f59c48de2caa67cf43f00c7cee7700`
 - การแก้ Lewis ในอนาคตต้องรักษา `LEWIS_VISUAL_STANDARD.md`; การแก้ shape/polarity ต้องรักษา `VISUAL_REFINEMENT_09_12.md`
 
 ## ขั้นถัดไป
-1. final Git diff / staged-file review
-2. commit + push master 120 slides เมื่อ diff สะอาด
-3. รอ GitHub Pages `built` และเทียบ production `index.html` กับ local แบบ byte-for-byte / SHA-256
-4. หลัง slide deck 12 คาบ release สมบูรณ์ จึงเข้าสู่ขั้นสร้างข้อสอบปลายภาค 40 ข้อตาม blueprint หรือเส้นทาง PowerPoint เมื่อได้รับคำสั่ง
+Slide deck 12 คาบเสร็จและ release สมบูรณ์แล้ว งานถัดไปให้เริ่มเมื่อได้รับคำสั่ง:
+- ข้อสอบปลายภาค 40 ข้อตาม blueprint โดยอิงเฉพาะเนื้อหาที่สอนจริง + handout/reference sheet
+- หรือเส้นทาง PowerPoint (.pptx) พร้อม render QA ตาม `PRESENTATION_BUILD_PLAN.md`

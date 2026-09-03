@@ -1,6 +1,6 @@
 # CHEM01 · Slide Plan คาบ 11–12
 
-สถานะ: IMPLEMENTED · QA PASSED (prototype/master) · RELEASE PENDING FINAL DIFF/PRODUCTION
+สถานะ: RELEASED · QA PASSED (prototype/master/production) · GitHub Pages verified
 อัปเดต: 2026-09-04
 ช่วงสไลด์เป้าหมาย: 101–120
 
@@ -256,4 +256,9 @@ Exit:
 
 Direct handout alignment ยืนยัน printed page 39 แล้ว: core graded set = HF, BCl3, CH4, CH3Cl, NF3, H2O; SO2 ควบคุม complexity; NH4+ bonus/non-scored
 
-Release gate: **LOCAL / MASTER QA PASSED**; รอ final Git diff review และ production verification หลัง deploy
+Release gate: **RELEASED / QA PASSED / PRODUCTION VERIFIED**
+- release commit: `a93e926f213398a3bff951d3dd37399238c57c61`
+- GitHub Pages build: `built`
+- production `index.html`: 323,975 bytes / 120 slides
+- SHA-256 production = local: `2966a8073fed3363126094ce8a21df7778f59c48de2caa67cf43f00c7cee7700`
+- production byte-for-byte identical กับ local master

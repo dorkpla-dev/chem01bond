@@ -1,6 +1,6 @@
 # CHEM01 · Visual Refinement Plan คาบ 9–12
 
-สถานะ: IMPLEMENTED · QA PASSED (prototype/master) · RELEASE PENDING FINAL DIFF/PRODUCTION
+สถานะ: RELEASED · QA PASSED (prototype/master/production) · GitHub Pages verified
 อัปเดต: 2026-09-04
 
 ## เป้าหมาย
@@ -306,4 +306,9 @@ Visual refinement ถูกนำไปใช้จริงแล้วใน `
 - canonical visual parity: Slides 81–120 exact PNG identical ทุก sample; legacy 1–80 ผ่าน tight anti-aliasing tolerance พร้อม exact DOM/geometry parity
 - master mobile regression: 4 viewports × representative slides ทุก batch PASS
 
-Release gate: **LOCAL / MASTER QA PASSED**. ขั้นถัดไปคือ final Git diff review → commit/push → GitHub Pages production byte/SHA verification เท่านั้น
+Release gate: **RELEASED / QA PASSED / PRODUCTION VERIFIED**
+- release commit: `a93e926f213398a3bff951d3dd37399238c57c61`
+- GitHub Pages build: `built`
+- production `index.html`: 323,975 bytes / 120 slides
+- SHA-256 production = local: `2966a8073fed3363126094ce8a21df7778f59c48de2caa67cf43f00c7cee7700`
+- production byte-for-byte identical กับ local master
