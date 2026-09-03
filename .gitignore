@@ -1,5 +1,6 @@
 # Browser profiles and one-off QA evidence
 .qa_edge_profile/
+.qa_edge_profile_visual*/
 qa_edge_profile/
 *.png
 qa_tmp_*.html

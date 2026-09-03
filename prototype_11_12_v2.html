@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#172131"/>
+<title>CHEM01 · พันธะเคมี · คาบ 11–12 · v2</title>
+<style>
+:root{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;--covalent:#7357A6;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E}
+*{box-sizing:border-box}
+html{margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none}
+body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none;font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:0;top:0;width:1600px;height:900px;transform:translate3d(var(--deck-x,0px),var(--deck-y,0px),0) scale(var(--scale,1));transform-origin:0 0;background:var(--paper);overflow:hidden;will-change:transform}
+.slide{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}.slide.active{display:flex;flex-direction:column}
+.kicker{font-size:19px;line-height:1.3;color:var(--muted)}.kicker strong{color:var(--ink);font-weight:600}
+.title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}.title strong{font-weight:600}
+.meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}.meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}.footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+[data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}[data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+sub,sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}sup{top:-.62em}sub{bottom:-.14em}.chem{letter-spacing:-.02em}.muted{color:var(--muted)}
+.dark{background:#172131;color:#F7F6F2}.dark .kicker{color:#A9B2BF}.dark .kicker strong{color:#F7F6F2}.dark .footer{color:#8F99A6}.dark .footer:before{background:rgba(255,255,255,.15)}.dark .meta{color:#A9B2BF}
+.bridge{padding:18px 22px;border-left:3px solid var(--covalent);font-size:20px;line-height:1.5;color:var(--muted);margin-top:18px}.bridge strong{color:var(--ink)}
+.ruleline{font-size:21px;line-height:1.5;color:var(--muted);text-align:center;margin-top:16px}.ruleline strong{color:var(--ink)}
+
+.task-contract{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:center;flex:1;margin-top:30px}.contract-card{min-height:300px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:34px 26px;display:flex;flex-direction:column;justify-content:center;text-align:center}.contract-n{font-size:18px;color:#A0A5AB}.contract-main{font-size:36px;font-weight:600;margin-top:16px}.contract-sub{font-size:21px;color:var(--muted);line-height:1.5;margin-top:18px}.dark .contract-card{border-bottom-color:rgba(255,255,255,.15)}.dark .contract-sub{color:#A9B2BF}
+.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;align-items:center;flex:1}.score-card{min-height:360px;border-top:4px solid var(--covalent);border-bottom:1px solid var(--line);padding:38px 26px;text-align:center;display:flex;flex-direction:column;justify-content:center}.score-num{font-size:88px;line-height:1;font-weight:600;color:var(--covalent)}.score-label{font-size:31px;font-weight:600;margin-top:20px}.score-desc{font-size:21px;color:var(--muted);line-height:1.5;margin-top:18px}
+.calibration{display:grid;grid-template-columns:520px 1fr;gap:80px;align-items:center;flex:1}.cal-box{height:390px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}.mol-svg{display:block;width:390px;height:300px;overflow:visible;shape-rendering:geometricPrecision}.mol-svg .atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:46px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}.mol-svg .bond{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;vector-effect:non-scaling-stroke}.mol-svg .lp{fill:var(--covalent)}.mol-svg .dip{stroke:var(--neg);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}.cal-steps{display:grid}.cal-step{display:grid;grid-template-columns:58px 1fr;gap:22px;padding:23px 0;border-top:1px solid var(--line);font-size:26px;line-height:1.42}.cal-step:last-child{border-bottom:1px solid var(--line)}.cal-step .n{color:#A6ABB1}.cal-step strong{color:var(--covalent)}
+
+/* molecular-geometry visual language shared with Period 8–10 */
+.shape-svg{display:block;width:280px;height:210px;overflow:visible;shape-rendering:geometricPrecision}.shape-svg.small{width:220px;height:165px}.shape-svg.micro{width:150px;height:112px}.shape-svg.nano{width:122px;height:92px}
+.shape-svg .sbond{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;fill:none;vector-effect:non-scaling-stroke}.shape-svg .sdash{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;stroke-dasharray:8 9;fill:none;vector-effect:non-scaling-stroke}.shape-svg .swedge{fill:var(--covalent);opacity:.9}.shape-svg .satom{fill:#fff;stroke:var(--covalent);stroke-width:2.4;vector-effect:non-scaling-stroke}.shape-svg .slabel{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:25px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}.shape-svg .sdot{fill:var(--covalent)}.shape-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}.dark .shape-svg .satom{fill:#172131;stroke:#B49BCD}.dark .shape-svg .slabel{fill:#F7F6F2}
+.rubric4{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 46px;align-content:center;flex:1}.rubric-card{min-height:205px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:28px 30px}.rubric-tag{font-size:18px;color:#A0A5AB}.rubric-main{font-size:29px;font-weight:600;margin-top:13px}.rubric-sub{font-size:20px;line-height:1.48;color:var(--muted);margin-top:12px}
+.rubric2{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:22px}.rubric-panel{min-height:255px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:24px 30px}.rp-title{font-size:30px;font-weight:600}.rp-list{display:grid;margin-top:14px}.rp-row{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:20px;line-height:1.38}.rp-row:last-child{border-bottom:1px solid var(--line)}.rp-row .n{color:#A6ABB1}.shape-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:18px}.shape-chip{min-height:185px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line);padding:10px 4px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}.shape-chip .code{font-size:20px;color:var(--covalent);font-weight:600}.shape-chip .name{font-size:17px;font-weight:600;margin-top:2px}.shape-chip .note{font-size:14px;color:var(--muted);margin-top:2px}
+.workpair{display:grid;grid-template-columns:1fr 1fr;gap:62px;align-items:center;flex:1}.workcard{min-height:455px;border-top:4px solid var(--covalent);border-bottom:1px solid var(--line);padding:36px 40px}.workformula{font-size:66px;font-weight:600;text-align:center}.blank-grid{display:grid;margin-top:28px}.blank-row{display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid var(--line);font-size:23px}.blank-row:last-child{border-bottom:1px solid var(--line)}.blank-label{color:var(--muted)}.blank-line{height:1px;background:#BFC3C6}
+.self6{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 52px;align-content:start;margin-top:18px}.self-row{display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:center;padding:15px 0;border-top:1px solid var(--line);font-size:21px;line-height:1.38}.self-row:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.self-n{width:36px;height:36px;border:1px solid #BFC3C6;border-radius:50%;display:grid;place-items:center;color:#8D949B;font-size:17px}.self-shapes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}.self-shape{height:112px;border-top:1px solid var(--line);display:grid;place-items:center}.bonus-note{position:absolute;left:82px;right:82px;bottom:78px;font-size:16px;color:var(--muted);text-align:center}
+.unit-map{display:grid;grid-template-columns:repeat(7,1fr);gap:15px;align-items:center;flex:1}.unit-step{min-height:230px;border-top:3px solid #9278B2;border-bottom:1px solid rgba(255,255,255,.15);padding:24px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center}.unit-n{font-size:16px;color:#7F8A98}.unit-main{font-size:26px;font-weight:600}.unit-sub{font-size:17px;line-height:1.4;color:#A9B2BF;margin-top:13px}
+.must5{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center;flex:1}.must-card{min-height:360px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:24px 18px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}.must-n{font-size:18px;color:#A0A5AB}.must-main{font-size:27px;font-weight:600;margin-top:14px}.must-sub{font-size:18px;line-height:1.45;color:var(--muted);margin-top:12px}.must-icon{height:112px;display:grid;place-items:center;margin-top:8px}
+.mock-intro{display:grid;grid-template-columns:430px 1fr;gap:70px;align-items:center;flex:1}.mock-big{border-top:4px solid var(--covalent);border-bottom:1px solid var(--line);padding:42px;text-align:center}.mock-eight{font-size:108px;font-weight:600;color:var(--covalent);line-height:1}.mock-lab{font-size:28px;font-weight:600;margin-top:14px}.mock-rules{display:grid}.mock-rule{display:grid;grid-template-columns:58px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);font-size:25px;line-height:1.42}.mock-rule:last-child{border-bottom:1px solid var(--line)}.mock-rule .n{color:#A6ABB1}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;flex:1}.qcard{min-height:430px;border-top:4px solid var(--covalent);border-bottom:1px solid var(--line);padding:38px}.qnum{font-size:18px;color:#A0A5AB}.qmain{font-size:31px;line-height:1.42;margin-top:20px}.qhint{font-size:20px;line-height:1.45;color:var(--muted);margin-top:28px}.answer-space{height:72px;border-bottom:2px solid #C4C8CB;margin-top:28px}
+.ansgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;align-content:center;flex:1}.ansrow{min-height:232px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:22px 26px}.ansnum{font-size:16px;color:#A0A5AB}.ansmain{font-size:25px;font-weight:600;line-height:1.32;margin-top:9px;color:var(--covalent)}.answhy{font-size:17px;line-height:1.42;color:var(--muted);margin-top:8px}.ans-visual{height:104px;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}.ans-visual .tag{font-size:14px;color:var(--muted);font-weight:500}
+.exam5{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center;flex:1}.exam-card{min-height:340px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:22px 18px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}.exam-icon{font-size:38px;color:var(--covalent);font-weight:600}.exam-main{font-size:24px;font-weight:600;line-height:1.35;margin-top:12px}.exam-sub{font-size:17px;line-height:1.42;color:var(--muted);margin-top:11px}.exam-shape{height:100px;display:grid;place-items:center;margin-top:6px}
+
+.slide-nav{position:fixed;inset:0;z-index:9999;pointer-events:none}.slide-nav button{position:absolute;top:50%;width:52px;height:52px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(17,24,39,.82);color:#fff;font:500 30px/1 "Segoe UI Symbol","Segoe UI",sans-serif;display:grid;place-items:center;padding:0;box-shadow:0 8px 26px rgba(0,0,0,.24);transform:translateY(-50%);pointer-events:auto;cursor:pointer;touch-action:manipulation}.slide-nav .prev{left:max(12px,env(safe-area-inset-left))}.slide-nav .next{right:max(12px,env(safe-area-inset-right))}.slide-nav button:disabled{opacity:.28;cursor:default}@media(max-width:700px){.slide-nav button{top:auto;bottom:max(14px,env(safe-area-inset-bottom));width:48px;height:48px;font-size:27px}.slide-nav .prev{left:max(14px,env(safe-area-inset-left))}.slide-nav .next{right:max(14px,env(safe-area-inset-right))}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+<!-- 101 -->
+<section class="slide dark active" data-batch="11-12" data-title="Covalent worksheet contract">
+ <div class="kicker">CHEM01 · คาบ 11 · <strong>Covalent Worksheet</strong></div>
+ <div class="meta"><span>ชีท หน้า 39</span><span>10 คะแนน</span></div>
+ <div class="title" style="color:#F7F6F2">วันนี้ไม่เรียนเรื่องใหม่ — ใช้ <strong>Lewis → shape → polarity</strong> ทำงานคะแนนให้ครบเหตุผล</div>
+ <div class="task-contract">
+  <div class="contract-card"><div class="contract-n">01</div><div class="contract-main">Lewis</div><div class="contract-sub">วาด bonds + lone pairs<br>ให้สอดคล้องกับสูตร</div></div>
+  <div class="contract-card" data-reveal="1"><div class="contract-n">02</div><div class="contract-main">Shape</div><div class="contract-sub">อ่าน AX/E จาก Lewis<br>แล้วเลือก shape ที่เรียนแล้ว</div></div>
+  <div class="contract-card" data-reveal="2"><div class="contract-n">03</div><div class="contract-main">Polarity</div><div class="contract-sub">ดู symmetry + dipole cancellation<br>แล้วสรุป polar / nonpolar</div></div>
+ </div>
+ <div class="bridge" style="color:#A9B2BF;border-left-color:#9278B2" data-reveal="3"><strong style="color:#F7F6F2">กติกาสำคัญ:</strong> จอจะไม่เปิดเฉลยของ 6 สารคะแนน — ใช้ rubric และ checklist ตรวจ reasoning ของตนเอง</div>
+ <div class="footer"><span>printed page 39 · ไม่มี concept ใหม่</span><span>101</span></div>
+</section>
+
+<!-- 102 -->
+<section class="slide" data-batch="11-12" data-title="Worksheet score map">
+ <div class="kicker">เกณฑ์คะแนน · <strong>10 คะแนน</strong></div>
+ <div class="title">คะแนนมาจาก <strong>กระบวนการครบชุด</strong> — ไม่ใช่ตอบ polarity อย่างเดียว</div>
+ <div class="score-grid">
+  <div class="score-card"><div class="score-num">4</div><div class="score-label">Lewis</div><div class="score-desc">อะตอม · bonds · lone pairs<br>เป็นฐานของทุกขั้นต่อไป</div></div>
+  <div class="score-card" data-reveal="1"><div class="score-num">3</div><div class="score-label">Shape</div><div class="score-desc">AX/E และ molecular shape<br>ต้องตาม Lewis ที่วาด</div></div>
+  <div class="score-card" data-reveal="2"><div class="score-num">3</div><div class="score-label">Polarity</div><div class="score-desc">ดู arrangement ของ dipoles<br>แล้วให้เหตุผลสั้น ๆ</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3"><strong>ถ้า Lewis ผิด</strong> ให้แก้ตรงนั้นก่อน — เพราะ shape และ polarity จะผิดตาม</div>
+ <div class="footer"><span>คะแนนแนะนำจาก TEACHING_PLAN.md: 4 + 3 + 3</span><span>102</span></div>
+</section>
+
+<!-- 103 -->
+<section class="slide" data-batch="11-12" data-title="Calibration HCl">
+ <div class="kicker">Calibration · <strong>ตัวอย่างไม่อยู่ในชุดคะแนน</strong></div>
+ <div class="title">ดูระดับรายละเอียดที่ต้องการด้วย HCl — แล้วใช้มาตรฐานเดียวกันกับใบงาน</div>
+ <div class="calibration">
+  <div class="cal-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="HCl calibration Lewis"><line class="bond" x1="120" y1="150" x2="270" y2="150"/><text class="atom" x="88" y="150">H</text><text class="atom" x="304" y="150">Cl</text><circle class="lp" cx="300" cy="91" r="4"/><circle class="lp" cx="310" cy="91" r="4"/><circle class="lp" cx="300" cy="209" r="4"/><circle class="lp" cx="310" cy="209" r="4"/><circle class="lp" cx="349" cy="145" r="4"/><circle class="lp" cx="349" cy="155" r="4"/><line class="dip" x1="142" y1="226" x2="280" y2="226" data-reveal="3"/><polygon points="280,226 260,215 260,237" fill="#267786" data-reveal="3"/></svg></div>
+  <div class="cal-steps">
+   <div class="cal-step"><div class="n">1</div><div><strong>Lewis:</strong> H–Cl; Cl มี 3 lone pairs</div></div>
+   <div class="cal-step" data-reveal="1"><div class="n">2</div><div><strong>Shape:</strong> diatomic → linear</div></div>
+   <div class="cal-step" data-reveal="2"><div class="n">3</div><div><strong>Bond dipole:</strong> ชี้ไปทาง Cl</div></div>
+   <div class="cal-step" data-reveal="3"><div class="n">4</div><div><strong>Molecular polarity:</strong> polar — ไม่มี dipole อื่นมาหักล้าง</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>Calibration เท่านั้น · ไม่ใช่หนึ่งใน 6 สารคะแนน</span><span>103</span></div>
+</section>
+
+<!-- 104 -->
+<section class="slide" data-batch="11-12" data-title="Lewis rubric lens">
+ <div class="kicker">Rubric lens · <strong>Lewis 4 คะแนน</strong></div>
+ <div class="title">ก่อนคิด shape — เช็ก Lewis ด้วย <strong>4 คำถาม</strong></div>
+ <div class="rubric4">
+  <div class="rubric-card"><div class="rubric-tag">CHECK 1</div><div class="rubric-main">อะตอมครบตามสูตร?</div><div class="rubric-sub">จำนวน H / halogen / O / N / C ต้องตรงกับสูตรที่โจทย์ให้</div></div>
+  <div class="rubric-card" data-reveal="1"><div class="rubric-tag">CHECK 2</div><div class="rubric-main">เลือกอะตอมกลางเหมาะสม?</div><div class="rubric-sub">H ไม่เป็นอะตอมกลาง; ใช้ pattern ที่ฝึกมาในคาบ Lewis</div></div>
+  <div class="rubric-card" data-reveal="2"><div class="rubric-tag">CHECK 3</div><div class="rubric-main">จำนวน bonds สมเหตุผล?</div><div class="rubric-sub">H/halogen≈1 · O≈2 · N≈3 · C≈4 ในตัวอย่างหลักที่เรียน</div></div>
+  <div class="rubric-card" data-reveal="3"><div class="rubric-tag">CHECK 4</div><div class="rubric-main">lone pairs ที่จำเป็นครบ?</div><div class="rubric-sub">อย่าลืม dots เพราะ lone pair อาจเปลี่ยน molecular shape</div></div>
+ </div>
+ <div class="footer"><span>ไม่เฉลยสารคะแนน — ใช้ rubric ตรวจสิ่งที่คุณวาดเอง</span><span>104</span></div>
+</section>
+
+<!-- 105 -->
+<section class="slide" data-batch="11-12" data-title="Shape polarity rubric lens">
+ <div class="kicker">Rubric lens · <strong>Shape + Polarity 6 คะแนน</strong></div>
+ <div class="title">Lewis ผ่านแล้ว — ใช้ <strong>สอง lens</strong> ต่อโดยไม่ข้ามขั้น</div>
+ <div class="rubric2">
+  <div class="rubric-panel"><div class="rp-title">Shape · 3 คะแนน</div><div class="rp-list">
+   <div class="rp-row"><div class="n">1</div><div>นับทิศพันธะรอบอะตอมกลาง</div></div>
+   <div class="rp-row" data-reveal="1"><div class="n">2</div><div>นับ lone pairs → เขียน AX/E</div></div>
+   <div class="rp-row" data-reveal="2"><div class="n">3</div><div>เลือก 1 ใน 5 shape หลักที่เรียน</div></div>
+  </div></div>
+  <div class="rubric-panel"><div class="rp-title">Polarity · 3 คะแนน</div><div class="rp-list">
+   <div class="rp-row"><div class="n">1</div><div>พันธะแต่ละทิศมี dipole อย่างไร?</div></div>
+   <div class="rp-row" data-reveal="1"><div class="n">2</div><div>shape + อะตอมรอบกลางสมมาตรไหม?</div></div>
+   <div class="rp-row" data-reveal="2"><div class="n">3</div><div>dipoles cancel → nonpolar; ไม่ cancel → polar</div></div>
+  </div></div>
+ </div>
+ <div class="shape-strip" data-reveal="3" aria-label="generic reference of five molecular shapes">
+  <div class="shape-chip"><div class="code">AX<sub>2</sub></div><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="55" y1="90" x2="88" y2="90"/><line class="sbond" x1="132" y1="90" x2="165" y2="90"/><circle class="satom" cx="35" cy="90" r="18"/><circle class="satom" cx="110" cy="90" r="22"/><circle class="satom" cx="185" cy="90" r="18"/><text class="slabel" x="35" y="90">X</text><text class="slabel" x="110" y="90">A</text><text class="slabel" x="185" y="90">X</text></svg><div class="name">linear</div></div>
+  <div class="shape-chip"><div class="code">AX<sub>3</sub></div><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="72" x2="110" y2="42"/><line class="sbond" x1="91" y1="103" x2="60" y2="128"/><line class="sbond" x1="129" y1="103" x2="160" y2="128"/><circle class="satom" cx="110" cy="95" r="22"/><circle class="satom" cx="110" cy="25" r="18"/><circle class="satom" cx="45" cy="140" r="18"/><circle class="satom" cx="175" cy="140" r="18"/><text class="slabel" x="110" y="95">A</text><text class="slabel" x="110" y="25">X</text><text class="slabel" x="45" y="140">X</text><text class="slabel" x="175" y="140">X</text></svg><div class="name">trigonal planar</div></div>
+  <div class="shape-chip"><div class="code">AX<sub>4</sub></div><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="70" x2="110" y2="35"/><line class="sbond" x1="90" y1="100" x2="53" y2="126"/><line class="sdash" x1="130" y1="100" x2="167" y2="126"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="110" cy="20" r="17"/><circle class="satom" cx="38" cy="136" r="17"/><circle class="satom" cx="182" cy="136" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">A</text><text class="slabel" x="110" y="20">X</text><text class="slabel" x="38" y="136">X</text><text class="slabel" x="182" y="136">X</text><text class="slabel" x="110" y="166">X</text></svg><div class="name">tetrahedral</div></div>
+  <div class="shape-chip"><div class="code">AX<sub>3</sub>E</div><svg class="shape-svg nano" viewBox="0 0 220 180"><g class="lp-domain" transform="rotate(12 110 29)"><circle class="sdot" cx="103" cy="29" r="4"/><circle class="sdot" cx="117" cy="29" r="4"/></g><line class="sbond" x1="92" y1="101" x2="58" y2="128"/><line class="sdash" x1="128" y1="101" x2="162" y2="128"/><path class="swedge" d="M107 108 L113 108 L128 165 L92 165 Z"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="43" cy="140" r="17"/><circle class="satom" cx="177" cy="140" r="17"/><circle class="satom" cx="110" cy="165" r="17"/><text class="slabel" x="110" y="88">A</text><text class="slabel" x="43" y="140">X</text><text class="slabel" x="177" y="140">X</text><text class="slabel" x="110" y="165">X</text></svg><div class="name">trigonal pyramidal</div></div>
+  <div class="shape-chip"><div class="code">AX<sub>2</sub>E<sub>2</sub></div><svg class="shape-svg nano" viewBox="0 0 220 180"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">A</text><text class="slabel" x="40" y="149">X</text><text class="slabel" x="180" y="149">X</text></svg><div class="name">bent</div></div>
+ </div>
+ <div class="footer"><span>Shape เดียวกันอาจ polarity ต่างกัน ถ้าอะตอมรอบกลางไม่เหมือนกัน</span><span>105</span></div>
+</section>
+
+<!-- 106 -->
+<section class="slide" data-batch="11-12" data-title="Worksheet set A">
+ <div class="kicker">Work set A · <strong>ลงชีท หน้า 39</strong></div>
+ <div class="meta"><span>ไม่มีเฉลยบนจอ</span></div>
+ <div class="title">ทำ HF และ BCl<sub>3</sub> ให้ครบ <strong>Lewis → Shape → Polarity</strong></div>
+ <div class="workpair">
+  <div class="workcard"><div class="workformula chem">HF</div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+  <div class="workcard"><div class="workformula chem">BCl<sub>3</sub></div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+ </div>
+ <div class="ruleline">ติดตรงไหน → กลับไป rubric Slide 104–105 <strong>โดยไม่เดาคำตอบปลายทาง</strong></div>
+ <div class="footer"><span>Assessment integrity: ไม่มี answer reveal</span><span>106</span></div>
+</section>
+
+<!-- 107 -->
+<section class="slide" data-batch="11-12" data-title="Worksheet set B">
+ <div class="kicker">Work set B · <strong>ลงชีท หน้า 39</strong></div>
+ <div class="meta"><span>ไม่มีเฉลยบนจอ</span></div>
+ <div class="title">ทำ CH<sub>4</sub> และ CH<sub>3</sub>Cl — ระวังว่า <strong>shape เหมือนกัน ไม่ได้แปลว่า polarity เหมือนกัน</strong></div>
+ <div class="workpair">
+  <div class="workcard"><div class="workformula chem">CH<sub>4</sub></div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+  <div class="workcard"><div class="workformula chem">CH<sub>3</sub>Cl</div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+ </div>
+ <div class="ruleline">คำถามช่วยคิด: <strong>อะตอมรอบ C เหมือนกันทุกทิศหรือไม่?</strong></div>
+ <div class="footer"><span>Hint เป็น reasoning cue ไม่ใช่เฉลย</span><span>107</span></div>
+</section>
+
+<!-- 108 -->
+<section class="slide" data-batch="11-12" data-title="Worksheet set C">
+ <div class="kicker">Work set C · <strong>ลงชีท หน้า 39</strong></div>
+ <div class="meta"><span>ไม่มีเฉลยบนจอ</span></div>
+ <div class="title">ทำ NF<sub>3</sub> และ H<sub>2</sub>O — อย่าลืม <strong>lone pairs ก่อนเลือก shape</strong></div>
+ <div class="workpair">
+  <div class="workcard"><div class="workformula chem">NF<sub>3</sub></div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+  <div class="workcard"><div class="workformula chem">H<sub>2</sub>O</div><div class="blank-grid"><div class="blank-row"><div class="blank-label">Lewis</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Shape</div><div class="blank-line"></div></div><div class="blank-row"><div class="blank-label">Polarity</div><div class="blank-line"></div></div></div></div>
+ </div>
+ <div class="ruleline">ถ้า shape ดูแปลก → <strong>กลับไปนับ lone pairs</strong> บนอะตอมกลางอีกครั้ง</div>
+ <div class="footer"><span>Hint เป็น process check · ไม่มี answer reveal</span><span>108</span></div>
+</section>
+
+<!-- 109 -->
+<section class="slide" data-batch="11-12" data-title="Worksheet self check">
+ <div class="kicker">Self-check · <strong>ก่อนส่ง</strong></div>
+ <div class="title">ตรวจทั้ง 6 สารด้วย checklist — หา <strong>จุดแรกที่ reasoning หลุด</strong></div>
+ <div class="self6">
+  <div class="self-row"><div class="self-n">1</div><div>formula และจำนวนอะตอมตรงโจทย์?</div></div>
+  <div class="self-row"><div class="self-n">2</div><div>Lewis มี bonds + lone pairs ครบ?</div></div>
+  <div class="self-row" data-reveal="1"><div class="self-n">3</div><div>AX/E อ่านจาก Lewis ไม่ได้เดาจากชื่อสาร?</div></div>
+  <div class="self-row" data-reveal="1"><div class="self-n">4</div><div>shape อยู่ใน 5 รูปร่างหลักที่เรียน?</div></div>
+  <div class="self-row" data-reveal="2"><div class="self-n">5</div><div>ตรวจ symmetry / ชนิดอะตอมรอบกลาง?</div></div>
+  <div class="self-row" data-reveal="2"><div class="self-n">6</div><div>polarity สอดคล้องกับ dipole cancellation?</div></div>
+ </div>
+ <div class="self-shapes" data-reveal="3" aria-label="generic five-shape self-check library">
+  <div class="self-shape"><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="55" y1="90" x2="88" y2="90"/><line class="sbond" x1="132" y1="90" x2="165" y2="90"/><circle class="satom" cx="35" cy="90" r="18"/><circle class="satom" cx="110" cy="90" r="22"/><circle class="satom" cx="185" cy="90" r="18"/><text class="slabel" x="35" y="90">X</text><text class="slabel" x="110" y="90">A</text><text class="slabel" x="185" y="90">X</text></svg></div>
+  <div class="self-shape"><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="72" x2="110" y2="42"/><line class="sbond" x1="91" y1="103" x2="60" y2="128"/><line class="sbond" x1="129" y1="103" x2="160" y2="128"/><circle class="satom" cx="110" cy="95" r="22"/><circle class="satom" cx="110" cy="25" r="18"/><circle class="satom" cx="45" cy="140" r="18"/><circle class="satom" cx="175" cy="140" r="18"/><text class="slabel" x="110" y="95">A</text><text class="slabel" x="110" y="25">X</text><text class="slabel" x="45" y="140">X</text><text class="slabel" x="175" y="140">X</text></svg></div>
+  <div class="self-shape"><svg class="shape-svg nano" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="70" x2="110" y2="35"/><line class="sbond" x1="90" y1="100" x2="53" y2="126"/><line class="sdash" x1="130" y1="100" x2="167" y2="126"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="110" cy="20" r="17"/><circle class="satom" cx="38" cy="136" r="17"/><circle class="satom" cx="182" cy="136" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">A</text><text class="slabel" x="110" y="20">X</text><text class="slabel" x="38" y="136">X</text><text class="slabel" x="182" y="136">X</text><text class="slabel" x="110" y="166">X</text></svg></div>
+  <div class="self-shape"><svg class="shape-svg nano" viewBox="0 0 220 180"><g class="lp-domain" transform="rotate(12 110 29)"><circle class="sdot" cx="103" cy="29" r="4"/><circle class="sdot" cx="117" cy="29" r="4"/></g><line class="sbond" x1="92" y1="101" x2="58" y2="128"/><line class="sdash" x1="128" y1="101" x2="162" y2="128"/><path class="swedge" d="M107 108 L113 108 L128 165 L92 165 Z"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="43" cy="140" r="17"/><circle class="satom" cx="177" cy="140" r="17"/><circle class="satom" cx="110" cy="165" r="17"/><text class="slabel" x="110" y="88">A</text><text class="slabel" x="43" y="140">X</text><text class="slabel" x="177" y="140">X</text><text class="slabel" x="110" y="165">X</text></svg></div>
+  <div class="self-shape"><svg class="shape-svg nano" viewBox="0 0 220 180"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">A</text><text class="slabel" x="40" y="149">X</text><text class="slabel" x="180" y="149">X</text></svg></div>
+ </div>
+ <div class="bonus-note" data-reveal="3">SO<sub>2</sub>: ใช้เมื่อครูให้ Lewis เพื่อลด complexity · NH<sub>4</sub><sup>+</sup>: bonus / ไม่ใช้เป็นคะแนนแกน</div>
+ <div class="footer"><span>ตรวจ process ไม่เปิดเฉลยสารคะแนน</span><span>109</span></div>
+</section>
+
+<!-- 110 -->
+<section class="slide dark" data-batch="11-12" data-title="Worksheet final check">
+ <div class="kicker">ปิดคาบ 11 · <strong>Final check</strong></div>
+ <div class="title" style="color:#F7F6F2">ก่อนส่ง — ทุกคำตอบควรเล่าเรื่องเดียวกันตั้งแต่ <strong>Lewis ถึง polarity</strong></div>
+ <div class="task-contract">
+  <div class="contract-card"><div class="contract-n">4 pts</div><div class="contract-main">Lewis</div><div class="contract-sub">เป็นฐานที่ถูกต้อง</div></div>
+  <div class="contract-card" data-reveal="1"><div class="contract-n">3 pts</div><div class="contract-main">Shape</div><div class="contract-sub">ตาม AX/E จาก Lewis</div></div>
+  <div class="contract-card" data-reveal="2"><div class="contract-n">3 pts</div><div class="contract-main">Polarity</div><div class="contract-sub">ตาม shape + dipoles</div></div>
+ </div>
+ <div class="bridge" style="color:#A9B2BF;border-left-color:#9278B2" data-reveal="3"><strong style="color:#F7F6F2">คาบ 12:</strong> ทบทวนทั้งหน่วยด้วย mini mock — แล้วหาเรื่องที่ต้องกลับไปซ่อมก่อนสอบ</div>
+ <div class="footer"><span>10 คะแนน · ไม่มีเฉลยคะแนนบนจอ</span><span>110</span></div>
+</section>
+
+<!-- 111 -->
+<section class="slide dark" data-batch="11-12" data-title="Unit big picture">
+ <div class="kicker">CHEM01 · คาบ 12 · <strong>Review</strong></div>
+ <div class="meta"><span>ไม่มี concept ใหม่</span></div>
+ <div class="title" style="color:#F7F6F2">ทั้งหน่วยคือ <strong>สาย reasoning เดียว</strong> — จากตารางธาตุไปถึง polarity</div>
+ <div class="unit-map">
+  <div class="unit-step"><div class="unit-n">01</div><div class="unit-main">Periodic table</div><div class="unit-sub">metal / nonmetal</div></div>
+  <div class="unit-step" data-reveal="1"><div class="unit-n">02</div><div class="unit-main">Bond type</div><div class="unit-sub">ionic / covalent</div></div>
+  <div class="unit-step" data-reveal="2"><div class="unit-n">03</div><div class="unit-main">Formula</div><div class="unit-sub">charge balance</div></div>
+  <div class="unit-step" data-reveal="3"><div class="unit-n">04</div><div class="unit-main">Name</div><div class="unit-sub">ionic / prefixes</div></div>
+  <div class="unit-step" data-reveal="4"><div class="unit-n">05</div><div class="unit-main">Lewis</div><div class="unit-sub">bonds + lone pairs</div></div>
+  <div class="unit-step" data-reveal="5"><div class="unit-n">06</div><div class="unit-main">Shape</div><div class="unit-sub">AX/E</div></div>
+  <div class="unit-step" data-reveal="6"><div class="unit-n">07</div><div class="unit-main">Polarity</div><div class="unit-sub">dipoles cancel?</div></div>
+ </div>
+ <div class="footer"><span>ถ้าขั้นปลายผิด ให้ย้อนตรวจขั้นก่อนหน้า</span><span>111</span></div>
+</section>
+
+<!-- 112 -->
+<section class="slide" data-batch="11-12" data-title="Five must know">
+ <div class="kicker">ก่อนสอบ · <strong>5 เรื่องห้ามพลาด</strong></div>
+ <div class="title">จำให้น้อยลง — แต่ให้ <strong>ขั้นตอนคิด</strong> ชัดขึ้น</div>
+ <div class="must5">
+  <div class="must-card"><div class="must-n">01</div><div class="must-main">metal / nonmetal</div><div class="must-sub">ใช้จำแนก ionic vs covalent</div></div>
+  <div class="must-card" data-reveal="1"><div class="must-n">02</div><div class="must-main">charge balance</div><div class="must-sub">ionic formula ต้องรวมประจุ = 0</div></div>
+  <div class="must-card" data-reveal="2"><div class="must-n">03</div><div class="must-main">naming rules</div><div class="must-sub">ionic ไม่ใช้ prefix; covalent ใช้ prefix</div></div>
+  <div class="must-card" data-reveal="3"><div class="must-n">04</div><div class="must-main">Lewis → shape</div><div class="must-icon"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="generic AX3E molecular geometry"><g class="lp-domain" transform="rotate(12 110 29)"><circle class="sdot" cx="103" cy="29" r="4"/><circle class="sdot" cx="117" cy="29" r="4"/></g><line class="sbond" x1="92" y1="101" x2="58" y2="128"/><line class="sdash" x1="128" y1="101" x2="162" y2="128"/><path class="swedge" d="M107 108 L113 108 L128 165 L92 165 Z"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="43" cy="140" r="17"/><circle class="satom" cx="177" cy="140" r="17"/><circle class="satom" cx="110" cy="165" r="17"/><text class="slabel" x="110" y="88">A</text><text class="slabel" x="43" y="140">X</text><text class="slabel" x="177" y="140">X</text><text class="slabel" x="110" y="165">X</text></svg></div><div class="must-sub">lone pair เปลี่ยน molecular shape ได้</div></div>
+  <div class="must-card" data-reveal="4"><div class="must-n">05</div><div class="must-main">shape → polarity</div><div class="must-icon"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="generic AX2E2 bent molecular geometry"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">A</text><text class="slabel" x="40" y="149">X</text><text class="slabel" x="180" y="149">X</text></svg></div><div class="must-sub">ดู dipole cancellation ทั้งโมเลกุล</div></div>
+ </div>
+ <div class="footer"><span>5 anchors ครอบคลุมแกนหลักใน blueprint 40 ข้อ</span><span>112</span></div>
+</section>
+
+<!-- 113 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock instructions">
+ <div class="kicker">Mini mock · <strong>ตอบก่อนเฉลย</strong></div>
+ <div class="title">8 ข้อสั้น ๆ เพื่อหา <strong>จุดที่ต้องซ่อมก่อนสอบจริง</strong></div>
+ <div class="mock-intro">
+  <div class="mock-big"><div class="mock-eight">8</div><div class="mock-lab">คำถาม</div><div style="font-size:19px;color:var(--muted);margin-top:14px">ครอบคลุมทุกแกนหลัก</div></div>
+  <div class="mock-rules">
+   <div class="mock-rule"><div class="n">1</div><div>ตอบ Q1–Q8 ก่อนเปิด Slides 118–119</div></div>
+   <div class="mock-rule" data-reveal="1"><div class="n">2</div><div>เขียนวิธีคิดสั้น ๆ ในข้อ formula / shape / polarity</div></div>
+   <div class="mock-rule" data-reveal="2"><div class="n">3</div><div>ถ้าไม่แน่ใจ ให้ทำเครื่องหมาย ? แทนการเดา</div></div>
+   <div class="mock-rule" data-reveal="3"><div class="n">4</div><div>ตอนเฉลย ให้จด “ขั้นแรกที่พลาด” ไม่จดแค่คำตอบ</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>Mini mock = diagnostic review · ไม่ใช่ข้อสอบปลายภาคจริง</span><span>113</span></div>
+</section>
+
+<!-- 114 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock Q1 Q2">
+ <div class="kicker">Mini mock · <strong>Q1–Q2</strong></div>
+ <div class="title">เริ่มจาก classification และ ionic formula</div>
+ <div class="qgrid">
+  <div class="qcard"><div class="qnum">Q1 · Bond type</div><div class="qmain">จำแนกพันธะหลักของ <strong>NaCl</strong> และ <strong>CO<sub>2</sub></strong></div><div class="qhint">ใช้ตำแหน่ง metal / nonmetal จากตารางธาตุ</div><div class="answer-space"></div></div>
+  <div class="qcard"><div class="qnum">Q2 · Ionic formula</div><div class="qmain">Mg<sup>2+</sup> และ Cl<sup>−</sup> รวมกันเป็นสูตรใด?</div><div class="qhint">ประจุรวมของ formula unit ต้องเป็นศูนย์</div><div class="answer-space"></div></div>
+ </div>
+ <div class="footer"><span>ยังไม่เปิดเฉลย · ไปต่อ Q3–Q8</span><span>114</span></div>
+</section>
+
+<!-- 115 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock Q3 Q4">
+ <div class="kicker">Mini mock · <strong>Q3–Q4</strong></div>
+ <div class="title">ชื่อสารและสมบัติของ ionic compound</div>
+ <div class="qgrid">
+  <div class="qcard"><div class="qnum">Q3 · Ionic naming</div><div class="qmain">CaO มีชื่อว่าอะไร?</div><div class="qhint">ชื่อ cation ก่อน ตามด้วย anion ลงท้ายแบบที่เรียน</div><div class="answer-space"></div></div>
+  <div class="qcard"><div class="qnum">Q4 · Ionic property</div><div class="qmain">ทำไม <strong>solid ionic compound</strong> ไม่นำไฟฟ้า แต่เมื่อ <strong>หลอมเหลว</strong> จึงนำไฟฟ้าได้?</div><div class="qhint">คิดถึงการเคลื่อนที่ของ ion</div><div class="answer-space"></div></div>
+ </div>
+ <div class="footer"><span>ตอบเหตุผล ไม่ใช่จำคำว่า “นำ/ไม่นำ” อย่างเดียว</span><span>115</span></div>
+</section>
+
+<!-- 116 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock Q5 Q6">
+ <div class="kicker">Mini mock · <strong>Q5–Q6</strong></div>
+ <div class="title">Covalent naming และ Lewis pattern</div>
+ <div class="qgrid">
+  <div class="qcard"><div class="qnum">Q5 · Covalent naming</div><div class="qmain">N<sub>2</sub>O<sub>4</sub> มีชื่อภาษาอังกฤษว่าอะไร?</div><div class="qhint">ใช้ prefixes ตามจำนวนอะตอม</div><div class="answer-space"></div></div>
+  <div class="qcard"><div class="qnum">Q6 · Lewis recognition</div><div class="qmain">ใน H<sub>2</sub>O อะตอม O มี <strong>กี่ bonds</strong> และ <strong>กี่ lone pairs</strong>?</div><div class="qhint">ใช้ quick pattern ของ O ที่เรียน</div><div class="answer-space"></div></div>
+ </div>
+ <div class="footer"><span>Lewis เป็นฐานของ shape ใน Q7</span><span>116</span></div>
+</section>
+
+<!-- 117 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock Q7 Q8">
+ <div class="kicker">Mini mock · <strong>Q7–Q8</strong></div>
+ <div class="title">Shape และ molecular polarity — ห้ามข้าม reasoning</div>
+ <div class="qgrid">
+  <div class="qcard"><div class="qnum">Q7 · Molecular shape</div><div class="qmain">NH<sub>3</sub> มี molecular shape ใด?</div><div class="qhint">N กลาง: 3 bonds + 1 lone pair → AX/E?</div><div class="answer-space"></div></div>
+  <div class="qcard"><div class="qnum">Q8 · Molecular polarity</div><div class="qmain">BCl<sub>3</sub> และ H<sub>2</sub>O — ตัวใด polar / nonpolar? ให้เหตุผลจาก shape</div><div class="qhint">ดู symmetry และ dipole cancellation</div><div class="answer-space"></div></div>
+ </div>
+ <div class="footer"><span>ตอบครบแล้วจึงไปเฉลย Slides 118–119</span><span>117</span></div>
+</section>
+
+<!-- 118 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock answers 1 to 4">
+ <div class="kicker">เฉลย · <strong>Q1–Q4</strong></div>
+ <div class="title">อย่าจดแค่คำตอบ — จด <strong>ขั้นแรกที่คุณพลาด</strong></div>
+ <div class="ansgrid">
+  <div class="ansrow"><div class="ansnum">Q1</div><div class="ansmain" data-reveal="1">NaCl ionic · CO₂ covalent</div><div class="answhy" data-reveal="1">metal + nonmetal → ionic; nonmetal + nonmetal → covalent</div></div>
+  <div class="ansrow"><div class="ansnum">Q2</div><div class="ansmain" data-reveal="2">MgCl₂</div><div class="answhy" data-reveal="2">Mg²⁺ ต้องใช้ Cl⁻ 2 ตัว → ประจุรวมเป็นศูนย์</div></div>
+  <div class="ansrow"><div class="ansnum">Q3</div><div class="ansmain" data-reveal="3">calcium oxide</div><div class="answhy" data-reveal="3">ชื่อ cation = calcium; O²⁻ → oxide</div></div>
+  <div class="ansrow"><div class="ansnum">Q4</div><div class="ansmain" data-reveal="4">solid: ion ขยับไม่ได้ · molten: ion เคลื่อนที่ได้</div><div class="answhy" data-reveal="4">การนำไฟฟ้าต้องมีอนุภาคมีประจุที่เคลื่อนที่ได้</div></div>
+ </div>
+ <div class="footer"><span>ถ้าพลาด Q1–Q4 ให้ย้อนคาบ 1–4</span><span>118</span></div>
+</section>
+
+<!-- 119 -->
+<section class="slide" data-batch="11-12" data-title="Mini mock answers 5 to 8">
+ <div class="kicker">เฉลย · <strong>Q5–Q8</strong></div>
+ <div class="title">เช็ก covalent chain: <strong>name → Lewis → shape → polarity</strong></div>
+ <div class="ansgrid">
+  <div class="ansrow"><div class="ansnum">Q5</div><div class="ansmain" data-reveal="1">dinitrogen tetroxide</div><div class="answhy" data-reveal="1">N₂ = di-nitrogen; O₄ = tetra + oxide → tetroxide</div></div>
+  <div class="ansrow"><div class="ansnum">Q6</div><div class="ansmain" data-reveal="2">O มี 2 bonds + 2 lone pairs</div><div class="ans-visual" data-reveal="2"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="H2O bent geometry with two lone-pair domains"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">O</text><text class="slabel" x="40" y="149">H</text><text class="slabel" x="180" y="149">H</text></svg></div><div class="answhy" data-reveal="2">AX₂E₂ → bent; lone pairs เป็น electron domains รอบ O</div></div>
+  <div class="ansrow"><div class="ansnum">Q7</div><div class="ansmain" data-reveal="3">NH₃ = trigonal pyramidal</div><div class="ans-visual" data-reveal="3"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="NH3 trigonal pyramidal geometry with one lone-pair domain"><g class="lp-domain" transform="rotate(12 110 29)"><circle class="sdot" cx="103" cy="29" r="4"/><circle class="sdot" cx="117" cy="29" r="4"/></g><line class="sbond" x1="92" y1="101" x2="58" y2="128"/><line class="sdash" x1="128" y1="101" x2="162" y2="128"/><path class="swedge" d="M107 108 L113 108 L128 165 L92 165 Z"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="43" cy="140" r="17"/><circle class="satom" cx="177" cy="140" r="17"/><circle class="satom" cx="110" cy="165" r="17"/><text class="slabel" x="110" y="88">N</text><text class="slabel" x="43" y="140">H</text><text class="slabel" x="177" y="140">H</text><text class="slabel" x="110" y="165">H</text></svg></div><div class="answhy" data-reveal="3">AX₃E: 3 bonds + 1 lone-pair domain รอบ N</div></div>
+  <div class="ansrow"><div class="ansnum">Q8</div><div class="ansmain" data-reveal="4">BCl₃ nonpolar · H₂O polar</div><div class="ans-visual" data-reveal="4"><div><svg class="shape-svg nano" viewBox="0 0 220 180" aria-label="BCl3 trigonal planar"><line class="sbond" x1="110" y1="72" x2="110" y2="42"/><line class="sbond" x1="91" y1="103" x2="60" y2="128"/><line class="sbond" x1="129" y1="103" x2="160" y2="128"/><circle class="satom" cx="110" cy="95" r="22"/><circle class="satom" cx="110" cy="25" r="18"/><circle class="satom" cx="45" cy="140" r="18"/><circle class="satom" cx="175" cy="140" r="18"/><text class="slabel" x="110" y="95">B</text><text class="slabel" x="110" y="25">Cl</text><text class="slabel" x="45" y="140">Cl</text><text class="slabel" x="175" y="140">Cl</text></svg><div class="tag">สมมาตร</div></div><div><svg class="shape-svg nano" viewBox="0 0 220 180" aria-label="H2O bent"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">O</text><text class="slabel" x="40" y="149">H</text><text class="slabel" x="180" y="149">H</text></svg><div class="tag">bent</div></div></div><div class="answhy" data-reveal="4">BCl₃ trigonal planar สมมาตร; H₂O bent จึง dipoles ไม่ cancel</div></div>
+ </div>
+ <div class="footer"><span>ถ้าพลาด Q5–Q8 ให้ย้อนคาบ 5–10</span><span>119</span></div>
+</section>
+
+<!-- 120 -->
+<section class="slide" data-batch="11-12" data-title="Exam strategy close unit">
+ <div class="kicker">ปิดหน่วย · <strong>Exam strategy</strong></div>
+ <div class="title">ก่อนเดาคำตอบ — ให้ถามว่า <strong>โจทย์กำลังถามขั้นไหน?</strong></div>
+ <div class="exam5">
+  <div class="exam-card"><div class="exam-icon">01</div><div class="exam-main">Bond type</div><div class="exam-sub">เริ่มจาก metal / nonmetal</div></div>
+  <div class="exam-card" data-reveal="1"><div class="exam-icon">02</div><div class="exam-main">Ionic formula</div><div class="exam-sub">เขียน charge ก่อน balance</div></div>
+  <div class="exam-card" data-reveal="2"><div class="exam-icon">03</div><div class="exam-main">Naming</div><div class="exam-sub">แยก ionic rule กับ covalent prefix</div></div>
+  <div class="exam-card" data-reveal="3"><div class="exam-icon">04</div><div class="exam-main">Shape</div><div class="exam-shape"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="generic tetrahedral molecular geometry"><line class="sbond" x1="110" y1="70" x2="110" y2="35"/><line class="sbond" x1="90" y1="100" x2="53" y2="126"/><line class="sdash" x1="130" y1="100" x2="167" y2="126"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="110" cy="20" r="17"/><circle class="satom" cx="38" cy="136" r="17"/><circle class="satom" cx="182" cy="136" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">A</text><text class="slabel" x="110" y="20">X</text><text class="slabel" x="38" y="136">X</text><text class="slabel" x="182" y="136">X</text><text class="slabel" x="110" y="166">X</text></svg></div><div class="exam-sub">Lewis ก่อน → AX/E → shape</div></div>
+  <div class="exam-card" data-reveal="4"><div class="exam-icon">05</div><div class="exam-main">Polarity</div><div class="exam-shape"><svg class="shape-svg micro" viewBox="0 0 220 180" aria-label="generic bent molecular geometry with lone-pair domains"><g class="lp-domain" transform="rotate(-35 79 43)"><circle class="sdot" cx="72" cy="43" r="4"/><circle class="sdot" cx="86" cy="43" r="4"/></g><g class="lp-domain" transform="rotate(35 141 43)"><circle class="sdot" cx="134" cy="43" r="4"/><circle class="sdot" cx="148" cy="43" r="4"/></g><line class="sbond" x1="94" y1="103" x2="55" y2="137"/><line class="sbond" x1="126" y1="103" x2="165" y2="137"/><circle class="satom" cx="110" cy="86" r="22"/><circle class="satom" cx="40" cy="149" r="17"/><circle class="satom" cx="180" cy="149" r="17"/><text class="slabel" x="110" y="86">A</text><text class="slabel" x="40" y="149">X</text><text class="slabel" x="180" y="149">X</text></svg></div><div class="exam-sub">shape ก่อน → dipoles cancel?</div></div>
+ </div>
+ <div class="bridge" data-reveal="5"><strong>Exit:</strong> เลือก 1 เรื่องที่ยังไม่มั่นใจ แล้วกลับไปทบทวนสไลด์/ชีทส่วนนั้นก่อนสอบปลายภาค</div>
+ <div class="footer"><span>จบหน่วยพันธะเคมี · ต่อไป: blueprint ข้อสอบปลายภาค 40 ข้อ</span><span>120</span></div>
+</section>
+
+</main>
+<nav class="slide-nav" aria-label="ตัวควบคุมสไลด์"><button class="prev" id="prevSlide" type="button" aria-label="สไลด์ก่อนหน้า">‹</button><button class="next" id="nextSlide" type="button" aria-label="เปิดคำตอบหรือไปสไลด์ถัดไป">›</button></nav>
+<script>
+(()=>{
+ const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],prevButton=document.getElementById('prevSlide'),nextButton=document.getElementById('nextSlide');
+ const raw=Number(new URLSearchParams(location.search).get('slide'))||101;let i=Math.max(0,Math.min(slides.length-1,raw>=101?raw-101:raw-1));
+ function fit(){const vv=window.visualViewport,root=document.documentElement,layoutWidth=Math.max(1,root.clientWidth||innerWidth||1),layoutHeight=Math.max(1,root.clientHeight||innerHeight||1),width=Math.max(1,vv?.width?Math.min(layoutWidth,vv.width):layoutWidth),height=Math.max(1,vv?.height?Math.min(layoutHeight,vv.height):layoutHeight),offsetLeft=vv?.offsetLeft||0,offsetTop=vv?.offsetTop||0,s=Math.min(width/1600,height/900),rw=1600*s,rh=900*s,x=offsetLeft+Math.max(0,(width-rw)/2),y=offsetTop+Math.max(0,(height-rh)/2);deck.style.setProperty('--scale',String(s));deck.style.setProperty('--deck-x',`${x}px`);deck.style.setProperty('--deck-y',`${y}px`)}
+ function updateNav(){prevButton.disabled=i<=0;const pending=!!slides[i]?.querySelector('[data-reveal]:not(.revealed)');nextButton.disabled=i>=slides.length-1&&!pending}
+ function rev(){const s=slides[i],els=[...s.querySelectorAll('[data-reveal]:not(.revealed)')];if(!els.length)return false;const groups=els.map(e=>Number(e.dataset.reveal)).filter(Number.isFinite),g=groups.length?Math.min(...groups):null;(g===null?els:els.filter(e=>Number(e.dataset.reveal)===g)).forEach(e=>e.classList.add('revealed'));updateNav();return true}
+ function show(n){slides[i]?.classList.remove('active');slides[i]?.querySelectorAll('[data-reveal].revealed').forEach(e=>e.classList.remove('revealed'));i=Math.max(0,Math.min(slides.length-1,n));slides[i].classList.add('active');history.replaceState(null,'','?slide='+(i+101));updateNav()}
+ function next(){if(!rev()&&i<slides.length-1)show(i+1)}
+ slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+ addEventListener('resize',fit,{passive:true});addEventListener('orientationchange',fit,{passive:true});addEventListener('pageshow',fit,{passive:true});if(window.visualViewport){visualViewport.addEventListener('resize',fit,{passive:true});visualViewport.addEventListener('scroll',fit,{passive:true})}
+ addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(slides.length-1)}else if(e.key==='Escape'){e.preventDefault();slides[i].querySelectorAll('[data-reveal].revealed').forEach(el=>el.classList.remove('revealed'));updateNav()}});
+ addEventListener('wheel',e=>e.preventDefault(),{passive:false});addEventListener('touchmove',e=>e.preventDefault(),{passive:false});prevButton.addEventListener('click',()=>show(i-1));nextButton.addEventListener('click',next);fit();updateNav();
+})();
+</script>
+</body>
+</html>

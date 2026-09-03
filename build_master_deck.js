@@ -5,7 +5,8 @@ const sources = [
   { file: 'prototype_03_04_v2.html', batch: '03-04', first: 21, last: 40 },
   { file: 'prototype_05_06_v2.html', batch: '05-06', first: 41, last: 60 },
   { file: 'prototype_07_08_v2.html', batch: '07-08', first: 61, last: 80 },
-  { file: 'prototype_09_10_v2.html', batch: '09-10', first: 81, last: 100 }
+  { file: 'prototype_09_10_v2.html', batch: '09-10', first: 81, last: 100 },
+  { file: 'prototype_11_12_v2.html', batch: '11-12', first: 101, last: 120 }
 ];
 
 function extract(html, re, label) {
@@ -203,7 +204,7 @@ const navigation = String.raw`
   }
 
   function revealOrAdvance(){
-    if (!revealNext()) show(index + 1);
+    if (!revealNext() && index < slides.length - 1) show(index + 1);
   }
 
   addEventListener('resize', scaleDeck, {passive:true});
@@ -234,7 +235,7 @@ const navigation = String.raw`
 })();
 </script>`;
 
-const out = `<!doctype html>\n<html lang="th">\n<head>\n<meta charset="utf-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>\n<meta name="theme-color" content="#172131"/>\n<title>CHEM01 · พันธะเคมี · คาบ 1–10</title>\n<style>\n${styleText}\n</style>\n</head>\n<body>\n<main class="deck" id="deck">\n${slideMarkup}\n</main>\n${navigation}\n</body>\n</html>\n`;
+const out = `<!doctype html>\n<html lang="th">\n<head>\n<meta charset="utf-8"/>\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>\n<meta name="theme-color" content="#172131"/>\n<title>CHEM01 · พันธะเคมี · คาบ 1–12</title>\n<style>\n${styleText}\n</style>\n</head>\n<body>\n<main class="deck" id="deck">\n${slideMarkup}\n</main>\n${navigation}\n</body>\n</html>\n`;
 
 fs.writeFileSync('index.html', out, 'utf8');
 console.log(JSON.stringify({

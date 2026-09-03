@@ -1,0 +1,16 @@
+const fs=require('fs'),cp=require('child_process'),path=require('path'),{pathToFileURL}=require('url');
+const edge=['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Microsoft/Edge/Application/msedge.exe'].find(fs.existsSync);
+if(!edge){console.error('Edge not found');process.exit(2)}
+const harness=pathToFileURL(path.resolve('qa_style_probe_harness.html')).href;
+const slides=[51,54,55,56,57,63,64,65,66,67,74,75,76,77,78,81,82,83,86,87,88,89,93,94,95,96,97,98,103,105,109,112,119,120];
+function srcFor(n){return n<=60?'prototype_05_06_v2.html':n<=80?'prototype_07_08_v2.html':n<=100?'prototype_09_10_v2.html':'prototype_11_12_v2.html'}
+function decode(s){return s.replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#39;/g,"'");}
+function probe(file,slide){const url=`${harness}?target=${encodeURIComponent(file)}&slide=${slide}`;const r=cp.spawnSync(edge,['--headless=new','--disable-gpu','--allow-file-access-from-files','--window-size=1600,900','--virtual-time-budget=1800','--dump-dom',url],{encoding:'utf8',maxBuffer:5e6});const m=r.stdout.match(/<pre id="out">([\s\S]*?)<\/pre>/);if(r.status!==0||!m)throw new Error(`probe failed ${file} ${slide}`);const obj=JSON.parse(decode(m[1]));delete obj.target;delete obj.batch;return obj;}
+function logicalRect(r,slide){if(!r)return null;return{x:(r.x-slide.x)*1600/slide.w,y:(r.y-slide.y)*900/slide.h,w:r.w*1600/slide.w,h:r.h*900/slide.h};}
+function rectSame(a,b,tol=.4){if(a===null||b===null)return a===b;return ['x','y','w','h'].every(k=>Math.abs(a[k]-b[k])<=tol);}
+function cssSame(a,b){return JSON.stringify(a??null)===JSON.stringify(b??null);}
+function nodeSame(a,b,slideA,slideB){if(a===null||b===null)return a===b;const ra=logicalRect(a.rect,slideA),rb=logicalRect(b.rect,slideB),sameText=(a.text??null)===(b.text??null);if((a.text??null)!==null){const ca={x:ra.x+ra.w/2,y:ra.y+ra.h/2},cb={x:rb.x+rb.w/2,y:rb.y+rb.h/2};return Math.abs(ca.x-cb.x)<=.4&&Math.abs(ca.y-cb.y)<=.4&&cssSame(a.css,b.css)&&sameText;}return rectSame(ra,rb,.4)&&cssSame(a.css,b.css)&&sameText;}
+function compare(a,b){const sa=a.slideRect,sb=b.slideRect;const detail={vars:JSON.stringify(a.vars)===JSON.stringify(b.vars),work:nodeSame(a.work,b.work,sa,sb),box:nodeSame(a.box,b.box,sa,sb),svg:nodeSame(a.svg,b.svg,sa,sb),atom:nodeSame(a.atom,b.atom,sa,sb),shapeSvg:nodeSame(a.shapeSvg,b.shapeSvg,sa,sb),shapeLabel:nodeSame(a.shapeLabel,b.shapeLabel,sa,sb)};return{same:Object.values(detail).every(Boolean),detail,logical:{src:{svg:logicalRect(a.svg?.rect,sa),atom:logicalRect(a.atom?.rect,sa),shapeSvg:logicalRect(a.shapeSvg?.rect,sa),shapeLabel:logicalRect(a.shapeLabel?.rect,sa)},master:{svg:logicalRect(b.svg?.rect,sb),atom:logicalRect(b.atom?.rect,sb),shapeSvg:logicalRect(b.shapeSvg?.rect,sb),shapeLabel:logicalRect(b.shapeLabel?.rect,sb)}}};}
+let failed=false;
+for(const slide of slides){const src=probe(srcFor(slide),slide),master=probe('index.html',slide),cmp=compare(src,master);console.log(`${slide} svgStyleLogicalGeometrySame=${cmp.same}`);if(!cmp.same){failed=true;fs.writeFileSync(`qa_svg_parity_slide${slide}.json`,JSON.stringify({src,master,compare:cmp},null,2));}}
+if(failed)process.exit(1);

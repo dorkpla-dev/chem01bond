@@ -205,3 +205,13 @@ Independent practice
 - ไม่ดึง PCl₅/SF₄/ClF₃/BrF₅/XeOF₄/ICl₄⁻ จากหน้าถัดไปกลับเข้าหลักสูตรย่อ เพราะเป็น advanced VSEPR ที่ถูกตัดออก
 
 Release gate: PASSED สำหรับ local/master build + direct handout alignment; ก่อน push ต้อง final Git diff review และ production verification หลัง deploy
+
+## Visual refinement record · 2026-09-04
+หลัง user review ได้ยกระดับ Slides 81–100 ให้ใช้ molecular-geometry language ต่อเนื่องจากคาบ 7–8:
+- CO2 / BCl3 / CH4 / CH3Cl ใช้ shape templates แบบ atom circle + solid/dash/wedge ตามความเหมาะสม
+- NH3 / NF3 ใช้ pyramidal template เดียวกัน พร้อม lone-pair domain แบบ radial/tangent
+- H2O ใช้ bent template พร้อม lone-pair domains สองคู่แบบ radial/tangent; ไม่วาด electron orbit
+- Slides 89/98 รักษา reveal timing เดิม ไม่เปิด geometry ก่อน reasoning stage
+- CH4/CH3Cl ใช้ tetrahedral directions เดียวกันเพื่อให้เห็นว่า shape เดียวกันแต่ substituent ต่างกัน
+
+QA หลัง refinement: geometry standard, Slides 81–100 full layout, interaction, exact mobile 4 viewports, master 120 source/reveal/SVG parity, logical SVG geometry และ canonical PNG parity PASS

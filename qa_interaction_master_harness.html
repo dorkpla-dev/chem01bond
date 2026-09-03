@@ -3,6 +3,6 @@ const p=new URLSearchParams(location.search),slide=Number(p.get('slide')||14),to
 const f=document.getElementById('f'),out=document.getElementById('out');
 f.src='index.html?slide='+slide;
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
-function snap(){const d=f.contentDocument,s=d.querySelector('.slide.active');const foot=s?.querySelector('.footer span:last-child')?.textContent?.trim();const rev=[...s.querySelectorAll('[data-reveal].revealed')];const groups=[...new Set(rev.map(e=>e.dataset.reveal))].sort((a,b)=>Number(a)-Number(b));return{slide:Number(foot)||null,revealedElements:rev.length,revealedGroups:groups};}
+function snap(){const d=f.contentDocument,s=d.querySelector('.slide.active');const foot=s?.querySelector('.footer span:last-child')?.textContent?.trim();const rev=[...s.querySelectorAll('[data-reveal].revealed')];const groups=[...new Set(rev.map(e=>e.dataset.reveal))].sort((a,b)=>Number(a)-Number(b));return{slide:Number(foot)||null,revealedElements:rev.length,revealedGroups:groups,prevDisabled:d.getElementById('prevSlide')?.disabled??null,nextDisabled:d.getElementById('nextSlide')?.disabled??null};}
 f.onload=async()=>{await wait(250);const states=[snap()];for(const key of steps){f.contentWindow.dispatchEvent(new f.contentWindow.KeyboardEvent('keydown',{key,bubbles:true,cancelable:true}));await wait(80);states.push(snap());}out.textContent=JSON.stringify({start:slide,keys:steps,states},null,2);document.title='QA_DONE';};
 </script>

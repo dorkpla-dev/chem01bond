@@ -5,7 +5,8 @@ const sourceDefs = [
   ['prototype_03_04_v2.html',21,40,'03-04'],
   ['prototype_05_06_v2.html',41,60,'05-06'],
   ['prototype_07_08_v2.html',61,80,'07-08'],
-  ['prototype_09_10_v2.html',81,100,'09-10']
+  ['prototype_09_10_v2.html',81,100,'09-10'],
+  ['prototype_11_12_v2.html',101,120,'11-12']
 ];
 const total = sourceDefs.at(-1)[2];
 
@@ -55,7 +56,8 @@ const required={
   scopedCss:sourceDefs.every(([,a,b,batch])=>masterHtml.includes(`.slide[data-batch="${batch}"]`)),
   mobileVisualViewportFit:masterHtml.includes('window.visualViewport')&&masterHtml.includes('Math.min(width / 1600, height / 900)')&&masterHtml.includes("'--deck-x'")&&masterHtml.includes("'--deck-y'"),
   visibleNavigation:masterHtml.includes('id="prevSlide"')&&masterHtml.includes('id="nextSlide"')&&masterHtml.includes("prevButton.addEventListener('click'")&&masterHtml.includes("nextButton.addEventListener('click'"),
-  rightArrowRevealBeforeAdvance:masterHtml.includes("['ArrowRight','PageDown',' ','Enter'].includes(e.key)")&&masterHtml.includes('if (!revealNext()) show(index + 1)'),
+  rightArrowRevealBeforeAdvance:masterHtml.includes("['ArrowRight','PageDown',' ','Enter'].includes(e.key)")&&masterHtml.includes('if (!revealNext() && index < slides.length - 1) show(index + 1)'),
+  finalSlideBoundaryGuard:masterHtml.includes('index < slides.length - 1'),
   escapeResetsReveal:masterHtml.includes("e.key === 'Escape'")&&masterHtml.includes('resetReveal(slides[index])'),
   wheelPrevent:masterHtml.includes("addEventListener('wheel', e => e.preventDefault()"),
   touchPrevent:masterHtml.includes("addEventListener('touchmove', e => e.preventDefault()"),
@@ -65,7 +67,9 @@ const required={
   source08:masterHtml.includes('CHEM01 · คาบ 8'),
   source09:masterHtml.includes('CHEM01 · คาบ 9'),
   source10:masterHtml.includes('CHEM01 · คาบ 10'),
-  title1to10:masterHtml.includes('คาบ 1–10')
+  source11:masterHtml.includes('CHEM01 · คาบ 11'),
+  source12:masterHtml.includes('CHEM01 · คาบ 12'),
+  title1to12:masterHtml.includes('คาบ 1–12')
 };
 console.log(JSON.stringify({slides:master.length,activeCount,firstFooter:footerNums[0],lastFooter:footerNums.at(-1),batchCounts,parityMismatches,revealMismatches,svgMismatches,required},null,2));
 if(Object.values(required).some(v=>!v))process.exit(1);

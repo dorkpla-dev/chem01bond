@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><style>html,body,iframe{margin:0;width:100%;height:100%;border:0}pre{position:fixed;inset:0;z-index:9;background:white;white-space:pre-wrap;font:13px monospace;overflow:auto}</style><iframe id="f"></iframe><pre id="out">loading</pre><script>
+const p=new URLSearchParams(location.search),target=p.get('target'),slide=p.get('slide');
+const f=document.getElementById('f'),out=document.getElementById('out');
+f.src=target+'?slide='+slide;
+f.onload=()=>setTimeout(()=>{
+ const d=f.contentDocument,w=f.contentWindow,s=d.querySelector('.slide.active');
+ const q=sel=>s.querySelector(sel); const rr=e=>{if(!e)return null;const r=e.getBoundingClientRect();return{x:+r.x.toFixed(3),y:+r.y.toFixed(3),w:+r.width.toFixed(3),h:+r.height.toFixed(3),right:+r.right.toFixed(3),bottom:+r.bottom.toFixed(3)}};
+ const css=e=>{if(!e)return null;const c=w.getComputedStyle(e);return{fontFamily:c.fontFamily,fontSize:c.fontSize,fontWeight:c.fontWeight,lineHeight:c.lineHeight,color:c.color,fill:c.fill,display:c.display,position:c.position,transform:c.transform,textAnchor:c.textAnchor,dominantBaseline:c.dominantBaseline,width:c.width,height:c.height}};
+ const atom=q('.ls-atom'),svg=q('.lewis-svg'),shapeSvg=q('.shape-svg'),shapeLabel=q('.slabel'),box=q('.diagram-box'),work=q('.lewis-work');
+ const result={target,slide,slideRect:rr(s),work:{rect:rr(work),css:css(work)},box:{rect:rr(box),css:css(box)},svg:{rect:rr(svg),css:css(svg)},atom:{text:atom?.textContent,rect:rr(atom),bbox:atom&&atom.getBBox?atom.getBBox():null,css:css(atom)},shapeSvg:{rect:rr(shapeSvg),css:css(shapeSvg)},shapeLabel:{text:shapeLabel?.textContent,rect:rr(shapeLabel),bbox:shapeLabel&&shapeLabel.getBBox?shapeLabel.getBBox():null,css:css(shapeLabel)},vars:{ink:w.getComputedStyle(s).getPropertyValue('--ink').trim(),covalent:w.getComputedStyle(s).getPropertyValue('--covalent').trim()},batch:s.parentElement?.className||null};
+ out.textContent=JSON.stringify(result,null,2);document.title='QA_DONE';
+},300);
+</script>

@@ -1,0 +1,10 @@
+const fs=require('fs');
+const s=fs.readFileSync('prototype_09_10_v2.html','utf8');
+const sections=[...s.matchAll(/<section class="slide[^\"]*"[\s\S]*?<\/section>/g)].map(m=>m[0]);
+const nums=sections.map(sec=>{const m=sec.match(/<div class="footer">[\s\S]*?<span>(\d+)<\/span>\s*<\/div>/);return m?Number(m[1]):null});
+const required=['CO<sub>2</sub>','H<sub>2</sub>O','NH<sub>3</sub>','BCl<sub>3</sub>','CH<sub>4</sub>','CH<sub>3</sub>Cl','NF<sub>3</sub>','nonpolar','polar','Lewis','Shape','Polarity'];
+const forbidden=['Born–Haber','Born-Haber','Hess','net ionic','PCl<sub>5</sub>','SF<sub>4</sub>','ClF<sub>3</sub>','BrF<sub>5</sub>','XeOF<sub>4</sub>','ICl<sub>4</sub>'];
+const result={sections:sections.length,first:nums[0],last:nums.at(-1),contiguous:nums.length===20&&nums.every((n,i)=>n===81+i),batchAll:sections.every(sec=>sec.includes('data-batch="09-10"')),wheelPrevent:s.includes("addEventListener('wheel'"),touchPrevent:s.includes("addEventListener('touchmove'"),mobileVisualViewport:s.includes('window.visualViewport')&&s.includes('Math.min(width/1600,height/900)'),finalBoundaryGuard:s.includes('if(!rev()&&i<slides.length-1)show(i+1)'),required:Object.fromEntries(required.map(x=>[x,s.includes(x)])),forbidden:Object.fromEntries(forbidden.map(x=>[x,s.includes(x)])),shapeSvg:s.includes('class="shape-svg'),tangentialLp:s.includes('rotate(-35 79 43)')&&s.includes('rotate(35 141 43)')&&s.includes('rotate(12 110 29)'),noOrbit:!s.includes('electron-orbit')};
+console.log(JSON.stringify(result,null,2));
+const fail=sections.length!==20||!result.contiguous||!result.batchAll||!result.wheelPrevent||!result.touchPrevent||!result.mobileVisualViewport||!result.finalBoundaryGuard||required.some(x=>!s.includes(x))||forbidden.some(x=>s.includes(x))||!result.shapeSvg||!result.tangentialLp||!result.noOrbit;
+if(fail)process.exit(1);
