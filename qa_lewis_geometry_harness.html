@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><style>html,body,iframe{margin:0;width:100%;height:100%;border:0}pre{position:fixed;inset:0;z-index:9;background:white;white-space:pre-wrap;font:14px monospace;overflow:auto}</style><iframe id="f"></iframe><pre id="out">loading</pre><script>
+const p=new URLSearchParams(location.search),target=p.get('target'),slide=p.get('slide');
+const f=document.getElementById('f'),out=document.getElementById('out');
+f.src=target+'?slide='+slide;
+const n=e=>+e.getAttribute.bind(e);
+f.onload=()=>setTimeout(()=>{
+ const d=f.contentDocument,s=d.querySelector('.slide.active');
+ s.querySelectorAll('[data-reveal]').forEach(e=>e.classList.add('revealed'));
+ const svg=s.querySelector('svg.lewis-svg');
+ const result={slide:+slide,title:s?.dataset.title||'',viewBox:svg?.getAttribute('viewBox')||'',atoms:[],bonds:[],dots:[]};
+ if(svg){
+  svg.querySelectorAll('text.ls-atom').forEach(t=>{const b=t.getBBox();result.atoms.push({label:t.textContent.trim(),x:+t.getAttribute('x'),y:+t.getAttribute('y'),cls:t.getAttribute('class'),inkCx:+(b.x+b.width/2).toFixed(3),inkCy:+(b.y+b.height/2).toFixed(3),inkW:+b.width.toFixed(3),inkH:+b.height.toFixed(3)});});
+  svg.querySelectorAll('line.ls-bond').forEach(l=>{const x1=+l.getAttribute('x1'),y1=+l.getAttribute('y1'),x2=+l.getAttribute('x2'),y2=+l.getAttribute('y2');result.bonds.push({x1,y1,x2,y2,len:+Math.hypot(x2-x1,y2-y1).toFixed(3),reveal:l.getAttribute('data-reveal')||l.parentElement?.getAttribute('data-reveal')||''});});
+  svg.querySelectorAll('circle.ls-dot').forEach(c=>result.dots.push({cx:+c.getAttribute('cx'),cy:+c.getAttribute('cy'),r:+c.getAttribute('r'),reveal:c.parentElement?.getAttribute('data-reveal')||''}));
+ }
+ out.textContent=JSON.stringify(result,null,2);document.title='LEWIS_QA_DONE';
+},350);
+</script>

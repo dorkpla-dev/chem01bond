@@ -1,0 +1,12 @@
+# Browser profiles and one-off QA evidence
+.qa_edge_profile/
+qa_edge_profile/
+*.png
+qa_tmp_*.html
+qa_*_slide*.json
+CHEM01_QA_CONTRACT_ACTIVE.tmp
+_tmp_*
+
+# OS/editor files
+Thumbs.db
+.DS_Store

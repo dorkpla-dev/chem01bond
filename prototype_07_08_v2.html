@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CHEM01 · พันธะเคมี · คาบ 7–8 · v2</title>
+<style>
+:root{
+ --paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+ --ionic:#2E6F9E;--covalent:#7C5C9C;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;
+}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center;background:var(--paper);overflow:hidden}
+.slide{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}.slide.active{display:flex;flex-direction:column}
+.kicker{font-size:19px;line-height:1.3;color:var(--muted)}.kicker strong{color:var(--ink);font-weight:600}
+.title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}.title strong{font-weight:600}
+.meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}.meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}.footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+[data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}[data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+sub,sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}sup{top:-.62em}sub{bottom:-.14em}
+.chem{letter-spacing:-.02em}.cov{color:var(--covalent)}.muted{color:var(--muted)}
+.dark{background:#172131;color:#F7F6F2}.dark .kicker{color:#A9B2BF}.dark .kicker strong{color:#F7F6F2}.dark .footer{color:#8F99A6}.dark .footer:before{background:rgba(255,255,255,.15)}.dark .meta{color:#A9B2BF}
+.ruleline{font-size:21px;line-height:1.5;color:var(--muted);text-align:center;margin-top:16px}.ruleline strong{color:var(--ink)}
+
+/* shared Lewis SVG */
+.lewis-svg{display:block;width:360px;height:320px;overflow:visible;shape-rendering:geometricPrecision}.lewis-svg.small{width:300px;height:240px}.lewis-svg.micro{width:190px;height:145px}
+.lewis-svg .ls-atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:48px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}.lewis-svg .ls-h{font-size:38px}.dark .lewis-svg .ls-atom{fill:#F7F6F2}
+.lewis-svg .ls-bond{stroke:var(--covalent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}.lewis-svg .ls-dot{fill:var(--covalent)}.lewis-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}
+
+/* period 7 */
+.o2-hook{display:grid;grid-template-columns:1fr 110px 1fr;gap:54px;align-items:center;flex:1}.oh-panel{height:360px;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.dark .oh-panel{border-bottom-color:rgba(255,255,255,.16)}.oh-label{font-size:20px;color:#A9B2BF;margin-bottom:24px}.oh-formula{font-size:82px;font-weight:600;letter-spacing:.02em}.oh-note{font-size:22px;line-height:1.5;color:#B7BFCA;margin-top:24px}.oh-arrow{font-size:58px;color:#7C8797;text-align:center}
+.bond-levels{display:grid;align-content:center;flex:1;margin-top:10px}.bond-level{display:grid;grid-template-columns:185px 360px 1fr;gap:40px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}.bond-level:last-child{border-bottom:1px solid var(--line)}.bond-n{font-size:25px;color:#9DA2A8}.bond-lines{height:64px;display:grid;place-items:center}.line-icon{position:relative;width:245px;height:44px}.line-icon i{position:absolute;left:0;right:0;height:3px;border-radius:3px;background:var(--covalent)}.line-icon.one i:nth-child(1){top:20px}.line-icon.two i:nth-child(1){top:14px}.line-icon.two i:nth-child(2){top:26px}.line-icon.three i:nth-child(1){top:9px}.line-icon.three i:nth-child(2){top:20px}.line-icon.three i:nth-child(3){top:31px}.bond-name{font-size:34px;font-weight:600}.bond-name strong{color:var(--covalent)}.bond-desc{font-size:21px;color:var(--muted);margin-top:6px}
+.lewis-work{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}.diagram-box{height:390px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}.steps3{display:grid}.step3{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:25px 0;border-top:1px solid var(--line);font-size:28px;line-height:1.42}.step3:last-child{border-bottom:1px solid var(--line)}.step3 .n{color:#A6ABB1}.step3 strong{font-weight:600;color:var(--covalent)}
+.practice5{display:grid;grid-template-columns:repeat(5,1fr);gap:25px;align-items:center;flex:1}.p5{padding:34px 10px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center;min-height:290px;display:flex;flex-direction:column;justify-content:center}.p5 .f{font-size:46px;font-weight:600}.p5 .q{font-size:19px;color:var(--muted);line-height:1.4;margin-top:18px}.p5 .a{font-size:28px;color:var(--covalent);font-weight:600;line-height:1.35;margin-top:22px}
+.handout{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}.tasklist{padding:32px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}.taskformula{font-size:48px;line-height:1.8;font-weight:500;text-align:center}.checklist{display:grid}.checkrow{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line);font-size:25px;line-height:1.4}.checkrow:last-child{border-bottom:1px solid var(--line)}.checkrow .n{color:#A6ABB1}.quick{font-size:26px;color:var(--covalent);font-weight:600;line-height:1.7;margin-top:20px}
+.exit-list{display:grid;flex:1;align-content:center;margin-top:8px}.exit-row{display:grid;grid-template-columns:58px 1fr 430px;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}.exit-row:last-child{border-bottom:1px solid var(--line)}.exit-qn{font-size:23px;color:#A6ABB1}.exit-q{font-size:29px;line-height:1.38}.exit-a{font-size:24px;line-height:1.4;font-weight:600;color:var(--covalent)}
+.bridge{padding:18px 22px;border-left:3px solid var(--covalent);font-size:20px;line-height:1.5;color:var(--muted);margin-top:18px}.bridge strong{color:var(--ink)}
+
+/* period 8 shape system */
+.shape-svg{display:block;width:280px;height:210px;overflow:visible;shape-rendering:geometricPrecision}.shape-svg.small{width:220px;height:165px}.shape-svg .sbond{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;fill:none}.shape-svg .sdash{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;stroke-dasharray:8 9;fill:none}.shape-svg .swedge{fill:var(--covalent);opacity:.9}.shape-svg .satom{fill:#fff;stroke:var(--covalent);stroke-width:2.4}.shape-svg .slabel{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:25px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}.shape-svg .sdot{fill:var(--covalent)}
+.shape-hook{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;align-items:center;flex:1}.sh-item{padding:34px 4px;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.15);text-align:center}.sh-formula{font-size:36px;font-weight:600;margin-top:14px}.sh-note{font-size:19px;color:#A9B2BF;margin-top:12px}.not3d{text-align:center;font-size:35px;font-weight:600;color:#D7C8EC;margin-top:14px}
+.repel{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;align-items:center;flex:1}.repel-item{text-align:center;padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.repel-head{font-size:30px;font-weight:600}.repel-desc{font-size:20px;color:var(--muted);line-height:1.45;margin-top:10px}.domain-svg{width:250px;height:210px;margin:18px auto 0}.domain-svg line{stroke:var(--covalent);stroke-width:4;stroke-linecap:round}.domain-svg .ddash{stroke-dasharray:8 9}.domain-svg .dwedge{fill:var(--covalent);stroke:none;opacity:.9}.domain-svg circle{fill:#fff;stroke:var(--covalent);stroke-width:2.3}.domain-svg text{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:24px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.axe-grid{display:grid;grid-template-columns:360px 1fr;gap:82px;align-items:center;flex:1}.axe-key{padding:28px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}.axe-letter{display:grid;grid-template-columns:74px 1fr;gap:18px;align-items:start;padding:18px 0}.axe-letter .l{font-size:54px;color:var(--covalent);font-weight:600}.axe-letter .d{font-size:23px;line-height:1.45}.axe-examples{display:grid}.axe-row{display:grid;grid-template-columns:190px 1fr 180px;gap:25px;align-items:center;padding:23px 0;border-top:1px solid var(--line);font-size:26px}.axe-row:last-child{border-bottom:1px solid var(--line)}.axe-row .form{font-size:40px;font-weight:600}.axe-row .out{font-size:31px;color:var(--covalent);font-weight:600;text-align:right}
+.shape-ref{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:center;flex:1}.shape-ref-item{text-align:center;padding:26px 5px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line)}.shape-code{font-size:26px;color:var(--covalent);font-weight:600}.shape-name{font-size:24px;font-weight:600;margin-top:7px}.shape-th{font-size:18px;color:var(--muted);margin-top:4px}.shape-ex{font-size:18px;color:var(--muted);margin-top:10px}
+.shape-work{display:grid;grid-template-columns:460px 105px 460px;gap:45px;align-items:center;justify-content:center;flex:1}.sw-panel{height:370px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.sw-label{font-size:19px;color:var(--muted);margin-bottom:16px}.sw-arrow{font-size:55px;color:#A2A7AE;text-align:center}.shape-result{font-size:34px;color:var(--covalent);font-weight:600;margin-top:12px}.axe-strip{font-size:25px;line-height:1.45;text-align:center;margin-top:9px}.axe-strip strong{color:var(--covalent)}
+.lp-compare{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center;flex:1}.lpc{padding:30px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}.lpc-top{display:flex;justify-content:center;align-items:center;gap:34px}.lpc .formula{font-size:42px;font-weight:600}.lpc .code{font-size:28px;color:var(--covalent);font-weight:600}.lpc .name{font-size:31px;font-weight:600;margin-top:10px}.lpc .why{font-size:21px;color:var(--muted);line-height:1.5;margin-top:10px}.lpc .why strong{color:var(--ink)}
+/* Slide 78: keep the final reference line clear of the fixed footer without shrinking the title. */
+.slide[data-title="Lone pairs and shape"] .ruleline{position:absolute;left:82px;right:82px;bottom:74px;margin:0}
+.shape-practice{display:grid;align-content:center;flex:1}.sp-row{display:grid;grid-template-columns:180px 260px 1fr;gap:35px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}.sp-row:last-child{border-bottom:1px solid var(--line)}.sp-f{font-size:38px;font-weight:600}.sp-think{font-size:23px;color:var(--muted)}.sp-a{font-size:25px;color:var(--covalent);font-weight:600}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+<!-- 61 -->
+<section class="slide dark active" data-title="O2 hook">
+ <div class="kicker">CHEM01 · คาบ 7 · <strong>Lewis Structure II</strong></div>
+ <div class="meta"><span>ชีท หน้า 30</span></div>
+ <div class="title" style="color:#F7F6F2">O แต่ละตัวต้องการ <strong>2 พันธะ</strong> — แต่ใน O<sub>2</sub> มี O แค่ 2 ตัว</div>
+ <div class="o2-hook">
+  <div class="oh-panel"><div class="oh-label">ลองเริ่มจากพันธะเดี่ยว</div><div class="oh-formula chem">O—O</div><div class="oh-note" data-reveal="1">รอบ O แต่ละตัวนับได้เพียง <strong style="color:#F7F6F2">1 เส้น</strong><br>→ pattern ของ O ยังไม่ครบ</div></div>
+  <div class="oh-arrow" data-reveal="2">→</div>
+  <div class="oh-panel" data-reveal="2"><div class="oh-label">แชร์ e<sup>−</sup> เพิ่มอีก 1 คู่</div><div class="oh-formula chem">O=O</div><div class="oh-note">รอบ O แต่ละตัวได้ <strong style="color:#F7F6F2">2 เส้น</strong><br>→ เรียกว่า double bond</div></div>
+ </div>
+ <div class="footer"><span>แนวคิดเดิมไม่เปลี่ยน: ใช้ pattern เช็กจำนวนพันธะรอบอะตอม</span><span>61</span></div>
+</section>
+
+<!-- 62 -->
+<section class="slide" data-title="Bond multiplicity">
+ <div class="kicker">แนวคิดหลัก · <strong>เส้น = คู่ e− ที่แชร์</strong></div>
+ <div class="title">แชร์มากขึ้น → ใช้ <strong>เส้นมากขึ้น</strong></div>
+ <div class="bond-levels">
+  <div class="bond-level"><div class="bond-n">1 shared pair</div><div class="bond-lines"><div class="line-icon one"><i></i></div></div><div><div class="bond-name"><strong>single bond</strong> · พันธะเดี่ยว</div><div class="bond-desc">1 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 1 คู่</div></div></div>
+  <div class="bond-level"><div class="bond-n">2 shared pairs</div><div class="bond-lines"><div class="line-icon two"><i></i><i></i></div></div><div><div class="bond-name"><strong>double bond</strong> · พันธะคู่</div><div class="bond-desc">2 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 2 คู่</div></div></div>
+  <div class="bond-level"><div class="bond-n">3 shared pairs</div><div class="bond-lines"><div class="line-icon three"><i></i><i></i><i></i></div></div><div><div class="bond-name"><strong>triple bond</strong> · พันธะสาม</div><div class="bond-desc">3 เส้น = e<sup>−</sup> ที่ใช้ร่วมกัน 3 คู่</div></div></div>
+ </div>
+ <div class="ruleline">บางสารอธิบาย Lewis ได้มากกว่า 1 แบบ (resonance) · <strong>คาบนี้ไม่ลงรายละเอียดและไม่ใช้คำนวณ</strong></div>
+ <div class="footer"><span>เวลาเช็ก pattern ให้นับ “จำนวนเส้น” ที่ต่อกับอะตอมนั้น</span><span>62</span></div>
+</section>
+
+<!-- 63 -->
+<section class="slide" data-title="Lewis O2">
+ <div class="kicker">Worked example · <strong>O<sub>2</sub></strong></div>
+ <div class="title">O<sub>2</sub>: ระหว่าง O สองตัวควรวาด<strong>พันธะกี่เส้น?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of oxygen molecule"><g data-reveal="2"><line class="ls-bond" x1="145" y1="152" x2="215" y2="152"/><line class="ls-bond" x1="145" y1="168" x2="215" y2="168"/></g><text class="ls-atom" x="110" y="160">O</text><text class="ls-atom" x="250" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="102" cy="108" r="4"/><circle class="ls-dot" cx="118" cy="108" r="4"/><circle class="ls-dot" cx="102" cy="212" r="4"/><circle class="ls-dot" cx="118" cy="212" r="4"/><circle class="ls-dot" cx="242" cy="108" r="4"/><circle class="ls-dot" cx="258" cy="108" r="4"/><circle class="ls-dot" cx="242" cy="212" r="4"/><circle class="ls-dot" cx="258" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>O pattern = <strong>2 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>O สองตัวต้องมี 2 เส้นร่วมกัน → <strong>O=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">3</div><div>O แต่ละตัวเหลือ <strong>lone pair 2 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก pattern ของ O แล้วค่อยเติม lone pair</span><span>63</span></div>
+</section>
+
+<!-- 64 -->
+<section class="slide" data-title="Lewis N2">
+ <div class="kicker">Worked example · <strong>N<sub>2</sub></strong></div>
+ <div class="title">N<sub>2</sub>: ระหว่าง N สองตัวควรวาด<strong>พันธะกี่เส้น?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of nitrogen molecule"><g data-reveal="2"><line class="ls-bond" x1="145" y1="150" x2="215" y2="150"/><line class="ls-bond" x1="145" y1="160" x2="215" y2="160"/><line class="ls-bond" x1="145" y1="170" x2="215" y2="170"/></g><text class="ls-atom" x="110" y="160">N</text><text class="ls-atom" x="250" y="160">N</text><g data-reveal="3"><circle class="ls-dot" cx="84" cy="152" r="4"/><circle class="ls-dot" cx="84" cy="168" r="4"/><circle class="ls-dot" cx="276" cy="152" r="4"/><circle class="ls-dot" cx="276" cy="168" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>N pattern = <strong>3 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>N สองตัวต้องมี 3 เส้นร่วมกัน → <strong>N≡N</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">3</div><div>N แต่ละตัวเหลือ <strong>lone pair 1 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก pattern ของ N แล้วค่อยเติม lone pair</span><span>64</span></div>
+</section>
+
+<!-- 65 -->
+<section class="slide" data-title="Lewis CO2">
+ <div class="kicker">Worked example · <strong>CO<sub>2</sub></strong></div>
+ <div class="title">CO<sub>2</sub>: ต้องจัดพันธะอย่างไรให้ C และ O <strong>ครบ pattern?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of carbon dioxide"><g data-reveal="2"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/></g><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="42" cy="108" r="4"/><circle class="ls-dot" cx="58" cy="108" r="4"/><circle class="ls-dot" cx="42" cy="212" r="4"/><circle class="ls-dot" cx="58" cy="212" r="4"/><circle class="ls-dot" cx="302" cy="108" r="4"/><circle class="ls-dot" cx="318" cy="108" r="4"/><circle class="ls-dot" cx="302" cy="212" r="4"/><circle class="ls-dot" cx="318" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>วาง C กลาง · O อยู่สองด้าน แล้วเทียบ pattern</div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>ต้องใช้ double bond สองด้าน → <strong>O=C=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>รอบ C นับ 2 + 2 = <strong>4 เส้น</strong> · O แต่ละตัวมี lone pair 2 คู่</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: C ควรอยู่กลาง แล้วเช็ก pattern ของทุกอะตอม</span><span>65</span></div>
+</section>
+
+<!-- 66 -->
+<section class="slide" data-title="Lewis HCN">
+ <div class="kicker">Worked example · <strong>HCN</strong></div>
+ <div class="title">HCN: หลังวาง H—C—N แล้ว ต้อง<strong>ปรับพันธะตรงไหน?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of hydrogen cyanide"><g data-reveal="2"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="150" x2="275" y2="150"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="210" y1="170" x2="275" y2="170"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="305" y="160">N</text><g data-reveal="3"><circle class="ls-dot" cx="334" cy="152" r="4"/><circle class="ls-dot" cx="334" cy="168" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>H ได้ 1 bond ก่อน → skeleton <strong>H—C—N</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>C ยังต้องครบ 4 และ N ต้องครบ 3 → <strong>H—C≡N</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>N เหลือ <strong>lone pair 1 คู่</strong> · ที่ C นับ 1 + 3 = 4</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: H ทำได้ 1 bond และไม่เป็นอะตอมกลางในตัวอย่างนี้</span><span>66</span></div>
+</section>
+
+<!-- 67 -->
+<section class="slide" data-title="Lewis CH2O">
+ <div class="kicker">Worked example · <strong>CH<sub>2</sub>O</strong></div>
+ <div class="title">CH<sub>2</sub>O: หลังต่อ H สองตัวแล้ว C กับ O ต้อง<strong>ปรับอย่างไร?</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of formaldehyde"><g data-reveal="2"><line class="ls-bond" x1="96" y1="111" x2="149" y2="143"/><line class="ls-bond" x1="96" y1="209" x2="149" y2="177"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/></g><text class="ls-atom ls-h" x="70" y="95">H</text><text class="ls-atom ls-h" x="70" y="225">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text><g data-reveal="3"><circle class="ls-dot" cx="302" cy="108" r="4"/><circle class="ls-dot" cx="318" cy="108" r="4"/><circle class="ls-dot" cx="302" cy="212" r="4"/><circle class="ls-dot" cx="318" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3" data-reveal="1"><div class="n">1</div><div>C อยู่กลาง · ต่อ H สองตัวด้วย single bond</div></div>
+   <div class="step3" data-reveal="2"><div class="n">2</div><div>C กับ O ต้องครบ pattern → เพิ่ม <strong>C=O</strong></div></div>
+   <div class="step3" data-reveal="3"><div class="n">✓</div><div>C นับ 1 + 1 + 2 = <strong>4</strong> · O มี lone pair 2 คู่</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คิดก่อน: เริ่มจาก C กลาง ต่อ H ก่อน แล้วเช็ก C กับ O</span><span>67</span></div>
+</section>
+
+<!-- 68 -->
+<section class="slide" data-title="Guided bond order">
+ <div class="kicker">ทำพร้อมกัน · <strong>pattern → จำนวนเส้น</strong></div>
+ <div class="title">ยังไม่ต้องวาดจุดทั้งหมด — ตัดสินก่อนว่า <strong>พันธะกี่เส้น</strong></div>
+ <div class="practice5">
+  <div class="p5"><div class="f chem">O<sub>2</sub></div><div class="q">O ต้องมี 2 bonds</div><div class="a" data-reveal="1">O=O</div></div>
+  <div class="p5"><div class="f chem">N<sub>2</sub></div><div class="q">N ต้องมี 3 bonds</div><div class="a" data-reveal="1">N≡N</div></div>
+  <div class="p5"><div class="f chem">CO<sub>2</sub></div><div class="q">C 4 · O 2</div><div class="a" data-reveal="1">O=C=O</div></div>
+  <div class="p5"><div class="f chem">HCN</div><div class="q">H 1 · C 4 · N 3</div><div class="a" data-reveal="1">H—C≡N</div></div>
+  <div class="p5"><div class="f chem">CH<sub>2</sub>O</div><div class="q">C 4 · O 2</div><div class="a" data-reveal="1">2 C—H + C=O</div></div>
+ </div>
+ <div class="footer"><span>พูดเหตุผลก่อนดูเฉลย — ใช้ pattern อธิบาย ไม่จำภาพอย่างเดียว</span><span>68</span></div>
+</section>
+
+<!-- 69 -->
+<section class="slide" data-title="Independent Lewis II">
+ <div class="kicker">ลองทำเอง · <strong>วาดลงชีท หน้า 30</strong></div>
+ <div class="meta"><span>ใช้ pattern reference ได้</span></div>
+ <div class="title">วาด Lewis ของ <strong>5 สูตรแกน</strong></div>
+ <div class="handout">
+  <div class="tasklist"><div class="taskformula chem">O<sub>2</sub> · N<sub>2</sub><br>CO<sub>2</sub> · HCN · CH<sub>2</sub>O</div><div class="quick" data-reveal="1">quick skeleton: O=O · N≡N · O=C=O · H—C≡N · H<sub>2</sub>C=O</div></div>
+  <div class="checklist">
+   <div class="checkrow"><div class="n">1</div><div>เลือกอะตอมกลางให้ถูก — H ไม่อยู่กลาง</div></div>
+   <div class="checkrow"><div class="n">2</div><div>นับเส้นให้ตรง pattern: O=2 · N=3 · C=4</div></div>
+   <div class="checkrow"><div class="n">3</div><div>เติม lone pairs หลัง skeleton ถูกแล้ว</div></div>
+   <div class="checkrow"><div class="n">4</div><div>เช็กทั้งโครงสร้างอีกครั้งก่อนจบ</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>ทำเองให้ครบก่อนเปิด quick skeleton แล้วใช้ lone pairs เช็กงานอีกครั้ง</span><span>69</span></div>
+</section>
+
+<!-- 70 -->
+<section class="slide" data-title="Exit Lewis II">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">Lewis บอกการเชื่อม — คาบหน้าเราจะถามต่อว่า <strong>โมเลกุลมีรูปร่างอะไร?</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">O<sub>2</sub> มีเส้นพันธะระหว่าง O กี่เส้น?</div><div class="exit-a" data-reveal="1">2 เส้น · double bond</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q chem">N<sub>2</sub> มีเส้นพันธะกี่เส้น?</div><div class="exit-a" data-reveal="2">3 เส้น · triple bond</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">รอบ C ใน CO<sub>2</sub> นับ bond lines รวมเท่าไร?</div><div class="exit-a" data-reveal="3">4 เส้น · 2 + 2</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>กฎคาบ 8:</strong> single / double / triple ที่ชี้ไป “อะตอมเดียวกัน” นับเป็น <strong>1 electron domain = 1 ทิศทาง</strong> รอบอะตอมกลาง</div>
+ <div class="footer"><span>คาบ 8 ใช้ Lewis เดิม → นับทิศทาง + lone pairs → shape</span><span>70</span></div>
+</section>
+
+<!-- 71 -->
+<section class="slide dark" data-title="Shape hook">
+ <div class="kicker">CHEM01 · คาบ 8 · <strong>Molecular shape</strong></div>
+ <div class="meta"><span>ชีท หน้า 35–37</span></div>
+ <div class="title" style="color:#F7F6F2">Lewis วาดบนกระดาษ — แต่ <strong>รูปร่างจริงอยู่ใน 3 มิติ</strong></div>
+ <div class="shape-hook">
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of carbon dioxide"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text></svg><div class="sh-formula chem">CO<sub>2</sub></div><div class="sh-note">Lewis: การเชื่อม</div></div>
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of ammonia"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">N</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="285">H</text><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/></svg><div class="sh-formula chem">NH<sub>3</sub></div><div class="sh-note">Lewis: การเชื่อม + lone pair</div></div>
+  <div class="sh-item"><svg class="lewis-svg small" viewBox="0 0 360 320" aria-label="2D Lewis of water"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">O</text><text class="ls-atom ls-h" x="305" y="160">H</text><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/><circle class="ls-dot" cx="172" cy="212" r="4"/><circle class="ls-dot" cx="188" cy="212" r="4"/></svg><div class="sh-formula chem">H<sub>2</sub>O</div><div class="sh-note">Lewis: ยังไม่ใช่มุมจริง</div></div>
+ </div>
+ <div class="not3d" data-reveal="1">Lewis 2D ≠ molecular shape 3D</div>
+ <div class="footer"><span>วันนี้ใช้การผลักกันรอบอะตอมกลางเพื่อเปลี่ยน Lewis → shape</span><span>71</span></div>
+</section>
+
+<!-- 72 -->
+<section class="slide" data-title="VSEPR idea">
+ <div class="kicker">แนวคิด VSEPR · <strong>electron domains ผลักกัน</strong></div>
+ <div class="title">รอบอะตอมกลาง — แต่ละทิศทางพยายามอยู่ <strong>ห่างกันมากที่สุด</strong></div>
+ <div class="repel">
+  <div class="repel-item"><div class="repel-head">2 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="35" y2="105"/><line x1="125" y1="105" x2="215" y2="105"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="35" cy="105" r="16"/><circle cx="215" cy="105" r="16"/></svg><div class="repel-desc">กระจายออกคนละด้าน</div></div>
+  <div class="repel-item"><div class="repel-head">3 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="125" y2="22"/><line x1="125" y1="105" x2="48" y2="160"/><line x1="125" y1="105" x2="202" y2="160"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="125" cy="22" r="16"/><circle cx="48" cy="160" r="16"/><circle cx="202" cy="160" r="16"/></svg><div class="repel-desc">แผ่ออกประมาณ 120°</div></div>
+  <div class="repel-item"><div class="repel-head">4 domains</div><svg class="domain-svg" viewBox="0 0 250 210"><line x1="125" y1="105" x2="125" y2="30"/><line x1="125" y1="105" x2="52" y2="145"/><line class="ddash" x1="125" y1="105" x2="198" y2="145"/><path class="dwedge" d="M121 109 L129 109 L143 190 L107 190 Z"/><circle cx="125" cy="105" r="27"/><text x="125" y="105">A</text><circle cx="125" cy="22" r="16"/><circle cx="42" cy="151" r="16"/><circle cx="208" cy="151" r="16"/><circle cx="125" cy="192" r="16"/></svg><div class="repel-desc">ลิ่ม/เส้นประช่วยสื่อการกระจายแบบ 3D</div></div>
+ </div>
+ <div class="ruleline"><strong>double / triple bond นับเป็น 1 domain</strong> เพราะเป็นหนึ่งทิศทางไปยังอะตอมเดียวกัน</div>
+ <div class="footer"><span>เราใช้เฉพาะ 2, 3, 4 domains ที่นำไปสู่ 5 shape หลัก</span><span>72</span></div>
+</section>
+
+<!-- 73 -->
+<section class="slide" data-title="AXE notation">
+ <div class="kicker">เครื่องมืออ่าน shape · <strong>AXE notation</strong></div>
+ <div class="title">มองเฉพาะรอบ <strong>อะตอมกลาง A</strong></div>
+ <div class="axe-grid">
+  <div class="axe-key">
+   <div class="axe-letter"><div class="l">A</div><div class="d"><strong>central atom</strong><br><span class="muted">อะตอมกลาง</span></div></div>
+   <div class="axe-letter"><div class="l">X</div><div class="d"><strong>bonded direction</strong><br><span class="muted">ทิศทางไปยังอะตอมที่ต่อกับ A</span></div></div>
+   <div class="axe-letter"><div class="l">E</div><div class="d"><strong>lone pair on A</strong><br><span class="muted">คู่โดดเดี่ยวบนอะตอมกลาง</span></div></div>
+  </div>
+  <div class="axe-examples">
+   <div class="axe-row"><div class="form chem">CO<sub>2</sub></div><div>C ต่อ O สองทิศ · lone pair 0</div><div class="out">AX<sub>2</sub></div></div>
+   <div class="axe-row"><div class="form chem">NH<sub>3</sub></div><div>N ต่อ H สามทิศ · lone pair 1</div><div class="out">AX<sub>3</sub>E</div></div>
+   <div class="axe-row"><div class="form chem">H<sub>2</sub>O</div><div>O ต่อ H สองทิศ · lone pair 2</div><div class="out">AX<sub>2</sub>E<sub>2</sub></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>อย่านับจำนวนเส้นของ double bond เป็น X สองตัว — CO₂ ยังเป็น AX₂</span><span>73</span></div>
+</section>
+
+<!-- 74 -->
+<section class="slide" data-title="Five essential shapes">
+ <div class="kicker">Reference · <strong>5 รูปร่างหลัก</strong></div>
+ <div class="meta"><span>ชีท หน้า 35</span><span>เปิดดูได้ตลอด</span></div>
+ <div class="title">นับ X กับ E → เลือก <strong>shape</strong></div>
+ <div class="shape-ref">
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>2</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="55" y1="90" x2="88" y2="90"/><line class="sbond" x1="132" y1="90" x2="165" y2="90"/><circle class="satom" cx="35" cy="90" r="18"/><circle class="satom" cx="110" cy="90" r="22"/><circle class="satom" cx="185" cy="90" r="18"/><text class="slabel" x="35" y="90">O</text><text class="slabel" x="110" y="90">C</text><text class="slabel" x="185" y="90">O</text></svg><div class="shape-name">เส้นตรง</div><div class="shape-th">linear</div><div class="shape-ex chem">CO<sub>2</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>3</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="72" x2="110" y2="42"/><line class="sbond" x1="91" y1="103" x2="60" y2="128"/><line class="sbond" x1="129" y1="103" x2="160" y2="128"/><circle class="satom" cx="110" cy="95" r="22"/><circle class="satom" cx="110" cy="25" r="18"/><circle class="satom" cx="45" cy="140" r="18"/><circle class="satom" cx="175" cy="140" r="18"/><text class="slabel" x="110" y="95">B</text><text class="slabel" x="110" y="25">Cl</text><text class="slabel" x="45" y="140">Cl</text><text class="slabel" x="175" y="140">Cl</text></svg><div class="shape-name">สามเหลี่ยมแบนราบ</div><div class="shape-th">trigonal planar</div><div class="shape-ex chem">BCl<sub>3</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>4</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><line class="sbond" x1="110" y1="70" x2="110" y2="35"/><line class="sbond" x1="90" y1="100" x2="53" y2="126"/><line class="sdash" x1="130" y1="100" x2="167" y2="126"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="110" cy="20" r="17"/><circle class="satom" cx="38" cy="136" r="17"/><circle class="satom" cx="182" cy="136" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">C</text><text class="slabel" x="110" y="20">H</text><text class="slabel" x="38" y="136">H</text><text class="slabel" x="182" y="136">H</text><text class="slabel" x="110" y="166">H</text></svg><div class="shape-name">ทรงสี่หน้า</div><div class="shape-th">tetrahedral</div><div class="shape-ex chem">CH<sub>4</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>3</sub>E</div><svg class="shape-svg small" viewBox="0 0 220 180"><circle class="sdot" cx="103" cy="25" r="4"/><circle class="sdot" cx="117" cy="25" r="4"/><line class="sbond" x1="90" y1="103" x2="53" y2="128"/><line class="sdash" x1="130" y1="103" x2="167" y2="128"/><path class="swedge" d="M108 112 L112 112 L126 165 L94 165 Z"/><circle class="satom" cx="110" cy="92" r="22"/><circle class="satom" cx="38" cy="138" r="17"/><circle class="satom" cx="182" cy="138" r="17"/><circle class="satom" cx="110" cy="166" r="17"/><text class="slabel" x="110" y="92">N</text><text class="slabel" x="38" y="138">H</text><text class="slabel" x="182" y="138">H</text><text class="slabel" x="110" y="166">H</text></svg><div class="shape-name">พีระมิดฐานสามเหลี่ยม</div><div class="shape-th">trigonal pyramidal</div><div class="shape-ex chem">NH<sub>3</sub></div></div>
+  <div class="shape-ref-item"><div class="shape-code">AX<sub>2</sub>E<sub>2</sub></div><svg class="shape-svg small" viewBox="0 0 220 180"><circle class="sdot" cx="82" cy="42" r="4"/><circle class="sdot" cx="96" cy="42" r="4"/><circle class="sdot" cx="124" cy="42" r="4"/><circle class="sdot" cx="138" cy="42" r="4"/><line class="sbond" x1="94" y1="105" x2="55" y2="138"/><line class="sbond" x1="126" y1="105" x2="165" y2="138"/><circle class="satom" cx="110" cy="88" r="22"/><circle class="satom" cx="40" cy="150" r="17"/><circle class="satom" cx="180" cy="150" r="17"/><text class="slabel" x="110" y="88">O</text><text class="slabel" x="40" y="150">H</text><text class="slabel" x="180" y="150">H</text></svg><div class="shape-name">งอ</div><div class="shape-th">bent</div><div class="shape-ex chem">H<sub>2</sub>O</div></div>
+ </div>
+ <div class="footer"><span>จำเป็นต้องใช้ได้ 5 แบบนี้เท่านั้นในหน่วยนี้</span><span>74</span></div>
+</section>
+
+<!-- 75 -->
+<section class="slide" data-title="Shape CO2">
+ <div class="kicker">Worked example · <strong>CO<sub>2</sub></strong></div>
+ <div class="title">CO<sub>2</sub>: รอบ C มี <strong>electron domains กี่ทิศทาง?</strong></div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="85" y1="152" x2="150" y2="152"/><line class="ls-bond" x1="85" y1="168" x2="150" y2="168"/><line class="ls-bond" x1="210" y1="152" x2="275" y2="152"/><line class="ls-bond" x1="210" y1="168" x2="275" y2="168"/><text class="ls-atom" x="50" y="160">O</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom" x="310" y="160">O</text></svg><div class="axe-strip" data-reveal="1">double bond แต่ละด้าน = 1 ทิศ → X = 2 · E = 0 → <strong>AX<sub>2</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="70" y1="105" x2="112" y2="105"/><line class="sbond" x1="168" y1="105" x2="210" y2="105"/><circle class="satom" cx="48" cy="105" r="21"/><circle class="satom" cx="140" cy="105" r="25"/><circle class="satom" cx="232" cy="105" r="21"/><text class="slabel" x="48" y="105">O</text><text class="slabel" x="140" y="105">C</text><text class="slabel" x="232" y="105">O</text></svg><div class="shape-result">linear · เส้นตรง</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 180° · <strong>อย่านับ double bond เป็น 2 domains</strong></div>
+ <div class="footer"><span>ชีทหน้า 36: CO₂ คือหนึ่งในตัวอย่างที่ควรทำ</span><span>75</span></div>
+</section>
+
+<!-- 76 -->
+<section class="slide" data-title="Shape BCl3">
+ <div class="kicker">Worked example · <strong>BCl<sub>3</sub></strong></div>
+ <div class="title">BCl<sub>3</sub>: นับ X และ E รอบ B แล้ว<strong>ทำนาย shape</strong></div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis · นับรอบ B</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="180" y1="70" x2="180" y2="130"/><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><text class="ls-atom" x="180" y="160">B</text><text class="ls-atom" x="180" y="40">Cl</text><text class="ls-atom" x="55" y="160">Cl</text><text class="ls-atom" x="305" y="160">Cl</text></svg><div class="axe-strip" data-reveal="1">B: X = 3 · E = 0 → <strong>AX<sub>3</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="140" y1="82" x2="140" y2="43"/><line class="sbond" x1="118" y1="119" x2="79" y2="151"/><line class="sbond" x1="162" y1="119" x2="201" y2="151"/><circle class="satom" cx="140" cy="108" r="25"/><circle class="satom" cx="140" cy="23" r="21"/><circle class="satom" cx="60" cy="165" r="21"/><circle class="satom" cx="220" cy="165" r="21"/><text class="slabel" x="140" y="108">B</text><text class="slabel" x="140" y="23">Cl</text><text class="slabel" x="60" y="165">Cl</text><text class="slabel" x="220" y="165">Cl</text></svg><div class="shape-result">trigonal planar · สามเหลี่ยมแบนราบ</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 120° · วันนี้ใช้ BCl<sub>3</sub> เพื่อดู <strong>3 directions</strong> ไม่ลงรายละเอียดข้อยกเว้น octet</div>
+ <div class="footer"><span>คิดตามลำดับ: Lewis → AXE → shape</span><span>76</span></div>
+</section>
+
+<!-- 77 -->
+<section class="slide" data-title="Shape CH4">
+ <div class="kicker">Worked example · <strong>CH<sub>4</sub></strong></div>
+ <div class="title">CH<sub>4</sub>: Lewis 2D ดูเหมือนกากบาท — แล้ว<strong>shape 3D</strong> คืออะไร?</div>
+ <div class="shape-work">
+  <div class="sw-panel"><div class="sw-label">Lewis 2D</div><svg class="lewis-svg small" viewBox="0 0 360 320"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg><div class="axe-strip" data-reveal="1">C: X = 4 · E = 0 → <strong>AX<sub>4</sub></strong></div></div>
+  <div class="sw-arrow" data-reveal="2">→</div>
+  <div class="sw-panel" data-reveal="2"><div class="sw-label">molecular shape · depth cues</div><svg class="shape-svg" viewBox="0 0 280 210"><line class="sbond" x1="140" y1="82" x2="140" y2="42"/><line class="sbond" x1="118" y1="119" x2="78" y2="148"/><line class="sdash" x1="162" y1="119" x2="202" y2="148"/><path class="swedge" d="M137 130 L143 130 L162 194 L118 194 Z"/><circle class="satom" cx="140" cy="106" r="25"/><circle class="satom" cx="140" cy="22" r="20"/><circle class="satom" cx="60" cy="160" r="20"/><circle class="satom" cx="220" cy="160" r="20"/><circle class="satom" cx="140" cy="194" r="20"/><text class="slabel" x="140" y="106">C</text><text class="slabel" x="140" y="22">H</text><text class="slabel" x="60" y="160">H</text><text class="slabel" x="220" y="160">H</text><text class="slabel" x="140" y="194">H</text></svg><div class="shape-result">tetrahedral · ทรงสี่หน้า</div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">มุมอ้างอิง ≈ 109.5° · <strong>เส้นทึบ/ประ/ลิ่ม</strong> ช่วยสื่อด้านหน้า–ด้านหลัง</div>
+ <div class="footer"><span>นี่คือเหตุผลที่ Lewis 2D ไม่ควรใช้เป็นคำตอบ shape โดยตรง</span><span>77</span></div>
+</section>
+
+<!-- 78 -->
+<section class="slide" data-title="Lone pairs and shape">
+ <div class="kicker">เปรียบเทียบ · <strong>lone pair กินพื้นที่</strong></div>
+ <div class="title">NH<sub>3</sub> กับ H<sub>2</sub>O: lone pair ทำให้<strong>ตำแหน่งอะตอม X ต่างกันอย่างไร?</strong></div>
+ <div class="lp-compare">
+  <div class="lpc"><div class="lpc-top"><div class="formula chem">NH<sub>3</sub></div><div class="code" data-reveal="1">AX<sub>3</sub>E</div></div><svg class="shape-svg" data-reveal="2" viewBox="0 0 280 210"><circle class="sdot" cx="133" cy="34" r="5"/><circle class="sdot" cx="147" cy="34" r="5"/><line class="sbond" x1="118" y1="112" x2="76" y2="145"/><line class="sdash" x1="162" y1="112" x2="204" y2="145"/><path class="swedge" d="M137 123 L143 123 L159 191 L121 191 Z"/><circle class="satom" cx="140" cy="98" r="25"/><circle class="satom" cx="58" cy="158" r="20"/><circle class="satom" cx="222" cy="158" r="20"/><circle class="satom" cx="140" cy="190" r="20"/><text class="slabel" x="140" y="98">N</text><text class="slabel" x="58" y="158">H</text><text class="slabel" x="222" y="158">H</text><text class="slabel" x="140" y="190">H</text></svg><div class="name" data-reveal="2">trigonal pyramidal</div><div class="why" data-reveal="1">3 X + <strong>1 lone pair</strong></div></div>
+  <div class="lpc"><div class="lpc-top"><div class="formula chem">H<sub>2</sub>O</div><div class="code" data-reveal="1">AX<sub>2</sub>E<sub>2</sub></div></div><svg class="shape-svg" data-reveal="2" viewBox="0 0 280 210"><circle class="sdot" cx="103" cy="49" r="5"/><circle class="sdot" cx="117" cy="49" r="5"/><circle class="sdot" cx="163" cy="49" r="5"/><circle class="sdot" cx="177" cy="49" r="5"/><line class="sbond" x1="122" y1="114" x2="77" y2="159"/><line class="sbond" x1="158" y1="114" x2="203" y2="159"/><circle class="satom" cx="140" cy="94" r="25"/><circle class="satom" cx="60" cy="174" r="20"/><circle class="satom" cx="220" cy="174" r="20"/><text class="slabel" x="140" y="94">O</text><text class="slabel" x="60" y="174">H</text><text class="slabel" x="220" y="174">H</text></svg><div class="name" data-reveal="2">bent · งอ</div><div class="why" data-reveal="1">2 X + <strong>2 lone pairs</strong></div></div>
+ </div>
+ <div class="ruleline" data-reveal="3">ชื่อ molecular shape มองตำแหน่ง <strong>อะตอม X</strong> · lone pair ยังเป็น domain ที่ผลักอยู่ · มุมจริง NH<sub>3</sub> ≈ 107° และ H<sub>2</sub>O ≈ 104.5° เป็น reference</div>
+ <div class="footer"><span>คิดก่อน: นับ X และ E ของแต่ละโมเลกุล แล้วค่อยเปิดชื่อ shape</span><span>78</span></div>
+</section>
+
+<!-- 79 -->
+<section class="slide" data-title="Guided shape practice">
+ <div class="kicker">ทำพร้อมกัน · <strong>AXE ก่อน shape</strong></div>
+ <div class="meta"><span>ชีท หน้า 36–37</span><span>ข้าม advanced examples</span></div>
+ <div class="title">ตอบ 2 ขั้น: <strong>AXE → ชื่อรูปร่าง</strong></div>
+ <div class="shape-practice">
+  <div class="sp-row"><div class="sp-f chem">CO<sub>2</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>2</sub> → linear</div></div>
+  <div class="sp-row"><div class="sp-f chem">BCl<sub>3</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>3</sub> → trigonal planar</div></div>
+  <div class="sp-row"><div class="sp-f chem">CH<sub>4</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>4</sub> → tetrahedral</div></div>
+  <div class="sp-row"><div class="sp-f chem">NH<sub>3</sub></div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>3</sub>E → trigonal pyramidal</div></div>
+  <div class="sp-row"><div class="sp-f chem">H<sub>2</sub>O</div><div class="sp-think">X? E?</div><div class="sp-a" data-reveal="1">AX<sub>2</sub>E<sub>2</sub> → bent</div></div>
+ </div>
+ <div class="footer"><span>ขอบเขตคาบนี้จบที่ 5 shape นี้ — ไม่ทำ PCl₅ / SCl₆ / XeCl₄ / IF₅</span><span>79</span></div>
+</section>
+
+<!-- 80 -->
+<section class="slide" data-title="Exit molecular shape">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">รูปร่างคือสะพานไปสู่คำถามถัดไป: <strong>โมเลกุลมีขั้วไหม?</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">CO<sub>2</sub> เป็น shape ใด?</div><div class="exit-a" data-reveal="1">AX<sub>2</sub> · linear</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q chem">NH<sub>3</sub> เป็น shape ใด?</div><div class="exit-a" data-reveal="2">AX<sub>3</sub>E · trigonal pyramidal</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">H<sub>2</sub>O เป็น shape ใด?</div><div class="exit-a" data-reveal="3">AX<sub>2</sub>E<sub>2</sub> · bent</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>คาบ 9:</strong> bond polarity + <strong>shape / symmetry</strong> → dipoles หักล้างกันหรือไม่ → molecular polarity</div>
+ <div class="footer"><span>flow ที่จะใช้ต่อ: Lewis → shape → symmetry → polar / nonpolar</span><span>80</span></div>
+</section>
+
+</main>
+<script>
+(()=>{
+ const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')];
+ const raw=Number(new URLSearchParams(location.search).get('slide'))||61;
+ const requested=raw>=61?raw-60:raw;
+ let i=Math.max(0,Math.min(slides.length-1,requested-1));
+ slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+ function fit(){deck.style.setProperty('--scale',Math.min(innerWidth/1600,innerHeight/900)*.995)}
+ function rev(){const s=slides[i],els=[...s.querySelectorAll('[data-reveal]')],groups=[...new Set(els.map(e=>e.dataset.reveal))].sort((a,b)=>Number(a)-Number(b));const n=groups.find(g=>els.some(e=>e.dataset.reveal===g&&!e.classList.contains('revealed')));if(!n)return false;els.filter(e=>e.dataset.reveal===n).forEach(e=>e.classList.add('revealed'));return true}
+ function show(n){slides[i].classList.remove('active');i=Math.max(0,Math.min(slides.length-1,n));slides[i].classList.add('active');slides[i].querySelectorAll('[data-reveal]').forEach(e=>e.classList.remove('revealed'));history.replaceState(null,'','?slide='+(i+61))}
+ addEventListener('resize',fit);
+ addEventListener('keydown',e=>{if(['ArrowRight',' '].includes(e.key)){e.preventDefault();if(!rev())show(i+1)}else if(e.key==='ArrowLeft'){e.preventDefault();show(i-1)}else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(slides.length-1)}});
+ addEventListener('wheel',e=>e.preventDefault(),{passive:false});
+ addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+ fit();
+})();
+</script>
+</body>
+</html>

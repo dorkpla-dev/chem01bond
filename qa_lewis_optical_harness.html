@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><style>html,body,iframe{margin:0;width:100%;height:100%;border:0}pre{position:fixed;inset:0;z-index:9;background:white;white-space:pre-wrap;font:14px monospace;overflow:auto}</style><iframe id="f"></iframe><pre id="out">loading</pre><script>
+const p=new URLSearchParams(location.search),target=p.get('target'),slide=p.get('slide');
+const f=document.getElementById('f'),out=document.getElementById('out');f.src=target+'?slide='+slide;
+const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,top:r.top,width:r.width,height:r.height,cx:r.left+r.width/2,cy:r.top+r.height/2}};
+function visibleGroups(s){return [...new Set([...s.querySelectorAll('[data-reveal].revealed')].map(e=>Number(e.dataset.reveal)))].sort((a,b)=>a-b)}
+function keySpace(){f.contentWindow.dispatchEvent(new f.contentWindow.KeyboardEvent('keydown',{key:' ',bubbles:true,cancelable:true}))}
+f.onload=()=>setTimeout(async()=>{
+ const d=f.contentDocument,s=d.querySelector('.slide.active');await d.fonts.ready;
+ const result={slide:+slide,title:s?.dataset.title||'',optical:[],reveal:[]};
+ const canvas=d.createElement('canvas'),ctx=canvas.getContext('2d');
+ s.querySelectorAll('.atom-glyph').forEach(g=>{
+   const ch=[...g.childNodes].find(n=>n.nodeType===3)?.textContent.trim()||''; if(!ch)return;
+   const cs=f.contentWindow.getComputedStyle(g);ctx.font=`${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;ctx.textAlign='left';ctx.textBaseline='alphabetic';
+   const m=ctx.measureText(ch), gr=rect(g), scale=gr.width/m.width;
+   const inkLeft=-m.actualBoundingBoxLeft, inkRight=m.actualBoundingBoxRight, inkCenter=(inkLeft+inkRight)/2;
+   const expectedCx=gr.left+inkCenter*scale;
+   g.querySelectorAll('.lp-top,.lp-bottom').forEach(lp=>{const lr=rect(lp);result.optical.push({atom:ch,dir:lp.classList.contains('lp-top')?'top':'bottom',glyphAdvanceWidth:+m.width.toFixed(3),opticalShift:+(inkCenter-m.width/2).toFixed(3),expectedInkCx:+expectedCx.toFixed(3),pairCx:+lr.cx.toFixed(3),error:+(lr.cx-expectedCx).toFixed(3)});});
+ });
+ result.reveal.push({step:0,groups:visibleGroups(s)});
+ keySpace();await new Promise(r=>setTimeout(r,80));result.reveal.push({step:1,groups:visibleGroups(s)});
+ keySpace();await new Promise(r=>setTimeout(r,80));result.reveal.push({step:2,groups:visibleGroups(s)});
+ out.textContent=JSON.stringify(result,null,2);document.title='LEWIS_OPTICAL_DONE';
+},450);
+</script>

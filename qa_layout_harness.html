@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><style>html,body,iframe{margin:0;width:100%;height:100%;border:0}pre{position:fixed;inset:0;z-index:9;background:white;white-space:pre-wrap;font:14px monospace;overflow:auto}</style><iframe id="f"></iframe><pre id="out">loading</pre><script>
+const p=new URLSearchParams(location.search),target=p.get('target'),slide=p.get('slide');
+const f=document.getElementById('f'),out=document.getElementById('out');
+f.src=target+'?slide='+slide;
+f.onload=()=>setTimeout(()=>{
+ const d=f.contentDocument,w=f.contentWindow,s=d.querySelector('.slide.active'),deck=d.getElementById('deck');
+ s.querySelectorAll('[data-reveal]').forEach(e=>e.classList.add('revealed'));
+ const rr=e=>{const r=e.getBoundingClientRect();return {tag:e.tagName,cls:e.className,x:+r.x.toFixed(1),y:+r.y.toFixed(1),w:+r.width.toFixed(1),h:+r.height.toFixed(1),right:+r.right.toFixed(1),bottom:+r.bottom.toFixed(1),scrollW:e.scrollWidth,scrollH:e.scrollHeight}};
+ const direct=[...s.children].map(rr),all=[...s.querySelectorAll('*')].map(e=>({e,r:e.getBoundingClientRect()}));
+ const sr=s.getBoundingClientRect(),dr=deck.getBoundingClientRect();
+ const outside=all.filter(o=>o.r.width>0&&o.r.height>0&&(o.r.left<sr.left-1||o.r.top<sr.top-1||o.r.right>sr.right+1||o.r.bottom>sr.bottom+1)).slice(0,30).map(o=>({tag:o.e.tagName,cls:o.e.className,text:(o.e.textContent||'').trim().slice(0,80),r:rr(o.e)}));
+ const result={viewport:[w.innerWidth,w.innerHeight],slide:rr(s),deck:rr(deck),direct,outsideCount:outside.length,outside,slideOverflow:[s.scrollWidth,s.scrollHeight,s.clientWidth,s.clientHeight],deckOverflow:[deck.scrollWidth,deck.scrollHeight,deck.clientWidth,deck.clientHeight]};
+ out.textContent=JSON.stringify(result,null,2); document.title='QA_DONE';
+},250);
+</script>

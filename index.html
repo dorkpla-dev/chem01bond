@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="theme-color" content="#172131"/>
-<title>CHEM01 · พันธะเคมี · คาบ 1–8</title>
+<title>CHEM01 · พันธะเคมี · คาบ 1–10</title>
 <style>
 /* global viewport/deck shell from visual-system base */
 
@@ -13,22 +13,9 @@
   --elem-metal:#397A8B;--elem-metal-soft:#E3EFF2;--elem-non:#A87022;--elem-non-soft:#F5E9D6;--elem-met:#6C746E;--elem-met-soft:#EBEDE9;
   --pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
 *{box-sizing:border-box}
-html{margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none}
-body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none;font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-.deck{position:absolute;left:0;top:0;width:1600px;height:900px;transform:translate3d(var(--deck-x,0px),var(--deck-y,0px),0) scale(var(--scale,1));transform-origin:0 0;background:var(--paper);overflow:hidden;will-change:transform}
-.slide-nav{position:fixed;inset:0;z-index:9999;pointer-events:none}
-.slide-nav button{position:absolute;top:50%;width:52px;height:52px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(17,24,39,.82);color:#fff;font:500 30px/1 "Segoe UI Symbol","Segoe UI",sans-serif;display:grid;place-items:center;padding:0;box-shadow:0 8px 26px rgba(0,0,0,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(-50%);pointer-events:auto;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.slide-nav .prev{left:max(12px,env(safe-area-inset-left))}
-.slide-nav .next{right:max(12px,env(safe-area-inset-right))}
-.slide-nav button:hover{background:rgba(17,24,39,.94)}
-.slide-nav button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.slide-nav button:disabled{opacity:.28;cursor:default}
-@supports(height:100dvh){html,body{height:100dvh;max-height:100dvh}}
-@media (max-width:700px){
-  .slide-nav button{top:auto;bottom:max(14px,env(safe-area-inset-bottom));width:48px;height:48px;font-size:27px}
-  .slide-nav .prev{left:max(14px,env(safe-area-inset-left))}
-  .slide-nav .next{right:max(14px,env(safe-area-inset-right))}
-}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center;background:var(--paper);overflow:hidden}
 
 /* scoped source: prototype_01_02_v2.html */
 .slide[data-batch="01-02"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
@@ -695,6 +682,147 @@ body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-heig
 .slide[data-batch="07-08"] .sp-f{font-size:38px;font-weight:600}
 .slide[data-batch="07-08"] .sp-think{font-size:23px;color:var(--muted)}
 .slide[data-batch="07-08"] .sp-a{font-size:25px;color:var(--covalent);font-weight:600}
+
+/* scoped source: prototype_09_10_v2.html */
+.slide[data-batch="09-10"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;--covalent:#7357A6;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E}
+.slide[data-batch="09-10"], .slide[data-batch="09-10"] *{box-sizing:border-box}
+.slide[data-batch="09-10"]{margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none}
+.slide[data-batch="09-10"]{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none;font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.slide[data-batch="09-10"]{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}
+.slide[data-batch="09-10"].active{display:flex;flex-direction:column}
+.slide[data-batch="09-10"] .kicker{font-size:19px;line-height:1.3;color:var(--muted)}
+.slide[data-batch="09-10"] .kicker strong{color:var(--ink);font-weight:600}
+.slide[data-batch="09-10"] .title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}
+.slide[data-batch="09-10"] .title strong{font-weight:600}
+.slide[data-batch="09-10"] .meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}
+.slide[data-batch="09-10"] .meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.slide[data-batch="09-10"] .footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}
+.slide[data-batch="09-10"] .footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+.slide[data-batch="09-10"] [data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}
+.slide[data-batch="09-10"] [data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+.slide[data-batch="09-10"] sub, .slide[data-batch="09-10"] sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}
+.slide[data-batch="09-10"] sup{top:-.62em}
+.slide[data-batch="09-10"] sub{bottom:-.14em}
+.slide[data-batch="09-10"] .chem{letter-spacing:-.02em}
+.slide[data-batch="09-10"] .muted{color:var(--muted)}
+.slide[data-batch="09-10"].dark{background:#172131;color:#F7F6F2}
+.slide[data-batch="09-10"].dark .kicker{color:#A9B2BF}
+.slide[data-batch="09-10"].dark .kicker strong{color:#F7F6F2}
+.slide[data-batch="09-10"].dark .footer{color:#8F99A6}
+.slide[data-batch="09-10"].dark .footer:before{background:rgba(255,255,255,.15)}
+.slide[data-batch="09-10"].dark .meta{color:#A9B2BF}
+.slide[data-batch="09-10"] .ruleline{font-size:21px;line-height:1.5;color:var(--muted);text-align:center;margin-top:16px}
+.slide[data-batch="09-10"] .ruleline strong{color:var(--ink)}
+.slide[data-batch="09-10"] .bridge{padding:18px 22px;border-left:3px solid var(--covalent);font-size:20px;line-height:1.5;color:var(--muted);margin-top:18px}
+.slide[data-batch="09-10"] .bridge strong{color:var(--ink)}
+.slide[data-batch="09-10"] .mol-svg{display:block;width:390px;height:300px;overflow:visible;shape-rendering:geometricPrecision}
+.slide[data-batch="09-10"] .mol-svg.small{width:300px;height:230px}
+.slide[data-batch="09-10"] .mol-svg.micro{width:180px;height:140px}
+.slide[data-batch="09-10"] .mol-svg .atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:44px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.slide[data-batch="09-10"] .mol-svg .atom.small{font-size:35px}
+.slide[data-batch="09-10"] .mol-svg .bond{stroke:var(--covalent);stroke-width:4;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slide[data-batch="09-10"] .mol-svg .bond2{stroke:var(--covalent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slide[data-batch="09-10"] .mol-svg .dip{stroke:var(--neg);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slide[data-batch="09-10"] .mol-svg .dip.cancel{stroke:#9299A2}
+.slide[data-batch="09-10"] .mol-svg .lp{fill:var(--covalent)}
+.slide[data-batch="09-10"] .mol-svg .delta-pos{font-size:22px;fill:var(--pos);font-weight:600}
+.slide[data-batch="09-10"] .mol-svg .delta-neg{font-size:22px;fill:var(--neg);font-weight:600}
+.slide[data-batch="09-10"] .mol-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}
+.slide[data-batch="09-10"] .recall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:stretch;flex:1;margin-top:34px}
+.slide[data-batch="09-10"] .rec-card{border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:30px 24px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.slide[data-batch="09-10"] .rec-f{font-size:46px;font-weight:600}
+.slide[data-batch="09-10"] .rec-shape{font-size:26px;color:var(--muted);margin-top:20px}
+.slide[data-batch="09-10"] .rec-next{font-size:23px;line-height:1.45;color:var(--covalent);font-weight:600;margin-top:22px}
+.slide[data-batch="09-10"] .compare2{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center;flex:1;margin-top:26px}
+.slide[data-batch="09-10"] .cmp-panel{border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);min-height:430px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.slide[data-batch="09-10"] .cmp-formula{font-size:50px;font-weight:600;margin-bottom:10px}
+.slide[data-batch="09-10"] .cmp-label{font-size:23px;color:var(--muted);margin-top:12px}
+.slide[data-batch="09-10"] .cmp-answer{font-size:30px;color:var(--covalent);font-weight:600;margin-top:22px}
+.slide[data-batch="09-10"] .question-strip{font-size:26px;line-height:1.45;color:var(--muted);text-align:center;margin-top:20px}
+.slide[data-batch="09-10"] .question-strip strong{color:var(--ink)}
+.slide[data-batch="09-10"] .polarity-work{display:grid;grid-template-columns:520px 1fr;gap:85px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .diagram-box{height:395px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}
+.slide[data-batch="09-10"] .steps{display:grid}
+.slide[data-batch="09-10"] .step{display:grid;grid-template-columns:58px 1fr;gap:22px;padding:23px 0;border-top:1px solid var(--line);font-size:27px;line-height:1.4}
+.slide[data-batch="09-10"] .step:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .step .n{color:#A6ABB1}
+.slide[data-batch="09-10"] .step strong{font-weight:600;color:var(--covalent)}
+.slide[data-batch="09-10"] .en-row{display:grid;grid-template-columns:230px 1fr 260px;gap:32px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}
+.slide[data-batch="09-10"] .en-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .en-formula{font-size:43px;font-weight:600}
+.slide[data-batch="09-10"] .en-track{height:70px;position:relative}
+.slide[data-batch="09-10"] .en-line{position:absolute;left:10px;right:10px;top:34px;height:4px;border-radius:2px;background:#D7D9DB}
+.slide[data-batch="09-10"] .en-arrow{position:absolute;left:20%;right:8%;top:22px;height:25px;border-top:3px solid var(--neg)}
+.slide[data-batch="09-10"] .en-arrow:after{content:"";position:absolute;right:-2px;top:-8px;border-left:12px solid var(--neg);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.slide[data-batch="09-10"] .en-note{font-size:21px;color:var(--muted);line-height:1.4}
+.slide[data-batch="09-10"] .en-note strong{color:var(--ink)}
+.slide[data-batch="09-10"] .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .flow-step{min-height:210px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;padding:24px;text-align:center}
+.slide[data-batch="09-10"] .flow-n{font-size:18px;color:#A0A5AB;margin-bottom:12px}
+.slide[data-batch="09-10"] .flow-main{font-size:31px;font-weight:600}
+.slide[data-batch="09-10"] .flow-sub{font-size:19px;line-height:1.45;color:var(--muted);margin-top:14px}
+.slide[data-batch="09-10"] .flow-arrow{font-size:38px;color:#A4A9AF;text-align:center;display:none}
+.slide[data-batch="09-10"] .classify6{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 28px;align-content:center;flex:1}
+.slide[data-batch="09-10"] .class-card{min-height:200px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:18px 20px}
+.slide[data-batch="09-10"] .class-f{font-size:42px;font-weight:600;text-align:center}
+.slide[data-batch="09-10"] .class-info{font-size:18px;line-height:1.45;color:var(--muted)}
+.slide[data-batch="09-10"] .class-a{font-size:24px;font-weight:600;color:var(--covalent);margin-top:10px}
+.slide[data-batch="09-10"] .practice4{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .p4{min-height:330px;padding:28px 18px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center;display:flex;flex-direction:column;justify-content:center}
+.slide[data-batch="09-10"] .p4 .f{font-size:46px;font-weight:600}
+.slide[data-batch="09-10"] .p4 .q{font-size:19px;color:var(--muted);line-height:1.45;margin-top:18px}
+.slide[data-batch="09-10"] .p4 .a{font-size:26px;color:var(--covalent);font-weight:600;line-height:1.35;margin-top:20px}
+.slide[data-batch="09-10"] .exit-list{display:grid;flex:1;align-content:center;margin-top:8px}
+.slide[data-batch="09-10"] .exit-row{display:grid;grid-template-columns:58px 1fr 440px;gap:24px;align-items:center;padding:25px 0;border-top:1px solid var(--line)}
+.slide[data-batch="09-10"] .exit-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .exit-qn{font-size:23px;color:#A6ABB1}
+.slide[data-batch="09-10"] .exit-q{font-size:28px;line-height:1.38}
+.slide[data-batch="09-10"] .exit-a{font-size:23px;line-height:1.4;font-weight:600;color:var(--covalent)}
+.slide[data-batch="09-10"] .strategy{display:grid;grid-template-columns:1fr 80px 1fr 80px 1fr 80px 1fr;gap:8px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .strategy-box{height:250px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;text-align:center;padding:22px}
+.slide[data-batch="09-10"] .strategy-box .s{font-size:30px;font-weight:600}
+.slide[data-batch="09-10"] .strategy-box .d{font-size:19px;color:var(--muted);line-height:1.4;margin-top:14px}
+.slide[data-batch="09-10"] .strategy-arrow{text-align:center;font-size:42px;color:#A4A9AF}
+.slide[data-batch="09-10"] .mistakes{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .mist{min-height:390px;border-top:3px solid var(--line);border-bottom:1px solid var(--line);padding:34px}
+.slide[data-batch="09-10"] .mist.bad{border-top-color:var(--pos)}
+.slide[data-batch="09-10"] .mist.good{border-top-color:var(--ok)}
+.slide[data-batch="09-10"] .mist-label{font-size:18px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.slide[data-batch="09-10"] .mist-main{font-size:34px;line-height:1.4;margin-top:24px}
+.slide[data-batch="09-10"] .mist-reason{font-size:23px;line-height:1.5;color:var(--muted);margin-top:28px}
+.slide[data-batch="09-10"] .mist-reason strong{color:var(--ink)}
+.slide[data-batch="09-10"] .guided{display:grid;grid-template-columns:430px 1fr;gap:70px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .guided-left{border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);padding:30px;text-align:center}
+.slide[data-batch="09-10"] .guided-f{font-size:62px;font-weight:600}
+.slide[data-batch="09-10"] .guided-shape{font-size:24px;color:var(--muted);margin-top:18px}
+.slide[data-batch="09-10"] .guided-right{display:grid}
+.slide[data-batch="09-10"] .g-row{display:grid;grid-template-columns:56px 1fr 310px;gap:18px;align-items:center;padding:20px 0;border-top:1px solid var(--line);font-size:24px}
+.slide[data-batch="09-10"] .g-row:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .g-n{color:#A6ABB1}
+.slide[data-batch="09-10"] .g-a{font-weight:600;color:var(--covalent)}
+.slide[data-batch="09-10"] .handout{display:grid;grid-template-columns:470px 1fr;gap:80px;align-items:center;flex:1}
+.slide[data-batch="09-10"] .tasklist{padding:32px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .taskformula{font-size:44px;line-height:1.8;font-weight:500;text-align:center}
+.slide[data-batch="09-10"] .checklist{display:grid}
+.slide[data-batch="09-10"] .checkrow{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:20px 0;border-top:1px solid var(--line);font-size:24px;line-height:1.4}
+.slide[data-batch="09-10"] .checkrow:last-child{border-bottom:1px solid var(--line)}
+.slide[data-batch="09-10"] .checkrow .n{color:#A6ABB1}
+.slide[data-batch="09-10"] .quick{font-size:25px;color:var(--covalent);font-weight:600;line-height:1.65;margin-top:18px}
+
+
+/* master viewport/deck shell + visible navigation */
+html{margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none}
+body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;overflow:hidden;background:#111827;overscroll-behavior:none;font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:0;top:0;width:1600px;height:900px;transform:translate3d(var(--deck-x,0px),var(--deck-y,0px),0) scale(var(--scale,1));transform-origin:0 0;background:var(--paper);overflow:hidden;will-change:transform}
+.slide-nav{position:fixed;inset:0;z-index:9999;pointer-events:none}
+.slide-nav button{position:absolute;top:50%;width:52px;height:52px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(17,24,39,.82);color:#fff;font:500 30px/1 "Segoe UI Symbol","Segoe UI",sans-serif;display:grid;place-items:center;padding:0;box-shadow:0 8px 26px rgba(0,0,0,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(-50%);pointer-events:auto;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.slide-nav .prev{left:max(12px,env(safe-area-inset-left))}
+.slide-nav .next{right:max(12px,env(safe-area-inset-right))}
+.slide-nav button:hover{background:rgba(17,24,39,.94)}
+.slide-nav button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.slide-nav button:disabled{opacity:.28;cursor:default}
+@media (max-width:700px){.slide-nav button{top:auto;bottom:max(14px,env(safe-area-inset-bottom));width:48px;height:48px;font-size:27px}.slide-nav .prev{left:max(14px,env(safe-area-inset-left))}.slide-nav .next{right:max(14px,env(safe-area-inset-right))}}
+
 </style>
 </head>
 <body>
@@ -1326,13 +1454,280 @@ body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-heig
  <div class="bridge" data-reveal="4"><strong>คาบ 9:</strong> bond polarity + <strong>shape / symmetry</strong> → dipoles หักล้างกันหรือไม่ → molecular polarity</div>
  <div class="footer"><span>flow ที่จะใช้ต่อ: Lewis → shape → symmetry → polar / nonpolar</span><span>80</span></div>
 </section>
+
+<section class="slide dark" data-batch="09-10" data-title="Recall shape">
+ <div class="kicker">CHEM01 · คาบ 9 · <strong>Recall</strong></div>
+ <div class="meta"><span>ชีท หน้า 38–39</span><span>ลองตอบก่อนเปิดเฉลย</span></div>
+ <div class="title" style="color:#F7F6F2">ก่อนถามว่า “มีขั้วไหม” — เรายังจำ <strong>รูปร่าง</strong> ได้หรือไม่?</div>
+ <div class="recall-grid">
+  <div class="rec-card" style="border-bottom-color:rgba(255,255,255,.15)"><div class="rec-f chem">CO<sub>2</sub></div><div class="rec-shape" style="color:#A9B2BF">AX<sub>2</sub></div><div class="rec-next" data-reveal="1">linear</div></div>
+  <div class="rec-card" style="border-bottom-color:rgba(255,255,255,.15)"><div class="rec-f chem">NH<sub>3</sub></div><div class="rec-shape" style="color:#A9B2BF">AX<sub>3</sub>E</div><div class="rec-next" data-reveal="2">trigonal pyramidal</div></div>
+  <div class="rec-card" style="border-bottom-color:rgba(255,255,255,.15)"><div class="rec-f chem">H<sub>2</sub>O</div><div class="rec-shape" style="color:#A9B2BF">AX<sub>2</sub>E<sub>2</sub></div><div class="rec-next" data-reveal="3">bent</div></div>
+ </div>
+ <div class="bridge" style="color:#A9B2BF;border-left-color:#9278B2" data-reveal="4"><strong style="color:#F7F6F2">วันนี้:</strong> เอา shape เดิมมาเพิ่มคำถามอีกข้อ — dipole รอบโมเลกุลหักล้างกันหรือไม่?</div>
+ <div class="footer"><span>Lewis → shape → symmetry → polarity</span><span>81</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="CO2 vs H2O hook">
+ <div class="kicker">คำถามนำ · <strong>ดูแค่พันธะพอไหม?</strong></div>
+ <div class="title">ทั้ง CO<sub>2</sub> และ H<sub>2</sub>O มีพันธะกับ O — แต่ทำไม <strong>polarity ต่างกัน?</strong></div>
+ <div class="compare2">
+  <div class="cmp-panel"><div class="cmp-formula chem">CO<sub>2</sub></div><svg class="mol-svg small" viewBox="0 0 300 230" aria-label="CO2 linear"><line class="bond2" x1="105" y1="108" x2="139" y2="108"/><line class="bond2" x1="105" y1="120" x2="139" y2="120"/><line class="bond2" x1="161" y1="108" x2="195" y2="108"/><line class="bond2" x1="161" y1="120" x2="195" y2="120"/><text class="atom" x="78" y="114">O</text><text class="atom" x="150" y="114">C</text><text class="atom" x="222" y="114">O</text></svg><div class="cmp-label">linear · สมมาตร</div><div class="cmp-answer" data-reveal="1">nonpolar</div></div>
+  <div class="cmp-panel"><div class="cmp-formula chem">H<sub>2</sub>O</div><svg class="mol-svg small" viewBox="0 0 300 230" aria-label="H2O bent"><line class="bond" x1="142" y1="116" x2="92" y2="169"/><line class="bond" x1="158" y1="116" x2="208" y2="169"/><text class="atom" x="150" y="92">O</text><text class="atom small" x="76" y="184">H</text><text class="atom small" x="224" y="184">H</text><circle class="lp" cx="137" cy="45" r="4"/><circle class="lp" cx="147" cy="42" r="4"/><circle class="lp" cx="160" cy="42" r="4"/><circle class="lp" cx="170" cy="45" r="4"/></svg><div class="cmp-label">bent · ไม่สมมาตรในทิศ dipole</div><div class="cmp-answer" data-reveal="2">polar</div></div>
+ </div>
+ <div class="question-strip" data-reveal="3"><strong>คำตอบอยู่ที่ “ทิศทางรวม”</strong> ไม่ใช่แค่มีพันธะขั้วหรือไม่</div>
+ <div class="footer"><span>ชีท หน้า 38–39 · ใช้ shape จากคาบ 8 เป็นเครื่องมือ</span><span>82</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Bond polarity">
+ <div class="kicker">แนวคิด · <strong>Bond polarity</strong></div>
+ <div class="meta"><span>EN แบบใช้งาน</span><span>ไม่คำนวณละเอียด</span></div>
+ <div class="title">เมื่ออะตอมดึง e<sup>−</sup> ไม่เท่ากัน — พันธะจะมี <strong>ด้าน δ+ และ δ−</strong></div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="HCl polar bond"><line class="bond" x1="112" y1="150" x2="278" y2="150"/><text class="atom" x="82" y="150">H</text><text class="atom" x="308" y="150">Cl</text><text class="delta-pos" x="52" y="102" data-reveal="1">δ+</text><text class="delta-neg" x="316" y="102" data-reveal="1">δ−</text><line class="dip" x1="125" y1="215" x2="270" y2="215" data-reveal="2"/><polygon points="270,215 250,204 250,226" fill="#267786" data-reveal="2"/></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Cl มี EN สูงกว่า H → ดึง e<sup>−</sup> เข้าหาตัวเองมากกว่า</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>H เป็นด้าน <strong style="color:var(--pos)">δ+</strong> · Cl เป็นด้าน <strong style="color:var(--neg)">δ−</strong></div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>ลูกศรนี้ใช้บอก <strong>ทิศการดึง e<sup>−</sup></strong> ไปทางอะตอม EN สูงกว่า</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>ไม่ต้องท่องค่า EN ทุกตัว — ใช้แนวโน้ม/ข้อมูล reference</span><span>83</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Dipole direction practice">
+ <div class="kicker">ทำด้วยกัน · <strong>ทิศการดึง e−</strong></div>
+ <div class="title">ก่อนดูทั้งโมเลกุล — อ่าน <strong>แต่ละพันธะ</strong> ให้ถูกก่อน</div>
+ <div style="display:grid;align-content:center;flex:1;margin-top:20px">
+  <div class="en-row"><div class="en-formula chem">H—F</div><div class="en-track"><div class="en-line"></div><div class="en-arrow" data-reveal="1"></div></div><div class="en-note" data-reveal="1"><strong>ไปทาง F</strong><br>F ดึง e− มากกว่า</div></div>
+  <div class="en-row"><div class="en-formula chem">C—O</div><div class="en-track"><div class="en-line"></div><div class="en-arrow" data-reveal="2"></div></div><div class="en-note" data-reveal="2"><strong>ไปทาง O</strong><br>O ดึง e− มากกว่า</div></div>
+  <div class="en-row"><div class="en-formula chem">N—H</div><div class="en-track"><div class="en-line"></div><div class="en-arrow" style="left:8%;right:20%;transform:scaleX(-1)" data-reveal="3"></div></div><div class="en-note" data-reveal="3"><strong>ไปทาง N</strong><br>N ดึง e− มากกว่า</div></div>
+ </div>
+ <div class="ruleline">ขั้นต่อไป: เอา <strong>ลูกศรทุกพันธะ</strong> ไปวางบน shape จริงของโมเลกุล</div>
+ <div class="footer"><span>อ่าน bond dipole ก่อน → ค่อยดูการหักล้างทั้งโมเลกุล</span><span>84</span></div>
+</section>
+
+<section class="slide dark" data-batch="09-10" data-title="Polarity flow">
+ <div class="kicker">กฎใช้งาน · <strong>อย่ากระโดดตอบ</strong></div>
+ <div class="title" style="color:#F7F6F2">“มีพันธะขั้ว” <strong>ยังสรุปไม่ได้</strong> ว่าโมเลกุลมีขั้ว</div>
+ <div class="flow">
+  <div class="flow-step" style="border-bottom-color:rgba(255,255,255,.15)"><div class="flow-n">01</div><div class="flow-main">Lewis</div><div class="flow-sub" style="color:#A9B2BF">อะตอมกลาง + lone pairs</div></div>
+  <div class="flow-step" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="1"><div class="flow-n">02</div><div class="flow-main">Shape</div><div class="flow-sub" style="color:#A9B2BF">อะตอมอยู่ทิศใด</div></div>
+  <div class="flow-step" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="2"><div class="flow-n">03</div><div class="flow-main">Dipoles</div><div class="flow-sub" style="color:#A9B2BF">ลูกศรหักล้างหรือไม่</div></div>
+  <div class="flow-step" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="3"><div class="flow-n">04</div><div class="flow-main">Polarity</div><div class="flow-sub" style="color:#A9B2BF">net dipole = 0 หรือ ≠ 0</div></div>
+ </div>
+ <div class="footer"><span>ใช้ flow เดิมทุกข้อ: Lewis → shape → dipole arrangement → polarity</span><span>85</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Worked CO2 polarity">
+ <div class="kicker">ครูทำให้ดู · <strong>CO₂</strong></div>
+ <div class="title">CO<sub>2</sub> มี C=O ที่มีขั้ว — แต่ทั้งโมเลกุล <strong>nonpolar</strong> ได้อย่างไร?</div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="CO2 dipole cancellation"><line class="bond2" x1="120" y1="140" x2="169" y2="140"/><line class="bond2" x1="120" y1="152" x2="169" y2="152"/><line class="bond2" x1="221" y1="140" x2="270" y2="140"/><line class="bond2" x1="221" y1="152" x2="270" y2="152"/><text class="atom" x="88" y="146">O</text><text class="atom" x="195" y="146">C</text><text class="atom" x="302" y="146">O</text><line class="dip" x1="172" y1="220" x2="90" y2="220" data-reveal="2"/><polygon points="90,220 110,209 110,231" fill="#267786" data-reveal="2"/><line class="dip" x1="218" y1="220" x2="300" y2="220" data-reveal="2"/><polygon points="300,220 280,209 280,231" fill="#267786" data-reveal="2"/></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Lewis: O=C=O</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>Shape = <strong>linear</strong> · O สองด้านเหมือนกัน</div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>dipole สองอัน <strong>ขนาดเท่ากัน + ทิศตรงข้าม</strong> → cancel</div></div>
+   <div class="step" data-reveal="3"><div class="n">4</div><div>net dipole = 0 → <strong>CO₂ nonpolar</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>คำว่า “สมมาตร” ใช้ได้เมื่อรอบอะตอมกลางมี substituent เหมือนกันและ dipoles หักล้างกันจริง</span><span>86</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Worked H2O polarity">
+ <div class="kicker">ครูทำให้ดู · <strong>H₂O</strong></div>
+ <div class="title">H<sub>2</sub>O มี O–H สองพันธะเหมือนกัน — แต่ shape <strong>bent</strong> ทำให้ไม่หักล้าง</div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="H2O net dipole"><line class="bond" x1="185" y1="126" x2="118" y2="204"/><line class="bond" x1="205" y1="126" x2="272" y2="204"/><text class="atom" x="195" y="95">O</text><text class="atom small" x="99" y="222">H</text><text class="atom small" x="291" y="222">H</text><circle class="lp" cx="177" cy="49" r="4"/><circle class="lp" cx="187" cy="46" r="4"/><circle class="lp" cx="203" cy="46" r="4"/><circle class="lp" cx="213" cy="49" r="4"/><line class="dip" x1="136" y1="188" x2="178" y2="137" data-reveal="2"/><polygon points="178,137 175,160 158,147" fill="#267786" data-reveal="2"/><line class="dip" x1="254" y1="188" x2="212" y2="137" data-reveal="2"/><polygon points="212,137 232,147 215,160" fill="#267786" data-reveal="2"/><line class="dip" x1="195" y1="185" x2="195" y2="120" data-reveal="3"/><polygon points="195,120 184,140 206,140" fill="#267786" data-reveal="3"/></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Lewis: O มี 2 bonds + 2 lone pairs</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>Shape = <strong>bent</strong></div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>O–H dipoles ชี้เข้าหา O แต่ <strong>ไม่อยู่ตรงข้ามกัน</strong></div></div>
+   <div class="step" data-reveal="3"><div class="n">4</div><div>net dipole ≠ 0 → <strong>H₂O polar</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>shape เปลี่ยนผลรวมของ dipoles — นี่คือเหตุผลที่ Lewis อย่างเดียวไม่พอ</span><span>87</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Classify symmetry">
+ <div class="kicker">ฝึกจำแนก · <strong>Symmetry test</strong></div>
+ <div class="title">ดู shape + อะตอมรอบกลาง — แล้วถามว่า <strong>dipoles cancel ไหม?</strong></div>
+ <div class="classify6">
+  <div class="class-card"><div class="class-f chem">CO<sub>2</sub></div><div class="class-info">linear<br>O สองด้านเหมือนกัน<div class="class-a" data-reveal="1">nonpolar</div></div></div>
+  <div class="class-card"><div class="class-f chem">BCl<sub>3</sub></div><div class="class-info">trigonal planar<br>Cl สามตัวเหมือนกัน<div class="class-a" data-reveal="1">nonpolar</div></div></div>
+  <div class="class-card"><div class="class-f chem">CH<sub>4</sub></div><div class="class-info">tetrahedral<br>H สี่ตัวเหมือนกัน<div class="class-a" data-reveal="1">nonpolar</div></div></div>
+  <div class="class-card"><div class="class-f chem">H<sub>2</sub>O</div><div class="class-info">bent<div class="class-a" data-reveal="2">polar</div></div></div>
+  <div class="class-card"><div class="class-f chem">NH<sub>3</sub></div><div class="class-info">trigonal pyramidal<div class="class-a" data-reveal="2">polar</div></div></div>
+  <div class="class-card"><div class="class-f chem">CH<sub>3</sub>Cl</div><div class="class-info">tetrahedral<br>รอบ C ไม่เหมือนกันทั้งหมด<div class="class-a" data-reveal="2">polar</div></div></div>
+ </div>
+ <div class="footer"><span>อย่าจำแค่รายชื่อ — ให้ย้อนกลับไปที่ shape + arrangement ทุกครั้ง</span><span>88</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="We do you do polarity">
+ <div class="kicker">We do → You do · <strong>ใช้ flow เดียวกัน</strong></div>
+ <div class="title">ตอบให้ครบเหตุผล: <strong>shape → symmetry → polarity</strong></div>
+ <div class="practice4">
+  <div class="p4"><div class="f chem">NH<sub>3</sub></div><div class="q">WE DO<br>shape? cancel?</div><div class="a" data-reveal="1">pyramidal<br>ไม่ cancel → polar</div></div>
+  <div class="p4"><div class="f chem">CH<sub>4</sub></div><div class="q">WE DO<br>shape? cancel?</div><div class="a" data-reveal="2">tetrahedral<br>cancel → nonpolar</div></div>
+  <div class="p4"><div class="f chem">CH<sub>3</sub>Cl</div><div class="q">YOU DO<br>รอบ C เหมือนกันไหม?</div><div class="a" data-reveal="3">ไม่สมมาตร<br>→ polar</div></div>
+  <div class="p4"><div class="f chem">BCl<sub>3</sub></div><div class="q">YOU DO<br>3 ทิศเท่ากันไหม?</div><div class="a" data-reveal="4">trigonal planar<br>cancel → nonpolar</div></div>
+ </div>
+ <div class="footer"><span>ชีท หน้า 38–39 · เขียนเหตุผลสั้น ๆ ไม่ตอบ polar/nonpolar อย่างเดียว</span><span>89</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Exit molecular polarity">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">เช็กว่าคุณแยก <strong>bond polarity</strong> กับ <strong>molecular polarity</strong> ได้จริง</div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q">ทำไม CO<sub>2</sub> nonpolar แม้ C=O มีขั้ว?</div><div class="exit-a" data-reveal="1">linear + dipoles เท่ากันตรงข้าม → cancel</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">ทำไม H<sub>2</sub>O polar?</div><div class="exit-a" data-reveal="2">bent → O–H dipoles ไม่ cancel</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q">ก่อนตอบ polarity ต้องรู้อะไร?</div><div class="exit-a" data-reveal="3">Lewis + shape + dipole arrangement</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>คาบ 10:</strong> ไม่มี concept ใหม่ — ฝึกใช้ flow นี้ให้คล่องกับหลายสูตร</div>
+ <div class="footer"><span>คาบ 10: formula → Lewis → shape → polarity</span><span>90</span></div>
+</section>
+
+<section class="slide dark" data-batch="09-10" data-title="Recall integrated flow">
+ <div class="kicker">CHEM01 · คาบ 10 · <strong>Recall</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–39 แบบเลือก</span></div>
+ <div class="title" style="color:#F7F6F2">วันนี้ไม่เพิ่มเรื่องใหม่ — เราจะทำให้ <strong>ขั้นตอนเดียว</strong> ใช้ได้ทุกข้อ</div>
+ <div class="strategy">
+  <div class="strategy-box" style="border-bottom-color:rgba(255,255,255,.15)"><div class="s">Formula</div><div class="d" style="color:#A9B2BF">รู้ว่าอะตอมใดอยู่ในสาร</div></div><div class="strategy-arrow">→</div>
+  <div class="strategy-box" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="1"><div class="s">Lewis</div><div class="d" style="color:#A9B2BF">bonds + lone pairs</div></div><div class="strategy-arrow" data-reveal="1">→</div>
+  <div class="strategy-box" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="2"><div class="s">Shape</div><div class="d" style="color:#A9B2BF">AX/E รอบอะตอมกลาง</div></div><div class="strategy-arrow" data-reveal="2">→</div>
+  <div class="strategy-box" style="border-bottom-color:rgba(255,255,255,.15)" data-reveal="3"><div class="s">Polarity</div><div class="d" style="color:#A9B2BF">dipoles cancel?</div></div>
+ </div>
+ <div class="footer"><span>Reference ใช้ได้ — เป้าหมายคือ reasoning ไม่ใช่ท่องจำ</span><span>91</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Strategy map">
+ <div class="kicker">เครื่องมือ · <strong>Decision flow</strong></div>
+ <div class="title">ถ้าติดระหว่างทาง — <strong>กลับไปขั้นก่อนหน้า</strong> แทนการเดา</div>
+ <div class="flow">
+  <div class="flow-step"><div class="flow-n">STEP 1</div><div class="flow-main">Lewis</div><div class="flow-sub">วาด bonds + lone pairs ให้ถูก</div></div>
+  <div class="flow-step"><div class="flow-n">STEP 2</div><div class="flow-main">AX/E</div><div class="flow-sub">นับทิศอะตอม + lone pairs รอบกลาง</div></div>
+  <div class="flow-step"><div class="flow-n">STEP 3</div><div class="flow-main">Shape</div><div class="flow-sub">เลือก 1 ใน 5 shape ที่เรียน</div></div>
+  <div class="flow-step"><div class="flow-n">STEP 4</div><div class="flow-main">Polarity</div><div class="flow-sub">ดู bond dipoles + symmetry</div></div>
+ </div>
+ <div class="ruleline"><strong>ห้ามข้าม Lewis</strong> ถ้ามี lone pair เพราะ lone pair เปลี่ยน shape ได้</div>
+ <div class="footer"><span>ใช้ decision flow นี้เป็น checklist ในชีท</span><span>92</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Worked HF integrated">
+ <div class="kicker">Worked example · <strong>HF</strong></div>
+ <div class="title">โมเลกุล 2 อะตอม: ถ้าพันธะมีขั้ว → <strong>ไม่มี dipole อื่นมาหักล้าง</strong></div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="HF Lewis and dipole"><line class="bond" x1="130" y1="150" x2="260" y2="150"/><text class="atom" x="100" y="150">H</text><text class="atom" x="290" y="150">F</text><circle class="lp" cx="285" cy="92" r="4"/><circle class="lp" cx="295" cy="92" r="4"/><circle class="lp" cx="285" cy="208" r="4"/><circle class="lp" cx="295" cy="208" r="4"/><circle class="lp" cx="337" cy="145" r="4"/><circle class="lp" cx="337" cy="155" r="4"/><line class="dip" x1="145" y1="230" x2="270" y2="230" data-reveal="2"/><polygon points="270,230 250,219 250,241" fill="#267786" data-reveal="2"/></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Lewis: H–F · F มี 3 lone pairs</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>โมเลกุล 2 อะตอม → <strong>linear โดยธรรมชาติ</strong></div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>H–F bond dipole ชี้ไป F</div></div>
+   <div class="step" data-reveal="3"><div class="n">4</div><div>ไม่มี dipole ฝั่งตรงข้าม → <strong>HF polar</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>HF เป็นตัวอย่างง่ายสำหรับแยก bond polarity กับ cancellation</span><span>93</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Worked CH4 integrated">
+ <div class="kicker">Worked example · <strong>CH₄</strong></div>
+ <div class="title">CH<sub>4</sub>: รอบ C เหมือนกันทั้ง 4 ทิศ → <strong>สมมาตร tetrahedral</strong></div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="CH4 tetrahedral schematic"><line class="bond" x1="195" y1="145" x2="195" y2="65"/><line class="bond" x1="180" y1="158" x2="110" y2="220"/><line class="bond" x1="210" y1="158" x2="280" y2="220"/><line class="bond" x1="195" y1="162" x2="195" y2="245" stroke-dasharray="7 8"/><text class="atom" x="195" y="150">C</text><text class="atom small" x="195" y="42">H</text><text class="atom small" x="92" y="235">H</text><text class="atom small" x="298" y="235">H</text><text class="atom small" x="195" y="270">H</text></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Lewis: C ทำ 4 single bonds</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>AX₄ → <strong>tetrahedral</strong></div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>H เหมือนกันทั้ง 4 ทิศ → arrangement สมมาตร</div></div>
+   <div class="step" data-reveal="3"><div class="n">4</div><div>bond dipoles รวมเป็นศูนย์ → <strong>CH₄ nonpolar</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>ภาพใช้ depth cue เพื่อสื่อ 3D — ไม่ใช่ Lewis 2D</span><span>94</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Worked CH3Cl integrated">
+ <div class="kicker">Worked example · <strong>CH₃Cl</strong></div>
+ <div class="title">CH<sub>3</sub>Cl ก็ tetrahedral — แต่รอบ C <strong>ไม่เหมือนกันทั้ง 4 ทิศ</strong></div>
+ <div class="polarity-work">
+  <div class="diagram-box"><svg class="mol-svg" viewBox="0 0 390 300" aria-label="CH3Cl tetrahedral asymmetric"><line class="bond" x1="195" y1="145" x2="195" y2="65"/><line class="bond" x1="180" y1="158" x2="110" y2="220"/><line class="bond" x1="210" y1="158" x2="280" y2="220"/><line class="bond" x1="195" y1="162" x2="195" y2="245" stroke-dasharray="7 8"/><text class="atom" x="195" y="150">C</text><text class="atom small" x="195" y="42">Cl</text><text class="atom small" x="92" y="235">H</text><text class="atom small" x="298" y="235">H</text><text class="atom small" x="195" y="270">H</text><line class="dip" x1="195" y1="118" x2="195" y2="57" data-reveal="2"/><polygon points="195,57 184,77 206,77" fill="#267786" data-reveal="2"/></svg></div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div>Lewis: C ต่อกับ 3 H + 1 Cl</div></div>
+   <div class="step" data-reveal="1"><div class="n">2</div><div>AX₄ → <strong>tetrahedral</strong></div></div>
+   <div class="step" data-reveal="2"><div class="n">3</div><div>หนึ่งทิศเป็น Cl — ไม่สมมาตรเหมือน CH₄</div></div>
+   <div class="step" data-reveal="3"><div class="n">4</div><div>net dipole ≠ 0 → <strong>CH₃Cl polar</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>shape เดียวกัน ไม่ได้แปลว่า polarity เดียวกัน — ต้องดูชนิดอะตอมรอบกลางด้วย</span><span>95</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Error analysis polarity">
+ <div class="kicker">Error analysis · <strong>จับเหตุผลที่ผิด</strong></div>
+ <div class="title">คำตอบที่พบบ่อย: “มีพันธะขั้ว → โมเลกุลมีขั้ว” <strong>ผิดตรงไหน?</strong></div>
+ <div class="mistakes">
+  <div class="mist bad"><div class="mist-label">คำตอบที่ผิด</div><div class="mist-main">CO<sub>2</sub> มี C=O polar bonds<br>ดังนั้น CO<sub>2</sub> polar</div><div class="mist-reason" data-reveal="1">ปัญหา: หยุดคิดที่ <strong>bond</strong> และไม่ได้ดู shape</div></div>
+  <div class="mist good"><div class="mist-label">แก้ reasoning</div><div class="mist-main">C=O มีขั้ว <strong>แต่</strong> CO<sub>2</sub> linear และสมมาตร</div><div class="mist-reason" data-reveal="2">dipoles เท่ากันตรงข้าม → cancel → <strong>nonpolar</strong></div></div>
+ </div>
+ <div class="footer"><span>ข้อสอบจะให้คะแนน reasoning จาก molecule ทั้งตัว ไม่ใช่ดู bond เดียว</span><span>96</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="We do NH3 BCl3">
+ <div class="kicker">We do · <strong>เปรียบเทียบสองรูปทรง</strong></div>
+ <div class="title">NH<sub>3</sub> กับ BCl<sub>3</sub> — ทำตาม 4 ขั้น แล้วค่อยตอบ</div>
+ <div class="compare2">
+  <div class="cmp-panel"><div class="cmp-formula chem">NH<sub>3</sub></div><div class="cmp-label">AX₃E · trigonal pyramidal</div><div style="font-size:22px;line-height:1.55;color:var(--muted);text-align:center" data-reveal="1">lone pair ทำให้ arrangement ไม่ cancel<br><strong style="color:var(--covalent);font-size:28px">polar</strong></div></div>
+  <div class="cmp-panel"><div class="cmp-formula chem">BCl<sub>3</sub></div><div class="cmp-label">AX₃ · trigonal planar</div><div style="font-size:22px;line-height:1.55;color:var(--muted);text-align:center" data-reveal="2">Cl เหมือนกัน 3 ทิศ · 120° สมมาตร<br><strong style="color:var(--covalent);font-size:28px">nonpolar</strong></div></div>
+ </div>
+ <div class="question-strip" data-reveal="3">ความต่างสำคัญ: <strong>lone pair + molecular geometry</strong> เปลี่ยนการหักล้างของ dipoles</div>
+ <div class="footer"><span>อย่าตัดสินจากจำนวนอะตอม — ตัดสินจาก arrangement ของ bond dipoles</span><span>97</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Guided NF3 H2O">
+ <div class="kicker">Guided practice · <strong>ตอบทีละช่อง</strong></div>
+ <div class="meta"><span>ใช้ reference ได้</span></div>
+ <div class="title">NF<sub>3</sub> และ H<sub>2</sub>O — ถ้าขั้นไหนผิด <strong>หยุดแก้ตรงนั้นก่อน</strong></div>
+ <div class="guided">
+  <div class="guided-left"><div class="guided-f chem">NF<sub>3</sub></div><div class="guided-shape">เริ่มจาก Lewis ของ N + 3 F</div><div class="quick" data-reveal="4">AX₃E → pyramidal → polar</div></div>
+  <div class="guided-right">
+   <div class="g-row"><div class="g-n">1</div><div>N กลางมี bonds/lone pairs เท่าไร?</div><div class="g-a" data-reveal="1">3 bonds + 1 lone pair</div></div>
+   <div class="g-row"><div class="g-n">2</div><div>AX/E และ shape?</div><div class="g-a" data-reveal="2">AX₃E · pyramidal</div></div>
+   <div class="g-row"><div class="g-n">3</div><div>N–F dipoles cancel หมดไหม?</div><div class="g-a" data-reveal="3">ไม่หมด</div></div>
+   <div class="g-row"><div class="g-n">4</div><div>สรุป molecular polarity</div><div class="g-a" data-reveal="4">polar</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>หลัง NF₃ ให้ทำ H₂O ซ้ำด้วย flow เดียวกันในชีท</span><span>98</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Independent practice">
+ <div class="kicker">You do · <strong>ลงชีท</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–39 แบบเลือก</span><span>ใช้ reference ได้</span></div>
+ <div class="title">วิเคราะห์ให้ครบ 4 ช่อง — <strong>ไม่ตอบ polarity อย่างเดียว</strong></div>
+ <div class="handout">
+  <div class="tasklist"><div class="taskformula chem">HF<br>BCl<sub>3</sub><br>CH<sub>4</sub><br>CH<sub>3</sub>Cl<br>NH<sub>3</sub><br>H<sub>2</sub>O</div></div>
+  <div class="checklist">
+   <div class="checkrow"><div class="n">1</div><div>Lewis ถูกหรือยัง?</div></div>
+   <div class="checkrow"><div class="n">2</div><div>AX/E และ shape ถูกหรือยัง?</div></div>
+   <div class="checkrow"><div class="n">3</div><div>อะตอมรอบกลางสมมาตรไหม?</div></div>
+   <div class="checkrow"><div class="n">4</div><div>dipoles cancel → polar / nonpolar?</div></div>
+   <div class="quick" data-reveal="1">Quick check polarity: HF P · BCl₃ NP · CH₄ NP · CH₃Cl P · NH₃ P · H₂O P</div>
+  </div>
+ </div>
+ <div class="footer"><span>เฉลยบนจอใช้เช็กปลายทาง — ถ้าผิดให้ย้อนหา step แรกที่ผิด</span><span>99</span></div>
+</section>
+
+<section class="slide" data-batch="09-10" data-title="Exit integrated practice">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">ถ้าเจอ molecule ที่ไม่เคยเห็น — คุณมี <strong>ขั้นตอนคิด</strong> แล้ว</div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">1</div><div class="exit-q">เริ่มจากอะไร?</div><div class="exit-a" data-reveal="1">Lewis structure</div></div>
+  <div class="exit-row"><div class="exit-qn">2</div><div class="exit-q">Lewis ใช้หาอะไรต่อ?</div><div class="exit-a" data-reveal="2">AX/E → molecular shape</div></div>
+  <div class="exit-row"><div class="exit-qn">3</div><div class="exit-q">ก่อนตอบ polar/nonpolar ต้องถามอะไร?</div><div class="exit-a" data-reveal="3">bond dipoles หักล้างกันไหม?</div></div>
+ </div>
+ <div class="bridge" data-reveal="4"><strong>คาบ 11:</strong> ใช้ flow นี้ทำใบงาน Covalent 10 คะแนน — ไม่มี shape ใหม่</div>
+ <div class="footer"><span>Formula → Lewis → Shape → Polarity</span><span>100</span></div>
+</section>
 </main>
 
 <nav class="slide-nav" aria-label="ตัวควบคุมสไลด์">
   <button class="prev" id="prevSlide" type="button" aria-label="สไลด์ก่อนหน้า" title="สไลด์ก่อนหน้า (←)">‹</button>
   <button class="next" id="nextSlide" type="button" aria-label="เปิดคำตอบหรือไปสไลด์ถัดไป" title="เปิดคำตอบหรือไปสไลด์ถัดไป (→)">›</button>
 </nav>
-
 <script>
 (() => {
   const deck = document.getElementById('deck');
@@ -1356,8 +1751,8 @@ body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-heig
     const x = offsetLeft + Math.max(0, (width - renderedWidth) / 2);
     const y = offsetTop + Math.max(0, (height - renderedHeight) / 2);
     deck.style.setProperty('--scale', String(s));
-    deck.style.setProperty('--deck-x', `${x}px`);
-    deck.style.setProperty('--deck-y', `${y}px`);
+    deck.style.setProperty('--deck-x', x + 'px');
+    deck.style.setProperty('--deck-y', y + 'px');
   }
 
   function slideNumberFromLocation(){
@@ -1419,7 +1814,7 @@ body{position:fixed;inset:0;margin:0;width:100%;height:100%;min-width:0;min-heig
     if (['ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); show(index - 1); return; }
     if (e.key === 'Home') { e.preventDefault(); show(0); return; }
     if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); return; }
-    if (e.key === 'Escape') { e.preventDefault(); resetReveal(slides[index]); }
+    if (e.key === 'Escape') { e.preventDefault(); resetReveal(slides[index]); updateNavigation(); }
   });
   addEventListener('wheel', e => e.preventDefault(), {passive:false});
   addEventListener('touchmove', e => e.preventDefault(), {passive:false});

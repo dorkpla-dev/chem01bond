@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CHEM01 · พันธะเคมี · คาบ 5–6 · v2</title>
+<style>
+:root{
+ --paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
+ --ionic:#2E6F9E;--covalent:#7C5C9C;--pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;
+}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center;background:var(--paper);overflow:hidden}
+.slide{position:absolute;inset:0;display:none;padding:56px 82px 52px;background:var(--paper);overflow:hidden}.slide.active{display:flex;flex-direction:column}
+.kicker{font-size:19px;line-height:1.3;color:var(--muted)}.kicker strong{color:var(--ink);font-weight:600}
+.title{font-size:56px;line-height:1.14;font-weight:400;letter-spacing:-.018em;margin:18px 0 0;max-width:1380px;text-wrap:balance}.title strong{font-weight:600}
+.meta{position:absolute;right:82px;top:58px;display:flex;gap:16px;font-size:17px;color:#858B93}.meta span+span:before{content:"·";margin-right:16px;color:#C1C4C8}
+.footer{position:absolute;left:82px;right:82px;bottom:29px;display:flex;justify-content:space-between;font-size:16px;color:#90969E}.footer:before{content:"";position:absolute;left:0;right:0;top:-16px;height:1px;background:#DEDFDC}
+[data-reveal]{opacity:0;visibility:hidden;transform:translateY(5px);transition:.18s ease}[data-reveal].revealed{opacity:1;visibility:visible;transform:none}
+sub,sup{font-size:.58em;line-height:0;position:relative;vertical-align:baseline}sup{top:-.62em}sub{bottom:-.14em}
+.chem{letter-spacing:-.02em}.ionic{color:var(--ionic)}.cov{color:var(--covalent)}.muted{color:var(--muted)}
+.dark{background:#172131;color:#F7F6F2}.dark .kicker{color:#A9B2BF}.dark .kicker strong{color:#F7F6F2}.dark .footer{color:#8F99A6}.dark .footer:before{background:rgba(255,255,255,.15)}.dark .meta{color:#A9B2BF}
+.ruleline{font-size:22px;line-height:1.5;color:var(--muted);text-align:center;margin-top:18px}.ruleline strong{color:var(--ink)}
+
+/* period 5 · covalent naming */
+.hook{display:grid;grid-template-columns:1fr 1fr;gap:82px;align-items:center;flex:1}.hookcard{padding:50px 0;border-top:3px solid var(--c);border-bottom:1px solid var(--line);text-align:center}.hookcard.ion{--c:var(--ionic)}.hookcard.covc{--c:var(--covalent)}.hookcard .f{font-size:84px;font-weight:600}.hookcard .atoms{font-size:23px;color:var(--muted);margin-top:24px}.hookcard .ans{font-size:29px;color:var(--c);font-weight:600;margin-top:25px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}.comparecol{padding:40px 0;border-top:3px solid var(--c);border-bottom:1px solid var(--line)}.comparecol.ion{--c:var(--ionic)}.comparecol.covc{--c:var(--covalent)}.comparecol h2{font-size:38px;margin:0;color:var(--c);font-weight:600}.comparecol .pair{font-size:27px;margin-top:22px}.comparecol .process{font-size:31px;line-height:1.45;margin-top:28px}.comparecol .process strong{color:var(--c)}.comparecol .small{font-size:20px;color:var(--muted);line-height:1.5;margin-top:24px}
+.sharegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;align-items:center;flex:1}.molecule{padding:38px 10px;border-top:2px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}.molecule .formula{font-size:36px;font-weight:600}.bondpic{height:135px;display:flex;align-items:center;justify-content:center;margin-top:20px}.atom{width:66px;height:66px;border:1.5px solid var(--covalent);border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:600;background:#fff}.bond{width:62px;height:2px;background:var(--covalent);position:relative}.bond:after{content:"คู่ e− ที่แชร์";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:130px;font-size:15px;color:var(--muted)}.molecule .caption{font-size:18px;color:var(--muted);margin-top:12px}
+.prefixgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px 30px;align-content:center;flex:1}.prefix{padding:25px 12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}.prefix.core{border-top:3px solid var(--covalent)}.prefix .n{font-size:38px;color:#9BA1A8}.prefix .p{font-size:30px;font-weight:600;margin-top:8px}.prefix .th{font-size:17px;color:var(--muted);margin-top:5px}.prefixnote{text-align:center;font-size:20px;color:var(--muted);margin-top:8px}
+.name-rule{display:grid;grid-template-columns:430px 1fr;gap:90px;align-items:center;flex:1}.name-rule .bigformula{text-align:center;padding:55px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);font-size:84px;font-weight:600}.name-rule .steps{display:grid}.namerow{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:25px 0;border-top:1px solid var(--line);font-size:30px;line-height:1.4}.namerow:last-child{border-bottom:1px solid var(--line)}.namerow .n{color:#A6ABB1}.nameanswer{font-size:38px;color:var(--covalent);font-weight:600;margin-top:28px}
+.worked{display:grid;grid-template-columns:440px 1fr;gap:90px;align-items:center;flex:1}.worked .big{font-size:86px;font-weight:600;text-align:center;padding:55px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line)}.workedsteps{display:grid}.workedrow{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line);font-size:29px;line-height:1.4}.workedrow:last-child{border-bottom:1px solid var(--line)}.workedrow .n{color:#A6ABB1}.workedrow strong{color:var(--covalent);font-weight:600}
+.practice4{display:grid;grid-template-columns:1fr 1fr;gap:30px 65px;align-content:center;flex:1}.pitem{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}.pitem .q{font-size:39px;font-weight:500}.pitem .prompt{font-size:18px;color:var(--muted);margin-top:10px}.pitem .ans{font-size:28px;color:var(--covalent);font-weight:600;margin-top:17px}
+.exit-list{display:grid;flex:1;align-content:center;margin-top:8px}.exit-row{display:grid;grid-template-columns:58px 1fr 430px;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}.exit-row:last-child{border-bottom:1px solid var(--line)}.exit-qn{font-size:23px;color:#A6ABB1}.exit-q{font-size:30px;line-height:1.38}.exit-a{font-size:25px;line-height:1.4;font-weight:600;color:var(--covalent)}.stylebar{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:22px}.stylecell{padding:13px 18px;border-left:3px solid var(--c);font-size:19px;color:var(--muted)}.stylecell.ion{--c:var(--ionic)}.stylecell.covc{--c:var(--covalent)}.stylecell strong{color:var(--ink)}
+
+/* period 6 · Lewis I */
+.lewis-hook{display:grid;grid-template-columns:1fr 120px 1fr;gap:50px;align-items:center;flex:1}.lh-card{padding:44px 0;border-top:3px solid var(--covalent);border-bottom:1px solid rgba(255,255,255,.16);text-align:center}.lh-card .lab{font-size:21px;color:#A9B2BF}.lh-card .big{font-size:82px;font-weight:600;margin-top:30px}.lh-card .small{font-size:23px;line-height:1.5;color:#B7BFCA;margin-top:24px}.lh-arrow{font-size:56px;color:#778396;text-align:center}
+.pattern4{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;align-items:center;flex:1}.pattern{padding:44px 10px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}.pattern .sym{font-size:70px;font-weight:600}.pattern .bondn{font-size:31px;font-weight:600;color:var(--covalent);margin-top:20px}.pattern .hint{font-size:20px;line-height:1.45;color:var(--muted);margin-top:14px}
+.meaning{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex:1}.meaning-card{padding:45px 0;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);text-align:center}.meaning-card .icon{font-size:68px;line-height:1.1;font-weight:500;color:var(--covalent)}.meaning-card .head{font-size:32px;font-weight:600;margin-top:24px}.meaning-card .sub{font-size:22px;line-height:1.5;color:var(--muted);margin-top:15px}
+.lewis-work{display:grid;grid-template-columns:520px 1fr;gap:90px;align-items:center;flex:1}.diagram-box{height:390px;border-top:3px solid var(--covalent);border-bottom:1px solid var(--line);display:grid;place-items:center}.steps3{display:grid}.step3{display:grid;grid-template-columns:62px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);font-size:29px;line-height:1.42}.step3:last-child{border-bottom:1px solid var(--line)}.step3 .n{color:#A6ABB1}.step3 strong{font-weight:600;color:var(--covalent)}
+.lewis-svg{display:block;width:360px;height:320px;overflow:visible;shape-rendering:geometricPrecision}.lewis-svg-small{width:330px;height:260px;margin:8px auto 0}.lewis-svg .ls-atom{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;font-size:48px;font-weight:600;fill:var(--ink);text-anchor:middle;dominant-baseline:middle}.lewis-svg .ls-h{font-size:38px}.dark .lewis-svg .ls-atom{fill:#F7F6F2}.lewis-svg .ls-bond{stroke:var(--covalent);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}.lewis-svg .ls-dot{fill:var(--covalent)}.lewis-svg [data-reveal]{transform:none!important;transition:opacity .18s ease,visibility .18s ease}
+.pair-demo{position:relative;width:42px;height:14px;margin:0 auto}.pair-demo::before,.pair-demo::after{content:"";position:absolute;top:3px;width:9px;height:9px;border-radius:50%;background:var(--covalent)}.pair-demo::before{left:8px}.pair-demo::after{right:8px}
+.practice-lewis{display:grid;grid-template-columns:1fr 1fr;gap:32px 70px;align-content:center;flex:1}.lpitem{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:center;padding:26px 0;border-top:1px solid var(--line)}.lpitem:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.lpitem .formula{font-size:52px;font-weight:600;text-align:center}.lpitem .ask{font-size:25px;line-height:1.45}.lpitem .ans{font-size:22px;color:var(--covalent);font-weight:600;margin-top:10px}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+<!-- 41 -->
+<section class="slide dark active" data-title="Covalent hook">
+ <div class="kicker">CHEM01 · คาบ 5 · <strong>Covalent bond</strong></div>
+ <div class="meta"><span>ชีท หน้า 26–28</span></div>
+ <div class="title" style="color:#F7F6F2">ดูสูตรอย่างเดียว — <strong>NaCl กับ CO<sub>2</sub></strong> เหมือนกันไหม?</div>
+ <div class="hook">
+  <div class="hookcard ion"><div class="f chem">NaCl</div><div class="atoms">Na = metal · Cl = nonmetal</div><div class="ans" data-reveal="1">ionic</div></div>
+  <div class="hookcard covc"><div class="f chem">CO<sub>2</sub></div><div class="atoms">C = nonmetal · O = nonmetal</div><div class="ans" data-reveal="2">covalent</div></div>
+ </div>
+ <div class="footer"><span>การบ้าน Ionic หน้า 9–10 ทำแยกนอกเวลาเรียน</span><span>41</span></div>
+</section>
+
+<!-- 42 -->
+<section class="slide" data-title="Ionic vs covalent">
+ <div class="kicker">แนวคิดหลัก · <strong>transfer vs share</strong></div>
+ <div class="title">ความต่างสำคัญอยู่ที่ <strong>อิเล็กตรอน</strong></div>
+ <div class="compare">
+  <div class="comparecol ion"><h2>Ionic</h2><div class="pair">metal + nonmetal</div><div class="process">e<sup>−</sup> <strong>ถ่ายโอน</strong><br>→ เกิด ion ต่างประจุ<br>→ ดึงดูดกัน</div><div class="small">สูตรบอกอัตราส่วนที่ทำให้ประจุรวมเป็นศูนย์</div></div>
+  <div class="comparecol covc"><h2>Covalent</h2><div class="pair">nonmetal + nonmetal</div><div class="process">e<sup>−</sup> <strong>ใช้ร่วมกัน</strong><br>→ อะตอมเชื่อมกัน<br>→ เป็น molecule</div><div class="small">สูตรบอกจำนวนอะตอมในโมเลกุล → จึงใช้ prefix ช่วยตั้งชื่อ</div></div>
+ </div>
+ <div class="footer"><span>วันนี้เข้าใจ “แชร์” และตั้งชื่อ — Lewis อย่างเป็นระบบอยู่คาบ 6</span><span>42</span></div>
+</section>
+
+<!-- 43 -->
+<section class="slide" data-title="Sharing electrons">
+ <div class="kicker">ภาพง่ายก่อน Lewis · <strong>เส้น = คู่ e− ที่แชร์</strong></div>
+ <div class="title">nonmetal จับกันได้ เพราะ <strong>ใช้ e<sup>−</sup> ร่วมกัน</strong></div>
+ <div class="sharegrid">
+  <div class="molecule"><div class="formula chem">H<sub>2</sub></div><div class="bondpic"><div class="atom">H</div><div class="bond"></div><div class="atom">H</div></div><div class="caption">H—H</div></div>
+  <div class="molecule"><div class="formula chem">Cl<sub>2</sub></div><div class="bondpic"><div class="atom">Cl</div><div class="bond"></div><div class="atom">Cl</div></div><div class="caption">Cl—Cl</div></div>
+  <div class="molecule"><div class="formula chem">HCl</div><div class="bondpic"><div class="atom">H</div><div class="bond"></div><div class="atom">Cl</div></div><div class="caption">H—Cl</div></div>
+  <div class="molecule"><div class="formula chem">H<sub>2</sub>O</div><div class="bondpic"><div class="atom">H</div><div class="bond" style="width:36px"></div><div class="atom">O</div><div class="bond" style="width:36px"></div><div class="atom">H</div></div><div class="caption">H—O—H</div></div>
+ </div>
+ <div class="footer"><span>คาบนี้ยังไม่ต้องเติม lone pairs อย่างเป็นระบบ</span><span>43</span></div>
+</section>
+
+<!-- 44 -->
+<section class="slide" data-title="Prefix reference">
+ <div class="kicker">เครื่องมือการตั้งชื่อ · <strong>prefix บอกจำนวน</strong></div>
+ <div class="meta"><span>ชีท หน้า 27</span><span>ใช้เป็น reference ได้</span></div>
+ <div class="title">เห็นเลขใต้สูตร → เลือก <strong>prefix</strong></div>
+ <div class="prefixgrid">
+  <div class="prefix core"><div class="n">1</div><div class="p">mono</div><div class="th">มอนอ</div></div>
+  <div class="prefix core"><div class="n">2</div><div class="p">di</div><div class="th">ได</div></div>
+  <div class="prefix core"><div class="n">3</div><div class="p">tri</div><div class="th">ไตร</div></div>
+  <div class="prefix core"><div class="n">4</div><div class="p">tetra</div><div class="th">เตตระ</div></div>
+  <div class="prefix core"><div class="n">5</div><div class="p">penta</div><div class="th">เพนตะ</div></div>
+  <div class="prefix"><div class="n">6</div><div class="p">hexa</div><div class="th">เฮกซะ</div></div>
+  <div class="prefix"><div class="n">7</div><div class="p">hepta</div><div class="th">เฮปตะ</div></div>
+  <div class="prefix"><div class="n">8</div><div class="p">octa</div><div class="th">ออกตะ</div></div>
+  <div class="prefix"><div class="n">9</div><div class="p">nona</div><div class="th">โนนะ</div></div>
+  <div class="prefix"><div class="n">10</div><div class="p">deca</div><div class="th">เดคะ</div></div>
+ </div>
+ <div class="prefixnote">1–5 คือชุดที่ใช้บ่อยวันนี้ · ที่เหลือเปิดดูได้ ไม่ต้องท่อง</div>
+ <div class="footer"><span>prefix ≠ ประจุ — prefix บอก “จำนวนอะตอม”</span><span>44</span></div>
+</section>
+
+<!-- 45 -->
+<section class="slide" data-title="First element naming">
+ <div class="kicker">กฎที่ 1 · <strong>ธาตุตัวแรก</strong></div>
+ <div class="title">ตัวแรกมี 1 อะตอม → โดยทั่วไป <strong>ไม่อ่าน mono</strong></div>
+ <div class="name-rule">
+  <div class="bigformula chem">CO</div>
+  <div class="steps">
+   <div class="namerow"><div class="n">1</div><div>C มี 1 อะตอม → ใช้ชื่อ <strong>carbon</strong> ตรง ๆ</div></div>
+   <div class="namerow" data-reveal="1"><div class="n">×</div><div>ไม่เรียก <span style="text-decoration:line-through;color:var(--muted)">monocarbon</span> ในตำแหน่งแรก</div></div>
+   <div class="nameanswer" data-reveal="2">carbon …</div>
+  </div>
+ </div>
+ <div class="footer"><span>ถ้าตัวแรกมี 2, 3, 4… จึงใช้ di, tri, tetra…</span><span>45</span></div>
+</section>
+
+<!-- 46 -->
+<section class="slide" data-title="Second element naming">
+ <div class="kicker">กฎที่ 2 · <strong>ธาตุตัวที่สอง</strong></div>
+ <div class="title">ตัวที่สองใช้ <strong>prefix + ชื่อท้าย -ide</strong></div>
+ <div class="name-rule">
+  <div class="bigformula chem">CO<sub>2</sub></div>
+  <div class="steps">
+   <div class="namerow"><div class="n">1</div><div>C = 1 → <strong>carbon</strong></div></div>
+   <div class="namerow" data-reveal="1"><div class="n">2</div><div>O = 2 → <strong>di + oxide</strong></div></div>
+   <div class="namerow" data-reveal="2"><div class="n">✓</div><div class="nameanswer" style="margin:0">carbon dioxide</div></div>
+  </div>
+ </div>
+ <div class="footer"><span>มองเลขใต้สูตรทีละธาตุ แล้วแปลงเป็น prefix</span><span>46</span></div>
+</section>
+
+<!-- 47 -->
+<section class="slide" data-title="Formula to name">
+ <div class="kicker">Worked example · <strong>สูตร → ชื่อ</strong></div>
+ <div class="title">อ่านจำนวนอะตอม <strong>ทีละฝั่ง</strong></div>
+ <div class="worked">
+  <div class="big chem">N<sub>2</sub>O<sub>3</sub></div>
+  <div class="workedsteps">
+   <div class="workedrow" data-reveal="1"><div class="n">1</div><div>N = 2 → <strong>di + nitrogen</strong></div></div>
+   <div class="workedrow" data-reveal="2"><div class="n">2</div><div>O = 3 → <strong>tri + oxide</strong></div></div>
+   <div class="workedrow" data-reveal="3"><div class="n">✓</div><div><strong>dinitrogen trioxide</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>นี่คือการตั้งชื่อจากจำนวน ไม่ใช่การคำนวณประจุ</span><span>47</span></div>
+</section>
+
+<!-- 48 -->
+<section class="slide" data-title="Name to formula">
+ <div class="kicker">Worked example · <strong>ชื่อ → สูตร</strong></div>
+ <div class="title">prefix ทำหน้าที่เป็น <strong>เลขใต้สูตร</strong></div>
+ <div class="worked">
+  <div class="big" style="font-size:54px;line-height:1.2">phosphorus<br>trichloride</div>
+  <div class="workedsteps">
+   <div class="workedrow" data-reveal="1"><div class="n">1</div><div>phosphorus ไม่มี prefix → P = <strong>1</strong></div></div>
+   <div class="workedrow" data-reveal="2"><div class="n">2</div><div><strong>tri</strong>chloride → Cl = <strong>3</strong></div></div>
+   <div class="workedrow" data-reveal="3"><div class="n">✓</div><div class="chem"><strong>PCl<sub>3</sub></strong></div></div>
+  </div>
+ </div>
+ <div class="ruleline">Covalent: อ่านจำนวนจาก prefix · <strong>ไม่ criss-cross ประจุแบบ ionic</strong></div>
+ <div class="footer"><span>ก่อนใช้กฎ ต้องรู้ก่อนว่าสารนั้นเป็น ionic หรือ covalent</span><span>48</span></div>
+</section>
+
+<!-- 49 -->
+<section class="slide" data-title="Guided covalent naming">
+ <div class="kicker">ทำพร้อมกัน · <strong>คิดก่อน reveal</strong></div>
+ <div class="meta"><span>จากนั้นทำข้อคัดเลือกชีท หน้า 28</span></div>
+ <div class="title">สลับ <strong>สูตร ↔ ชื่อ</strong></div>
+ <div class="practice4">
+  <div class="pitem"><div class="q chem">SO<sub>3</sub></div><div class="prompt">ชื่อ?</div><div class="ans" data-reveal="1">sulfur trioxide</div></div>
+  <div class="pitem"><div class="q chem">CCl<sub>4</sub></div><div class="prompt">ชื่อ?</div><div class="ans" data-reveal="1">carbon tetrachloride</div></div>
+  <div class="pitem"><div class="q">carbon disulfide</div><div class="prompt">สูตร?</div><div class="ans chem" data-reveal="2">CS<sub>2</sub></div></div>
+  <div class="pitem"><div class="q">sulfur hexafluoride</div><div class="prompt">สูตร?</div><div class="ans chem" data-reveal="2">SF<sub>6</sub></div></div>
+ </div>
+ <div class="footer"><span>ชีทหน้า 28: เลือกทำเฉพาะ binary covalent ที่ครูกำหนด</span><span>49</span></div>
+</section>
+
+<!-- 50 -->
+<section class="slide" data-title="Exit covalent naming">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">แยกให้ได้ว่าเมื่อไรใช้ <strong>charge</strong> และเมื่อไรใช้ <strong>prefix</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q chem">CO<sub>2</sub> ชื่ออะไร?</div><div class="exit-a" data-reveal="1">carbon dioxide</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">dinitrogen trisulfide เขียนสูตรอะไร?</div><div class="exit-a chem" data-reveal="2">N<sub>2</sub>S<sub>3</sub></div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">NaCl กับ CO<sub>2</sub> — ข้อใดใช้ prefix? เพราะอะไร?</div><div class="exit-a" data-reveal="3">CO<sub>2</sub> · nonmetal + nonmetal → covalent</div></div>
+ </div>
+ <div class="stylebar" data-reveal="4"><div class="stylecell ion"><strong>Ionic</strong> → ion / charge / Roman numeral เมื่อจำเป็น</div><div class="stylecell covc"><strong>Covalent</strong> → prefix / จำนวนอะตอม</div></div>
+ <div class="footer"><span>คาบ 6: วาดการแชร์ e− อย่างเป็นระบบด้วย Lewis structure</span><span>50</span></div>
+</section>
+
+<!-- 51 -->
+<section class="slide dark" data-title="Lewis hook">
+ <div class="kicker">CHEM01 · คาบ 6 · <strong>Lewis Structure I</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–30</span></div>
+ <div class="title" style="color:#F7F6F2">สูตรบอกว่า “มีใครบ้าง” — Lewis บอกว่า <strong>e<sup>−</sup> อยู่ตรงไหน</strong></div>
+ <div class="lewis-hook">
+  <div class="lh-card"><div class="lab">สูตรโมเลกุล</div><div class="big chem">CH<sub>4</sub></div><div class="small">รู้ว่า C 1 และ H 4<br>แต่ยังไม่เห็นการเชื่อมกัน</div></div>
+  <div class="lh-arrow">→</div>
+  <div class="lh-card"><div class="lab">ภาพ Lewis อย่างง่าย</div><svg class="lewis-svg lewis-svg-small" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of methane"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg><div class="small" style="margin-top:4px">เส้นแต่ละเส้น = คู่ e<sup>−</sup> ที่แชร์</div></div>
+ </div>
+ <div class="footer"><span>วันนี้ใช้ pattern ช่วยวาดก่อน — ยังไม่เน้น electron counting ที่ซับซ้อน</span><span>51</span></div>
+</section>
+
+<!-- 52 -->
+<section class="slide" data-title="Bond pattern reference">
+ <div class="kicker">Reference · <strong>จำเป็นแค่ 4 pattern</strong></div>
+ <div class="meta"><span>ดูได้ตลอดคาบ</span></div>
+ <div class="title">เริ่มจากถามว่าอะตอมนี้มักสร้าง <strong>กี่พันธะ?</strong></div>
+ <div class="pattern4">
+  <div class="pattern"><div class="sym">H</div><div class="bondn">1 พันธะ</div><div class="hint">hydrogen</div></div>
+  <div class="pattern"><div class="sym" style="font-size:52px">F Cl Br I</div><div class="bondn">1 พันธะ</div><div class="hint">halogen · lone pair 3 คู่</div></div>
+  <div class="pattern"><div class="sym">O</div><div class="bondn">2 พันธะ</div><div class="hint">lone pair 2 คู่</div></div>
+  <div class="pattern"><div class="sym">N</div><div class="bondn">3 พันธะ</div><div class="hint">lone pair 1 คู่</div></div>
+  <div class="pattern"><div class="sym">C</div><div class="bondn">4 พันธะ</div><div class="hint">โดยทั่วไป 0 lone pair</div></div>
+ </div>
+ <div class="footer"><span>H/halogen = 1 · O = 2 · N = 3 · C = 4</span><span>52</span></div>
+</section>
+
+<!-- 53 -->
+<section class="slide" data-title="Line and lone pair">
+ <div class="kicker">อ่านสัญลักษณ์ · <strong>เส้นกับจุดทำหน้าที่ต่างกัน</strong></div>
+ <div class="title">Lewis ใช้เพียง <strong>2 เครื่องหมายหลัก</strong></div>
+ <div class="meaning">
+  <div class="meaning-card"><div class="icon">H—Cl</div><div class="head">เส้น 1 เส้น</div><div class="sub">แทน e<sup>−</sup> 1 คู่ที่อะตอม <strong>ใช้ร่วมกัน</strong><br>เรียกว่า bonding pair</div></div>
+  <div class="meaning-card"><div class="icon"><div class="pair-demo" aria-label="electron pair"></div></div><div class="head">จุด 2 จุด</div><div class="sub">แทน e<sup>−</sup> 1 คู่ที่ <strong>ไม่ได้สร้างพันธะ</strong><br>เรียกว่า lone pair</div></div>
+ </div>
+ <div class="footer"><span>คาบนี้ทุกพันธะยังเป็นพันธะเดี่ยว</span><span>53</span></div>
+</section>
+
+<!-- 54 -->
+<section class="slide" data-title="Lewis HF">
+ <div class="kicker">Worked example · <strong>HF</strong></div>
+ <div class="title">halogen ต้องการ <strong>1 พันธะ</strong></div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of hydrogen fluoride"><line class="ls-bond" x1="115" y1="160" x2="245" y2="160" data-reveal="1"/><text class="ls-atom ls-h" x="80" y="160">H</text><text class="ls-atom" x="280" y="160">F</text><g data-reveal="2"><circle class="ls-dot" cx="272" cy="108" r="4"/><circle class="ls-dot" cx="288" cy="108" r="4"/><circle class="ls-dot" cx="332" cy="152" r="4"/><circle class="ls-dot" cx="332" cy="168" r="4"/><circle class="ls-dot" cx="272" cy="212" r="4"/><circle class="ls-dot" cx="288" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>H สร้าง <strong>1 พันธะ</strong> · F ก็สร้าง <strong>1 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>จึงเชื่อมเป็น <strong>H—F</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>F เหลือ e<sup>−</sup> เป็น <strong>lone pair 3 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>H ไม่มี lone pair ในตัวอย่างพื้นฐานนี้</span><span>54</span></div>
+</section>
+
+<!-- 55 -->
+<section class="slide" data-title="Lewis H2O">
+ <div class="kicker">Worked example · <strong>H<sub>2</sub>O</strong></div>
+ <div class="title">O สร้าง <strong>2 พันธะ</strong> — จึงต่อกับ H ได้ 2 ตัว</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of water"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">O</text><text class="ls-atom ls-h" x="305" y="160">H</text><g data-reveal="2"><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/><circle class="ls-dot" cx="172" cy="212" r="4"/><circle class="ls-dot" cx="188" cy="212" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>เลือก O เป็นอะตอมกลาง · pattern ของ O = <strong>2 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>เชื่อม H สองด้าน → <strong>H—O—H</strong></div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>O เหลือ <strong>lone pair 2 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>pattern นี้จะมีผลต่อ “รูปร่าง” ในคาบ 8</span><span>55</span></div>
+</section>
+
+<!-- 56 -->
+<section class="slide" data-title="Lewis NH3">
+ <div class="kicker">Worked example · <strong>NH<sub>3</sub></strong></div>
+ <div class="title">N สร้าง <strong>3 พันธะ</strong> — แล้ว e<sup>−</sup> ที่เหลืออยู่ตรงไหน?</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of ammonia"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">N</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="285">H</text><g data-reveal="2"><circle class="ls-dot" cx="172" cy="108" r="4"/><circle class="ls-dot" cx="188" cy="108" r="4"/></g></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>N เป็นอะตอมกลาง · pattern = <strong>3 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>ต่อ H ครบ 3 ตัวด้วยพันธะเดี่ยว</div></div>
+   <div class="step3" data-reveal="2"><div class="n">3</div><div>N เหลือ <strong>lone pair 1 คู่</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>อย่าสับสน: lone pair ไม่ใช่พันธะกับ H</span><span>56</span></div>
+</section>
+
+<!-- 57 -->
+<section class="slide" data-title="Lewis CH4">
+ <div class="kicker">Worked example · <strong>CH<sub>4</sub></strong></div>
+ <div class="title">C สร้าง <strong>4 พันธะ</strong> — หลังต่อครบต้องเติมจุดอีกไหม?</div>
+ <div class="lewis-work">
+  <div class="diagram-box">
+   <svg class="lewis-svg" viewBox="0 0 360 320" role="img" aria-label="Lewis structure of methane"><g data-reveal="1"><line class="ls-bond" x1="85" y1="160" x2="150" y2="160"/><line class="ls-bond" x1="210" y1="160" x2="275" y2="160"/><line class="ls-bond" x1="180" y1="65" x2="180" y2="130"/><line class="ls-bond" x1="180" y1="190" x2="180" y2="255"/></g><text class="ls-atom ls-h" x="55" y="160">H</text><text class="ls-atom" x="180" y="160">C</text><text class="ls-atom ls-h" x="305" y="160">H</text><text class="ls-atom ls-h" x="180" y="35">H</text><text class="ls-atom ls-h" x="180" y="285">H</text></svg>
+  </div>
+  <div class="steps3">
+   <div class="step3"><div class="n">1</div><div>C เป็นอะตอมกลาง · pattern = <strong>4 พันธะ</strong></div></div>
+   <div class="step3" data-reveal="1"><div class="n">2</div><div>เชื่อม H ทั้ง 4 ตัวด้วยพันธะเดี่ยว</div></div>
+   <div class="step3" data-reveal="2"><div class="n">✓</div><div>C มีพันธะครบ 4 → <strong>ไม่ต้องเติม lone pair</strong></div></div>
+  </div>
+ </div>
+ <div class="footer"><span>รูปบนกระดาษยังไม่ใช่รูปร่าง 3 มิติ — รูปร่างจริงเรียนคาบ 8</span><span>57</span></div>
+</section>
+
+<!-- 58 -->
+<section class="slide" data-title="Guided Lewis patterns">
+ <div class="kicker">ทำพร้อมกัน · <strong>ใช้ pattern ก่อน</strong></div>
+ <div class="meta"><span>ชีท หน้า 29–30</span></div>
+ <div class="title">บอกก่อนว่าอะตอมกลางต้องมี <strong>กี่พันธะ + กี่ lone pairs</strong></div>
+ <div class="practice-lewis">
+  <div class="lpitem"><div class="formula chem">H<sub>2</sub>O</div><div class="ask">O ต้องมีอะไร?<div class="ans" data-reveal="1">2 bonds + 2 lone pairs</div></div></div>
+  <div class="lpitem"><div class="formula chem">NH<sub>3</sub></div><div class="ask">N ต้องมีอะไร?<div class="ans" data-reveal="1">3 bonds + 1 lone pair</div></div></div>
+  <div class="lpitem"><div class="formula chem">CF<sub>4</sub></div><div class="ask">C ต้องเชื่อม F กี่ตัว?<div class="ans" data-reveal="2">4 single bonds</div></div></div>
+  <div class="lpitem"><div class="formula chem">CH<sub>3</sub>Cl</div><div class="ask">C มีพันธะรวมกี่เส้น?<div class="ans" data-reveal="2">4 เส้น · 3 H + 1 Cl</div></div></div>
+ </div>
+ <div class="footer"><span>ยังไม่ต้องใช้ double bond ในคาบนี้</span><span>58</span></div>
+</section>
+
+<!-- 59 -->
+<section class="slide" data-title="Independent Lewis practice">
+ <div class="kicker">ลองทำเอง · <strong>วาดลงชีท</strong></div>
+ <div class="meta"><span>ใช้ pattern reference ได้</span><span>ชีท หน้า 29–30</span></div>
+ <div class="title">วาด Lewis แบบพันธะเดี่ยว <strong>4 สูตรนี้</strong></div>
+ <div class="practice4">
+  <div class="pitem"><div class="q chem">HF</div><div class="prompt">F มี lone pair กี่คู่?</div><div class="ans" data-reveal="1">3 คู่</div></div>
+  <div class="pitem"><div class="q chem">H<sub>2</sub>O</div><div class="prompt">O มี lone pair กี่คู่?</div><div class="ans" data-reveal="1">2 คู่</div></div>
+  <div class="pitem"><div class="q chem">NH<sub>3</sub></div><div class="prompt">N มี lone pair กี่คู่?</div><div class="ans" data-reveal="2">1 คู่</div></div>
+  <div class="pitem"><div class="q chem">CH<sub>4</sub></div><div class="prompt">C มี lone pair กี่คู่?</div><div class="ans" data-reveal="2">0 คู่</div></div>
+ </div>
+ <div class="footer"><span>เฉลยบนจอเช็กเฉพาะ pattern — ครูตรวจภาพวาดจากชีท</span><span>59</span></div>
+</section>
+
+<!-- 60 -->
+<section class="slide" data-title="Exit Lewis I">
+ <div class="kicker">ก่อนจบคาบ · <strong>Exit ticket</strong></div>
+ <div class="title">ถ้า pattern เดิม “ไม่พอ” เราต้องเพิ่ม <strong>จำนวนเส้นพันธะ</strong></div>
+ <div class="exit-list">
+  <div class="exit-row"><div class="exit-qn">A</div><div class="exit-q">O ใน H<sub>2</sub>O สร้างกี่พันธะ?</div><div class="exit-a" data-reveal="1">2 พันธะ</div></div>
+  <div class="exit-row"><div class="exit-qn">B</div><div class="exit-q">N ใน NH<sub>3</sub> เหลือ lone pair กี่คู่?</div><div class="exit-a" data-reveal="2">1 คู่</div></div>
+  <div class="exit-row"><div class="exit-qn">C</div><div class="exit-q chem">ถ้าเป็น O<sub>2</sub> — O แต่ละตัวต้องการ 2 พันธะ แต่มี O แค่ 2 ตัว จะทำอย่างไร?</div><div class="exit-a" data-reveal="3">ต้องมีมากกว่า 1 เส้นระหว่างอะตอม</div></div>
+ </div>
+ <div class="stylebar" data-reveal="4"><div class="stylecell covc"><strong>คาบ 6</strong> → single bond + lone pair</div><div class="stylecell covc"><strong>คาบ 7</strong> → double / triple bond</div></div>
+ <div class="footer"><span>สะพานไปคาบ 7: O₂, N₂, CO₂, HCN, CH₂O</span><span>60</span></div>
+</section>
+
+</main>
+<script>
+(()=>{
+ const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')];
+ const raw=Number(new URLSearchParams(location.search).get('slide'))||41;
+ const requested=raw>=41?raw-40:raw;
+ let i=Math.max(0,Math.min(slides.length-1,requested-1));
+ slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+ function fit(){deck.style.setProperty('--scale',Math.min(innerWidth/1600,innerHeight/900)*.995)}
+ function rev(){const s=slides[i],els=[...s.querySelectorAll('[data-reveal]')],groups=[...new Set(els.map(e=>e.dataset.reveal))].sort((a,b)=>Number(a)-Number(b));const n=groups.find(g=>els.some(e=>e.dataset.reveal===g&&!e.classList.contains('revealed')));if(!n)return false;els.filter(e=>e.dataset.reveal===n).forEach(e=>e.classList.add('revealed'));return true}
+ function show(n){slides[i].classList.remove('active');i=Math.max(0,Math.min(slides.length-1,n));slides[i].classList.add('active');slides[i].querySelectorAll('[data-reveal]').forEach(e=>e.classList.remove('revealed'));history.replaceState(null,'','?slide='+(i+41))}
+ addEventListener('resize',fit);
+ addEventListener('keydown',e=>{if(['ArrowRight',' '].includes(e.key)){e.preventDefault();if(!rev())show(i+1)}else if(e.key==='ArrowLeft'){e.preventDefault();show(i-1)}else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(slides.length-1)}});
+ addEventListener('wheel',e=>e.preventDefault(),{passive:false});
+ addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+ fit();
+})();
+</script>
+</body>
+</html>
