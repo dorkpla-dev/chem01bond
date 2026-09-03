@@ -1,6 +1,6 @@
 # CHEM01 — Workspace Status
 
-อัปเดตล่าสุด: 2026-09-02
+อัปเดตล่าสุด: 2026-09-04
 
 ## Source of truth ปัจจุบัน
 - แผนการสอนทั้งหน่วย: `TEACHING_PLAN.md`
@@ -33,6 +33,17 @@
 - Interaction contract: ArrowRight / PageDown / Space / Enter = reveal group ถัดไปก่อน; เมื่อ reveal หมดจึงไปสไลด์ถัดไป; ArrowLeft / PageUp = ย้อนสไลด์; Escape = reset reveal ของหน้าปัจจุบัน
 - **ห้ามลด/ตัด reveal, เฉลย, staged reasoning, footer, SVG chemistry diagram หรือ teacher-facing instructional detail ตอน merge**
 - Merge QA source of truth: `MASTER_MERGE_QA.md`
+
+## Release ล่าสุด · คาบ 9–10 / Master 100 slides
+- commit release: `be6857d86bfbf4af4e347002d953934a2a87cdcc`
+- push สำเร็จไป `origin/main`
+- GitHub Pages build สำเร็จจาก commit เดียวกัน
+- production: `https://dorkpla-dev.github.io/chem01bond/`
+- production HTTP 200 และ `index.html` มีขนาด 248,924 bytes
+- SHA-256 production ตรงกับ local master: `403ceb8d1f8b512d3bbc8ac9faaf243b8b98ebb5683b9eb6305e3f9b289ba66c`
+- production parse ได้ 100 slides และ batch `09-10` อยู่ที่ Slides 81–100
+- local/master QA ก่อน release: 100-slide layout regression, interaction/reveal, exact mobile viewport, source/reveal/SVG parity ผ่านทั้งหมด
+- direct handout verification: printed pages 38–39 ตรงกับ scope molecular polarity / integrated practice ที่เลือกใช้
 
 ## การตัดสินใจล่าสุดที่ล็อก
 ### Ionic Worksheet 10 คะแนน
@@ -127,7 +138,7 @@ periodic table → bond classification → ionic ions/formula/name/properties �
 - `qa_lewis_geometry.js` + `qa_lewis_geometry_harness.html` — วัด symmetry / atom-center / lone-pair-center ของ Lewis diagrams
 - `qa_05_06_slide41.png`, `50`, `51`, `52`, `53`, `54`, `55`, `56`, `57`, `60` — render evidence
 - `qa_check_07_08.js`, `qa_layout_07_08.js`, `qa_lewis_geometry_07_08.js`, `qa_render_states_07_08.js` — QA คาบ 7–8 รวม reveal states
-- `qa_master_deck.js` — exact section parity / reveal parity / SVG tag parity ทั้ง 80 หน้า + navigation contract
+- `qa_master_deck.js` — exact section parity / reveal parity / SVG tag parity ทั้ง 100 หน้า + navigation contract
 - `qa_layout_master.js` — overflow regression ของ master
 - `qa_interaction_master.js` + `qa_interaction_master_harness.html` — ทดสอบ reveal-before-advance, Space, Escape จริงใน Edge
 - `qa_visual_parity_master.js` — exact PNG parity สำหรับ representative non-Lewis raster cases
@@ -140,8 +151,8 @@ periodic table → bond classification → ionic ions/formula/name/properties �
 - การแก้ Lewis ในอนาคตต้องรักษา `LEWIS_VISUAL_STANDARD.md`
 
 ## ขั้นถัดไป
-สร้างคาบ 7–8 เป็น Slides 61–80:
-- Period 7: Lewis II — double/triple bonds; O2, N2, CO2, HCN, CH2O
-- Period 8: Shapes — AX2, AX3, AX4, AX3E, AX2E2
+สร้างคาบ 11–12 ต่อจาก master 100 slides:
+- Period 11: Covalent Worksheet 10 คะแนน
+- Period 12: Review / mini mock
 
-ให้ใช้ `prototype_05_06_v2.html` เป็น pattern ล่าสุดสำหรับ rhythm, reveal และ visual hierarchy ต่อจาก visual master เดิม
+ให้ใช้ `prototype_09_10_v2.html` และ `index.html` หลัง release เป็นฐานล่าสุดสำหรับ rhythm, reveal, visual hierarchy และ mobile-fit behavior

@@ -1,6 +1,6 @@
 # CHEM01 · Slide Plan คาบ 9–10
 
-สถานะ: IMPLEMENTED · QA PASSED (local/master) · พร้อม release หลัง final diff review
+สถานะ: RELEASED · QA PASSED (local/master/production) · GitHub Pages verified
 
 อ้างอิง:
 - TEACHING_PLAN.md
