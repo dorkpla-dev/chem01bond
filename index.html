@@ -13,9 +13,22 @@
   --elem-metal:#397A8B;--elem-metal-soft:#E3EFF2;--elem-non:#A87022;--elem-non-soft:#F5E9D6;--elem-met:#6C746E;--elem-met-soft:#EBEDE9;
   --pos:#A45743;--neg:#267786;--amber:#9B6A20;--ok:#47785E;}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111827}
+html,body{margin:0;width:100%;height:100%;max-width:100vw;overflow:hidden;background:#111827;overscroll-behavior:none}
 body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 .deck{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center;background:var(--paper);overflow:hidden}
+.slide-nav{position:fixed;inset:0;z-index:9999;pointer-events:none}
+.slide-nav button{position:absolute;top:50%;width:52px;height:52px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(17,24,39,.82);color:#fff;font:500 30px/1 "Segoe UI Symbol","Segoe UI",sans-serif;display:grid;place-items:center;padding:0;box-shadow:0 8px 26px rgba(0,0,0,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(-50%);pointer-events:auto;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.slide-nav .prev{left:max(12px,env(safe-area-inset-left))}
+.slide-nav .next{right:max(12px,env(safe-area-inset-right))}
+.slide-nav button:hover{background:rgba(17,24,39,.94)}
+.slide-nav button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.slide-nav button:disabled{opacity:.28;cursor:default}
+@supports(height:100dvh){html,body{height:100dvh;max-height:100dvh}}
+@media (max-width:700px){
+  .slide-nav button{top:auto;bottom:max(14px,env(safe-area-inset-bottom));width:48px;height:48px;font-size:27px}
+  .slide-nav .prev{left:max(14px,env(safe-area-inset-left))}
+  .slide-nav .next{right:max(14px,env(safe-area-inset-right))}
+}
 
 /* scoped source: prototype_01_02_v2.html */
 .slide[data-batch="01-02"]{--paper:#F7F6F2;--ink:#19202B;--muted:#6C7480;--line:#D8DAD7;--soft:#ECEDE9;
@@ -1315,10 +1328,17 @@ body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink)
 </section>
 </main>
 
+<nav class="slide-nav" aria-label="ตัวควบคุมสไลด์">
+  <button class="prev" id="prevSlide" type="button" aria-label="สไลด์ก่อนหน้า" title="สไลด์ก่อนหน้า (←)">‹</button>
+  <button class="next" id="nextSlide" type="button" aria-label="เปิดคำตอบหรือไปสไลด์ถัดไป" title="เปิดคำตอบหรือไปสไลด์ถัดไป (→)">›</button>
+</nav>
+
 <script>
 (() => {
   const deck = document.getElementById('deck');
   const slides = [...document.querySelectorAll('.slide')];
+  const prevButton = document.getElementById('prevSlide');
+  const nextButton = document.getElementById('nextSlide');
   let index = 0;
 
   function scaleDeck(){
@@ -1338,6 +1358,12 @@ body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink)
     slide.querySelectorAll('[data-reveal].revealed').forEach(el => el.classList.remove('revealed'));
   }
 
+  function updateNavigation(){
+    prevButton.disabled = index <= 0;
+    const hasPendingReveal = !!slides[index]?.querySelector('[data-reveal]:not(.revealed)');
+    nextButton.disabled = index >= slides.length - 1 && !hasPendingReveal;
+  }
+
   function show(next, {syncHash=true} = {}){
     next = Math.max(0, Math.min(slides.length - 1, next));
     if (slides[index]) {
@@ -1347,6 +1373,7 @@ body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink)
     index = next;
     slides[index].classList.add('active');
     if (syncHash) history.replaceState(null, '', '#s=' + (index + 1));
+    updateNavigation();
   }
 
   function revealNext(){
@@ -1357,6 +1384,7 @@ body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink)
     const group = groups.length ? Math.min(...groups) : null;
     if (group === null) pending.forEach(el => el.classList.add('revealed'));
     else pending.filter(el => Number(el.dataset.reveal) === group).forEach(el => el.classList.add('revealed'));
+    updateNavigation();
     return true;
   }
 
@@ -1375,11 +1403,14 @@ body{font-family:"Prompt","Leelawadee UI","Segoe UI",sans-serif;color:var(--ink)
   });
   addEventListener('wheel', e => e.preventDefault(), {passive:false});
   addEventListener('touchmove', e => e.preventDefault(), {passive:false});
+  prevButton.addEventListener('click', () => show(index - 1));
+  nextButton.addEventListener('click', revealOrAdvance);
 
   scaleDeck();
   index = Math.max(0, slideNumberFromLocation() - 1);
   slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
   history.replaceState(null, '', '#s=' + (index + 1));
+  updateNavigation();
 })();
 </script>
 </body>
